@@ -1,0 +1,16 @@
+version: "3.4"
+services:
+  database:
+    image: "mongo"
+    container_name: "app-mongodb"
+    command: [--auth]
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=local
+      - MONGO_INITDB_ROOT_PASSWORD=local
+      - MONGO_INITDB_DATABASE=app
+    volumes:
+      - ./.docker/mongo-volume:/data/db
+      - ./.docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    ports:
+      - "27017:27017"
