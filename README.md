@@ -1,15 +1,14 @@
 # Express TypeScript Authentication Scaffolding
 
-A clean scaffolding project for building Express.js applications with TypeScript, featuring a complete authentication system with JWT tokens, MongoDB integration, and Docker support.
+A clean scaffolding project for building Express.js applications with TypeScript, featuring a complete authentication system with JWT tokens and MongoDB integration.
 
 ## Features
 
-- 🔐 **Complete Authentication System**
+- 🔐 **Authentication System**
   - User registration and login
   - JWT-based authentication (access & refresh tokens)
   - Password reset functionality with email notifications
-  - Role-based access control
-  - Organization management
+  - Role-based access control (USER, ADMIN roles)
 
 - 🏗️ **Modern Tech Stack**
   - Express.js with TypeScript
@@ -122,17 +121,10 @@ The server will start on `http://localhost:3000` (or the port specified in your 
 
 ### User Management
 - `GET /users/me` - Get current user profile
-- `PUT /users/me` - Update current user profile
-- `DELETE /users/me` - Delete current user account
-
-### Organization Management
-- `GET /organisations/:id` - Get organization details
-- `PUT /organisations/:id` - Update organization
-- `POST /organisations/:id/users` - Add user to organization
 
 ### Admin Routes
 - `GET /admin/users` - List all users (admin only)
-- `GET /admin/organisations` - List all organizations (admin only)
+- `POST /admin/users` - Create a new user without password (admin only)
 
 ## Environment Variables
 
@@ -140,7 +132,9 @@ Key environment variables (see `.env.example` for full list):
 
 - `PORT` - Server port (default: 3000)
 - `MONGODB_ADDON_URI` - MongoDB connection string
+- `MONGODB_ADDON_DB` - MongoDB database name
 - `JWT_SECRET` - Secret for JWT tokens
+- `JWT_SECRET_RESET` - Secret for password reset tokens
 - `BREVO_API_KEY` - Brevo API key for emails
 
 ## Testing

@@ -3,13 +3,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import express, { Express } from "express";
-import { authRoutes, userRoutes, organisationRoutes, organisationAdminRoutes } from "./auth";
+import { authRoutes, userRoutes, userAdminRoutes } from "./auth";
 import helmet from "helmet";
 import cors from "cors";
 import logger from "./utils/logger";
 import { errorHandler } from "./middleware/errorHandler.middleware";
 import { connect } from "./utils/mongo/dbHelper";
-import userAdminRoutes from "./auth/routes/user.admin.routes";
 
 const app: Express = express();
 const PORT = process.env.PORT || 3000;
@@ -31,13 +30,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Admin routes
-app.use("/admin/organisations", organisationAdminRoutes);
 app.use("/admin/users", userAdminRoutes);
 
 // Auth routes
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
-app.use("/organisations", organisationRoutes);
 
 // Error handler middleware
 app.use(errorHandler);

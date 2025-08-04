@@ -1,48 +1,44 @@
 import { Request } from "express";
-import { getOrganisationById } from "../../auth/service/organisation.service";
-import { BadRequestException, ForbiddenException } from "../HttpException";
+import { BadRequestException } from "../HttpException";
 
 /**
- * Gets the organisationId from the JWT context
- * @param req Express request object containing JWT context
- * @returns The organisationId as a string
- * @throws BadRequestException if organisationId is not present in the JWT
+ * Gets the user ID from the JWT context
+ * @param req Express request object
+ * @returns The user ID as a string
+ * @throws BadRequestException if user ID is not present in the JWT
  */
-export const getOrganisationIdFromContext = (req: Request): string => {
-    const { organisationId } = req.context.user;
-    if (!organisationId) {
-        throw new BadRequestException("User is not associated with an organisation");
+export const getUserIdFromContext = (req: Request): string => {
+    const { _id } = req.context.user;
+    if (!_id) {
+        throw new BadRequestException("User ID not found in context");
     }
-    return organisationId;
+    return _id;
 };
 
 /**
- * Checks if the user has access to the specified organisation
- * @param req Express request object containing JWT context
- * @param organisationId The organisation ID to check access for
- * @throws ForbiddenException if the user does not have access to the organisation
+ * Gets the user email from the JWT context
+ * @param req Express request object
+ * @returns The user email as a string
  */
-export const checkOrganisationAccess = (req: Request, organisationId: string): void => {
-    const userOrganisationId = req.context.user.organisationId;
-    if (req.context.user.roles.includes("ADMIN")) {
-        return;
-    }
-    if (!userOrganisationId) {
-        throw new ForbiddenException("User is not associated with any organisation");
-    }
-
-    if (userOrganisationId !== organisationId) {
-        throw new ForbiddenException("User does not have access to this organisation");
-    }
+export const getUserEmailFromContext = (req: Request): string => {
+    return req.context.user.email;
 };
 
 /**
- * Gets the organisation object from the JWT context
- * @param req Express request object containing JWT context
- * @returns Promise that resolves to the Organisation object
- * @throws BadRequestException if organisationId is not present in the JWT
+ * Gets the user roles from the JWT context
+ * @param req Express request object
+ * @returns Array of user roles
  */
-export const getOrganisationFromContext = async (req: Request) => {
-    const organisationId = getOrganisationIdFromContext(req);
-    return getOrganisationById(organisationId);
-}; 
+export const getUserRolesFromContext = (req: Request): string[] => {
+    return req.context.user.roles;
+};
+
+/**
+ * Checks if the user has a specific role
+ * @param req Express request object
+ * @param role The role to check
+ * @returns Boolean indicating if user has the role
+ */
+export const userHasRole = (req: Request, role: string): boolean => {
+    return req.context.user.roles.includes(role);
+};

@@ -29,7 +29,6 @@ export const getMe = async (userId: string): Promise<UserResponse> => {
 const convertToUserResponse = (user: User): UserResponse => {
   return {
     _id: user._id.toString(),
-    organisationId: user.organisationId?.toString(),
     email: user.email,
     firstName: user.firstName,
     lastName: user.lastName,
@@ -46,10 +45,9 @@ export const createUser = async (
     firstName: string,
     lastName: string,
     phone: string,
-    organisationId?: string
   }
 ): Promise<AuthResponse> => {
-  const { email, password, firstName, lastName, phone, organisationId } = params;
+  const { email, password, firstName, lastName, phone } = params;
   const existingUser = await getUsersCollection().findOne({ email });
   if (existingUser) {
     throw new ConflictException("User already exists");
@@ -63,7 +61,7 @@ export const createUser = async (
     firstName,
     lastName,
     phone,
-    organisationId: organisationId ? new ObjectId(organisationId) : undefined,
+
     marketingOptIn: false,
     roles: ["USER"] as Role[],
     createdAt: new Date(),
@@ -102,7 +100,7 @@ export const createUserWithoutPassword = async (
     firstName,
     lastName,
     phone,
-    organisationId: organisationId ? new ObjectId(organisationId) : undefined,
+
     marketingOptIn: false,
     roles: ["USER"] as Role[],
     createdAt: new Date(),
@@ -162,20 +160,8 @@ export async function resetPassword(resetPassword: AccountResetPassword): Promis
   await getUsersCollection().update(user)
 }
 
-export const linkUserToOrganisation = async (userId: string, organisationId: string): Promise<UserResponse> => {
-  const usersCollection = getUsersCollection();
-  const updatedUser = await usersCollection.findOneAndUpdate(
-    { _id: new ObjectId(userId) },
-    {
-      organisationId: new ObjectId(organisationId),
-      updatedAt: new Date()
-    }
-  );
-  return convertToUserResponse(updatedUser);
-}
-
-export const getUsers = async (organisationId?: string): Promise<UserResponse[]> => {
-  const users = await getUsersCollection().find({ organisationId: organisationId ? new ObjectId(organisationId) : undefined });
+export const getUsers = async (): Promise<UserResponse[]> => {
+  const users = await getUsersCollection().find({});
   return users.map(convertToUserResponse);
 }
 

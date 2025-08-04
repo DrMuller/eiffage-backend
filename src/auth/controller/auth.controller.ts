@@ -54,7 +54,6 @@ const createUserWithoutPasswordSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   phone: z.string().min(1, "Phone is required"),
-  organisationId: z.string().optional(),
 });
 
 export const createUserWithoutPasswordHandler = asyncHandler(async (req: Request, res: Response) => {

@@ -14,7 +14,6 @@ export interface AccessTokenPayload {
     _id: string;
     email: string;
     roles: Role[];
-    organisationId?: string;
 }
 
 export interface ResetTokenPayload {
@@ -39,8 +38,7 @@ export function createAccessToken(user: User, options: SignOptions = {}): string
     const userContext: AccessTokenPayload = {
         _id: user._id.toString(),
         email: user.email,
-        roles: user.roles,
-        organisationId: user.organisationId ? user.organisationId.toString() : undefined
+        roles: user.roles
     };
     return Jwt.sign(userContext, { expiresIn: appConfig.jwt.accessTokenExp, ...options });
 }

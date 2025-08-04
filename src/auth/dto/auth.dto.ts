@@ -7,7 +7,6 @@ export const registerSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   phone: z.string().min(1, "Phone is required"),
-  organisationId: z.string().optional(),
   marketingOptIn: z.boolean().optional()
 });
 
@@ -40,20 +39,11 @@ export type AuthResponse = {
   refreshToken: string;
 };
 
-export type OrganisationResponse = {
-  _id: string;
-  name: string;
-  logoUrl: string;
-  address: string;
-  siren: string;
-};
-
 export type UserResponse = {
   _id: string;
   firstName: string;
   lastName: string;
   email: string;
-  organisationId?: string;
   roles: Role[];
   createdAt: Date;
   updatedAt: Date;

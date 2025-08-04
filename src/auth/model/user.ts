@@ -10,7 +10,6 @@ export interface User {
   firstName: string;
   lastName: string;
   phone: string;
-  organisationId?: ObjectId;
   marketingOptIn: boolean;
   roles: Role[];
   createdAt: Date;

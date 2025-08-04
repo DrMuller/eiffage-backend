@@ -1,6 +1,5 @@
 import authRoutes from "./routes/auth.routes";
 import userRoutes from "./routes/user.routes";
-import organisationRoutes from "./routes/organisation.routes";
-import organisationAdminRoutes from "./routes/organisation.admin.routes";
+import userAdminRoutes from "./routes/user.admin.routes";
 
-export { authRoutes, userRoutes, organisationRoutes, organisationAdminRoutes };
+export { authRoutes, userRoutes, userAdminRoutes };
