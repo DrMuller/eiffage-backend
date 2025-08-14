@@ -2,15 +2,15 @@ version: "3.4"
 services:
   database:
     image: "mongo"
-    container_name: "app-mongodb"
+    container_name: "eiffage-dev"
     command: [--auth]
     restart: unless-stopped
     environment:
       - MONGO_INITDB_ROOT_USERNAME=local
       - MONGO_INITDB_ROOT_PASSWORD=local
-      - MONGO_INITDB_DATABASE=app
+      - MONGO_INITDB_DATABASE=eiffage-dev
     volumes:
       - ./.docker/mongo-volume:/data/db
       - ./.docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     ports:
-      - "27017:27017"
+      - "27042-27044:27017-27019"

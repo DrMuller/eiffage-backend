@@ -1,4 +1,4 @@
-db = db.getSiblingDB('app');
+db = db.getSiblingDB('eiffage-dev');
 
 db.createUser({
   user: 'local',
@@ -6,7 +6,7 @@ db.createUser({
   roles: [
     {
       role: 'readWrite',
-      db: 'app'
+      db: 'eiffage-dev'
     }
   ]
 });
