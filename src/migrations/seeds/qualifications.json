@@ -1,0 +1,626 @@
+[
+  {
+    "_id": {
+      "$oid": "d2627037759400cc87e77990"
+    },
+    "name": "AIPR Encadrant",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "376684a7c981bb6c9803733e"
+    },
+    "name": "AIPR Opérateur",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9a1ebb64747afc987b8271b4"
+    },
+    "name": "Amiante Sous-Section 4 - Opérateur",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "37dc2525d5ef46dedd32fdc6"
+    },
+    "name": "Amiante Sous-Section 4 - Encadrant",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4e164d8948b43bd6ebdc9494"
+    },
+    "name": "Amiante Sous-Section 4 - Cumul des fonctions",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "92fae18bd5b5a62377592509"
+    },
+    "name": "Risque liés au plomb",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b3aca4eab28bc69251d4f8b2"
+    },
+    "name": "R457 Echafaudage roulant",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e35e857b4a3416eb79da44f"
+    },
+    "name": "R408 Echafaudage de pied",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5a2999286fb63dee5ed9dea2"
+    },
+    "name": "Echafaudage volant",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "136142239390b449227d683e"
+    },
+    "name": "Travail en Hauteur / Port du Harnais",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3e240401365d1ba5e9d31346"
+    },
+    "name": "Cordiste - Travail en Hauteur",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "edc93ea3f3b03f3114b378a0"
+    },
+    "name": "Chef de manœuvre / Elingage",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8763e83287bc840756c09fdd"
+    },
+    "name": "Prévention et lutte contre l'incendie / Maniement extincteurs /",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7daebcb939f99ac93b317521"
+    },
+    "name": "Equipier de première intervention",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a84bc32addbbde1004f38477"
+    },
+    "name": "Sauveteur Secouriste au Travail",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b630e64aa7d486d2648c4ed0"
+    },
+    "name": "N1 - Tout personnel",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d878c2c072c1f72624e2b874"
+    },
+    "name": "N2 - Personnel encadrant",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "043f3ad966594b0ce483ce7a"
+    },
+    "name": "Intervention en espace confiné",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f556f51e2be3fc68b90b6b8a"
+    },
+    "name": "Prévention des risques",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f3826edb44b0301280152d6c"
+    },
+    "name": "Passeport HSE Gaz - Opérateur",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e6743626cedf5407179d55da"
+    },
+    "name": "Passeport HSE Gaz - Encadrant",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "76753026a830c49e53c1538d"
+    },
+    "name": "ARI - Port Appareil Respiratoire Isolant",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "580adaa3e55535c5e1c07213"
+    },
+    "name": "TEVA CAVA - Tenue Etanche Ventilée Autonome",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "861180a33ba2cca7ac8d02cd"
+    },
+    "name": "ATEX niveau 2",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fa47d0160105cf0e6df52356"
+    },
+    "name": "ATEX Niveau 0",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "83431bbafb75b2bff35adb4d"
+    },
+    "name": "ATEX niveau 1",
+    "qualificationTypeId": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ddcc6e3dd66d65ad1548418"
+    },
+    "name": "CACES R482 - Engins de transport CAT.E",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "be2b79956cdb1d0b23a11690"
+    },
+    "name": "CACES R482 - Engins de chantier CAT.F",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "56a51bd4ac624c4a99210a2d"
+    },
+    "name": "Option MRT - Treuil Tourelle",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6f097d8526349edb9414efc2"
+    },
+    "name": "Option Potence",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "98f7a07ed2af3af20e857cec"
+    },
+    "name": "CACES R484 Pont roulant et portique Cat.1",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8dc6ee7934867b45a1738c80"
+    },
+    "name": "CACES R485 Chariot de manutention gerbeurs",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "421324dfef655af3f18227bb"
+    },
+    "name": "CACES R486 Cat. A Conduite PEMP",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3dfbf4e6e8a2f4287a70b327"
+    },
+    "name": "CACES R486 Cat. B Conduite PEMP",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0acc545642c001b79fb2e816"
+    },
+    "name": "CACES R489 Cat.4 Chariot automoteur a conducteur porté",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "46ece227a9568f297bc6f494"
+    },
+    "name": "CACES R490 Grue de chargement",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "04ae0dd3da3c151c02c3fdb1"
+    },
+    "name": "CACES R483 Grue Mobile",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c496b9f410cdd9888fe83099"
+    },
+    "name": "CACES R483 Cat.2B Grue téléscopique sur chenille (mini grue araignée)",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f63f5a24483c5b41c5090739"
+    },
+    "name": "STAKER Initiale OPT. Spreader",
+    "qualificationTypeId": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bf33200c830d5ea56f7b5853"
+    },
+    "name": "Habilitation électrique H0-H0v-B0 Exécutant",
+    "qualificationTypeId": {
+      "$oid": "fcd16f5b927c667fe3275771"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dc2daa3c909d9b2f54ca1d73"
+    },
+    "name": "Habilitation électrique H0-H0v-B0 BS-BE Manoeuvre",
+    "qualificationTypeId": {
+      "$oid": "fcd16f5b927c667fe3275771"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1e4c85dd7d057e115fea66b9"
+    },
+    "name": "Habilitation électrique B1 B1V B2 B2V BC BS BR",
+    "qualificationTypeId": {
+      "$oid": "fcd16f5b927c667fe3275771"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "574c81e339417926b316faa7"
+    },
+    "name": "Habilitation électrique H1 H1V H2 H2V HC HE",
+    "qualificationTypeId": {
+      "$oid": "fcd16f5b927c667fe3275771"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8db7852cc5b182d75ed3a6f1"
+    },
+    "name": "Habilitation électrique : B0l voiture électrique",
+    "qualificationTypeId": {
+      "$oid": "fcd16f5b927c667fe3275771"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "62eccc4e6d0053df8c43cba9"
+    },
+    "name": "Habilitation mécanique M0 M1",
+    "qualificationTypeId": {
+      "$oid": "8fbb7f2c0cc20400cddd51dc"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "140752a489791c62ffc294bd"
+    },
+    "name": "Habilitation mécanique M2 ME",
+    "qualificationTypeId": {
+      "$oid": "8fbb7f2c0cc20400cddd51dc"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "660b92454f40720f2641c84b"
+    },
+    "name": "Savoir commun du nucléaire - HN1",
+    "qualificationTypeId": {
+      "$oid": "ebb068b683d519552a26d5f4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f9626caea66324ced48f8e28"
+    },
+    "name": "Savoir commun du nucléaire - HN2",
+    "qualificationTypeId": {
+      "$oid": "ebb068b683d519552a26d5f4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ecf27c41b340d77ef41a8862"
+    },
+    "name": "Habilitation nucléaire HN3",
+    "qualificationTypeId": {
+      "$oid": "ebb068b683d519552a26d5f4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5b01e3872311c2600a3f598d"
+    },
+    "name": "CEFRI Radioprotection Niv.1 opt.RN Exécutant",
+    "qualificationTypeId": {
+      "$oid": "ebb068b683d519552a26d5f4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fe3c79573a1def5d40054584"
+    },
+    "name": "CEFRI Radioprotection Niv.2 opt.RN Chargé de travaux",
+    "qualificationTypeId": {
+      "$oid": "ebb068b683d519552a26d5f4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7ff13f24fdc25a6cc9f2c57a"
+    },
+    "name": "Complément Sûreté Qualité",
+    "qualificationTypeId": {
+      "$oid": "ebb068b683d519552a26d5f4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:39:21.280474+00:00"
+    }
+  }
+]

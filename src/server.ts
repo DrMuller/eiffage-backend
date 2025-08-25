@@ -5,6 +5,7 @@ dotenv.config();
 import express, { Express } from "express";
 import { authRoutes, userRoutes, userAdminRoutes } from "./auth";
 import { skillsRoutes } from "./skills";
+import { evaluationRoutes } from "./evaluation";
 import helmet from "helmet";
 import cors from "cors";
 import logger from "./utils/logger";
@@ -39,6 +40,9 @@ app.use("/users", userRoutes);
 
 // Skills routes
 app.use("/api", skillsRoutes);
+
+// Evaluation routes
+app.use("/api", evaluationRoutes);
 
 // Error handler middleware
 app.use(errorHandler);

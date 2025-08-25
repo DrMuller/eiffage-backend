@@ -1,0 +1,32 @@
+[
+  {
+    "_id": {
+      "$oid": "dac3ec70e6173a71bb2ccc8d"
+    },
+    "name": "Sécurité"
+  },
+  {
+    "_id": {
+      "$oid": "6fc7465a1c0bc36031fa9b55"
+    },
+    "name": "Conduite d'engins"
+  },
+  {
+    "_id": {
+      "$oid": "fcd16f5b927c667fe3275771"
+    },
+    "name": "Electricité"
+  },
+  {
+    "_id": {
+      "$oid": "8fbb7f2c0cc20400cddd51dc"
+    },
+    "name": "Mécanique"
+  },
+  {
+    "_id": {
+      "$oid": "ebb068b683d519552a26d5f4"
+    },
+    "name": "Nucléaire"
+  }
+]

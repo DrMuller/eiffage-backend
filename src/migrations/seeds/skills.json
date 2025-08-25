@@ -1,0 +1,5254 @@
+[
+  {
+    "_id": {
+      "$oid": "2431a0b19206598b6800e3d1"
+    },
+    "name": "Transmettre des indications précises aux dessinateurs en s’appuyant sur les normes applicables et les choix techniques de conception afin de garantir la qualité et la conformité des plans réalisés.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8d1ce8d8e8c2e485b78a88ce"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bdaa402b43be58e2ba2fe817"
+    },
+    "name": "Communiquer avec les différents acteurs du projet en adaptant son discours et ses arguments afin de les convaincre et ainsi favoriser l'adhésion collective",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8d1ce8d8e8c2e485b78a88ce"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59908c7f4d6f1b8942bc5c7a"
+    },
+    "name": "Définir un planning d’études en identifiant les tâches clés, les ressources nécessaires et les contraintes projet afin d’organiser efficacement la phase de conception.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8d1ce8d8e8c2e485b78a88ce"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "24774eb762f40f14cfd19c8a"
+    },
+    "name": "Suivre l’avancement d’un planning d’études en contrôlant les livrables et les délais afin d'assurer le respect des jalons et d’anticiper les dérives potentielles.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8d1ce8d8e8c2e485b78a88ce"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6b1337f6a63ec9be371e73e4"
+    },
+    "name": "Organiser le démarrage d’une affaire en structurant les livrables initiaux et en réunissant les acteurs projet afin d’assurer un lancement clair et coordonné.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8d1ce8d8e8c2e485b78a88ce"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3f5ad69ca003569bfb01b5df"
+    },
+    "name": "Traduire les besoins techniques du client en solutions concrètes en coordonnant les échanges avec les équipes projet afin de garantir la conformité aux attentes et la satisfaction du client.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8d1ce8d8e8c2e485b78a88ce"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dd6c84f0141f42a2431a4669"
+    },
+    "name": "Présenter une solution technique au client en utilisant des supports clairs et des arguments impactants et techniques afin de  faciliter la prise de décision.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8d1ce8d8e8c2e485b78a88ce"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "eb1b415085a629215739601d"
+    },
+    "name": "Suivre les prestations de sous-traitance technique en contrôlant les livrables et en animant les échanges techniques afin de garantir leur conformité au cahier des charges.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8d1ce8d8e8c2e485b78a88ce"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0295833089d71d9d7e8b9106"
+    },
+    "name": "Accompagner les chefs de projets dans le pilotage technique en apportant un appui méthodologique et opérationnel afin de sécuriser la qualité des études et la coordination des acteurs.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8d1ce8d8e8c2e485b78a88ce"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "672cb1e032c3fa67ff6ed939"
+    },
+    "name": "Exploiter des maquettes numériques dans un environnement collaboratif en utilisant le logiciel NavisWorks afin de faciliter la coordination technique entre disciplines.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c99619f0c93a0a49c5621ea6"
+    },
+    "name": "Réaliser des simulations mécaniques ou thermiques en utilisant le logiciel ANSYS afin de valider le comportement d’un système dans des conditions réelles.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7b57087adac3f8159358eddb"
+    },
+    "name": "Effectuer des vérifications structurelles de bâtiments ou de structures mécaniques en utilisant le logiciel ROBOT afin de garantir leur tenue mécanique selon les normes en vigueur",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "36aeef7da60440d8ac3eeab6"
+    },
+    "name": "Vérifier des assemblages métalliques en utilisant IDEA Statica afin d'assurer leur conformité aux sollicitations et aux normes de conception.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5211ef3bea5a74c222085b78"
+    },
+    "name": "Contrôler des ancrages et fixations en utilisant PROFIS afin d’assurer leur résistance et leur conformité réglementaire.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "48402c2d8d8b1cc6ebd90374"
+    },
+    "name": "Modéliser des pièces mécaniques en 3D en utilisant Inventor, SolidWorks ou Catia afin de définir précisément leur géométrie, leurs fonctions et leurs interfaces pour la fabrication ou la simulation.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a458bd81a81ccb7d153c72f9"
+    },
+    "name": "Réaliser des plans 2D de définition ou d’assemblage en utilisant AutoCAD afin de permettre la fabrication conforme des pièces et sous-ensembles.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c1c6bf0f1c9abb94e17124bc"
+    },
+    "name": "Mettre en place les démarches de performance et suivi associé",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "199ebb42295ad2472aad1aca"
+    },
+    "name": "Analyser les causes des FNC",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fb095f53f0e13bbbcf3291cd"
+    },
+    "name": "Mettre en place les actions correctives en place suite aux FNC",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cf89b28f0a560166ded728db"
+    },
+    "name": "Suivre les indicateurs qualité",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9555c068dd6730681cec1715"
+    },
+    "name": "Capitaliser les REX",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c8b3fbb0cdbf385e17dc691c"
+    },
+    "name": "Suivre les indicateurs de performance qualité et sécurité",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "25b54db9b982eaee4f00ebca"
+    },
+    "name": "Identifier des matériaux adaptés à un projet en s’appuyant sur la norme NF EN 10025 afin d'assurer la résistance mécanique, la conformité réglementaire et la durabilité de la structure.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9b6c4a4af9cf66e0e3bc79c7"
+    },
+    "name": "Contrôler les assemblages soudés en appliquant les normes d’exécution et de contrôle des soudures afin de garantir leur qualité et leur conformité aux exigences du projet.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6f60657ae11c14b09d63c005"
+    },
+    "name": "Appliquer les normes FEM relatives au levage en les intégrant aux phases de conception afin d'assurer la sécurité et la conformité des équipements de levage.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9fc7728e5632f5f65225bb83"
+    },
+    "name": "Appliquer les exigences de la norme ISO 13001 en phase de dimensionnement et de justification afin de garantir la fiabilité des équipements de levage soumis à des sollicitations mécaniques complexes.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fbfdcdbbc155d56d3b28416b"
+    },
+    "name": "Concevoir des équipements hydrauliques ou ouvrages d’eau en intégrant la norme ISO 19704 afin de répondre aux exigences spécifiques de ce domaine d’application.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d018ec02220ae2f25ade8382"
+    },
+    "name": "Concevoir des charpentes industrielles en appliquant l’Eurocode 3 afin de garantir leur stabilité et leur conformité structurelle.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0a85e241e7b883163a0e19ea"
+    },
+    "name": "Concevoir ou valider des équipements destinés au nucléaire en appliquant les exigences des normes CST et CRT EDF afin de respecter les critères de sûreté du secteur nucléaire.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8e225aa9e279fb255ff5a0d4"
+    },
+    "name": "Concevoir ou évaluer des installations nucléaires en se référant aux normes RCCW et RCCE afin d'assurer leur conformité et leur fiabilité dans un environnement à haute criticité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "74e33038907ea83f0de2d712"
+    },
+    "name": "Mettre en œuvre les normes de sécurité des machines en intégrant les exigences réglementaires dès la conception afin de garantir la protection des utilisateurs et la conformité CE.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "74fa081575567542389be93f"
+    },
+    "name": "Analyser les systèmes mécaniques sous l’angle sécurité en connaissant les normes machines afin de prévenir les risques et garantir la conformité réglementaire.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ab7438e5e30b16fe34a38b32"
+    },
+    "name": "Définir des tolérances géométriques en se basant sur les normes ISO applicables afin d'assurer l'assemblage fonctionnel et la fabricabilité des pièces.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1cf24f1896b108cd26801607"
+    },
+    "name": "Rédiger des comptes-rendus de réunion technique en synthétisant les échanges et décisions prises afin d’assurer la traçabilité des actions et le suivi projet.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2f769c0e3d86faff1f0301fc"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "def6b0384c94b5c9cad417af"
+    },
+    "name": "Animer des revues de conception en mobilisant les différents corps de métier autour des solutions proposées afin de valider les choix techniques.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2f769c0e3d86faff1f0301fc"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "93b659d57e2f89413c5b7ece"
+    },
+    "name": "Établir une matrice d'exigences techniques à partir d’un CCTP et des documents contractuels afin de cadrer le périmètre fonctionnel et normatif du projet.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2f769c0e3d86faff1f0301fc"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "efdab855e99a2317bed0a2bc"
+    },
+    "name": "Réaliser des calculs de cinématique et de dynamique en s’appuyant sur les équations de puissance, de couple et de transmission afin de dimensionner des chaînes cinématiques de levage.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a3e327d0bc9417d982df4e98"
+    },
+    "name": "Concevoir des éléments mécaniques spécifiques au levage ou aux machines spéciales en intégrant les contraintes fonctionnelles et normatives afin de répondre à un besoin technique précis.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "27036d9fc0d42b1eba603237"
+    },
+    "name": "Dimensionner des éléments mécaniques pour le levage ou les machines spéciales en utilisant les outils de calcul adaptés afin d’assurer leur tenue mécanique et leur conformité réglementaire.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "955d79b2e02e4115f98e65de"
+    },
+    "name": "Concevoir la structure de charpentes industrielles en tenant compte des charges et des normes Eurocode afin de garantir leur stabilité et leur faisabilité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b5415593768c44a753f81d56"
+    },
+    "name": "Dimensionner les éléments d’une charpente industrielle en utilisant les normes Eurocode et des outils de calcul afin d’assurer leur résistance aux sollicitations prévues.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1fe41383e39b3963049d18cb"
+    },
+    "name": "Concevoir des structures mécanosoudées en y intégrant les exigences fonctionnelles, normatives et de fabrication afin d’optimiser leur performance et leur coût de réalisation.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "09d8cf2c5cee68289e121bff"
+    },
+    "name": "Dimensionner des ossatures mécanosoudées en utilisant des normes et des outils de calcul pertinents afin de garantir leur solidité et leur durabilité en service.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9a08f9f2d22f3201a78bc878"
+    },
+    "name": "Effectuer des calculs sismiques linéaires sur des ossatures complexes en utilisant une analyse modale spectrale afin de valider leur résistance en zone sismique selon les normes.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d4ad80942fcb95d9ccbc8fbc"
+    },
+    "name": "Effectuer des calculs sismiques linéaires sur des structures simples afin d'assurer leur tenue aux séismes.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "24cfbc178abbae85a539cff9"
+    },
+    "name": "Réaliser une analyse sismique temporelle (Time History) en modélisant les sollicitations dynamiques afin de tester le comportement réel de la structure dans le temps.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2b65b91624a2cdd84b99539f"
+    },
+    "name": "Effectuer une analyse ODS (Operating Deflection Shape) en recueillant des données vibratoires afin d’évaluer le comportement dynamique en fonctionnement réel.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5121777d9a505f6504940b3f"
+    },
+    "name": "Effectuer des calculs de type Drop Test en simulant des chutes ou chocs à l’aide de logiciels de simulation afin de valider la résistance mécanique d’un composant ou d’un assemblage.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7f65380c4b598b1c1930a3e0"
+    },
+    "name": "Concevoir des mécanismes de levage ou de translation horizontale en intégrant les contraintes fonctionnelles et normatives afin d’assurer leur efficacité et leur sécurité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ed31ed4842ab41292889ee45"
+    },
+    "name": "Produire les plans de fabrication ou d’assemblage en utilisant les outils de CAO 2D/3D afin de permettre la réalisation conforme des pièces ou ensembles mécaniques.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cec15f250e7cec80f607274a"
+    },
+    "name": "Réaliser une analyse de risques sur une machine spéciale en appliquant la méthodologie inhérente d’évaluation des dangers afin de les identifier et ainsi prevenir leur risque de survenance.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d9a8052fe22a2779a17c24fb"
+    },
+    "name": "Réaliser des études techniques en s'adaptant aux changements de domaine d’activité tout en mobilisant ses compétences et connaissances transférables afin de rester opérationnel dans de nouveaux contextes",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8f5d83c327665e82b9705ed5"
+    },
+    "name": "Appliquer le processus qualité interne R3 en suivant les étapes définies afin d’assurer la traçabilité, la qualité et l'amélioration continue.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "704ca830164df1af50afecd6"
+    },
+    "name": "Traiter et organiser les documents relatifs aux projets en utilisant le Pack Office afin de faciliter la gestion administrative.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4647fd8cb67ba40bc0a3ea3f"
+    },
+    "name": "Synthétiser les éléments importants d'un CCTP afin de préparer des documents clairs pour la mise en œuvre du projet.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ef75c452d59212372cd21e30"
+    },
+    "name": "Contrôler une note de sûreté de fonctionnement en vérifiant les paramètres de fiabilité et de disponibilité afin d’assurer la sécurité et la robustesse du système étudié",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d0d1ba57ba930041e29e6b3b"
+    },
+    "name": "Apporter un soutien technique de niveau 2 ou 3 aux opérateurs et à l’encadrement, pour résoudre des problèmes complexes.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7e8d60fab16ae3072379d09b"
+    },
+    "name": "Collaborer avec les ingénieurs soudeurs, contremaîtres et chefs d'atelier pour garantir la coordination et l'efficacité des opérations de soudage",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e0672f806b759bc58541d00c"
+    },
+    "name": "Détenir les requis IWT pour être conforme aux exigences de certification en soudage industriel",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3ac8927419053583581d86ba"
+    },
+    "name": "Détenir les requis IWS pour disposer des compétences nécessaires en supervision de soudage",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ba1fa9d3b9189b3bef18a616"
+    },
+    "name": "Identifier les ressources à affecter aux bons postes pour aider les contremaîtres à optimiser la répartition du personnel et des tâches",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2e809f81314f24d93f668523"
+    },
+    "name": "Former et sensibiliser sur la qualité pour améliorer les compétences et la performance des collaborateurs",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c11fa1facecb30bc21d96285"
+    },
+    "name": "Assurer la montée en compétences des collaborateurs pour développer une équipe hautement qualifiée et performante",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2d7e0e8f45624fbc9c3d0648"
+    },
+    "name": "Accompagner les ingénieurs soudeurs pour fournir un soutien technique et faciliter le processus d'inspection",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "79ccb38c179c755dca54a06c"
+    },
+    "name": "Développer de nouveaux appareils de soudage pour améliorer l'efficacité et la qualité des opérations",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ec0ed749b6cc7501655f5595"
+    },
+    "name": "Suivre les qualifications de soudeurs pour s'assurer qu'ils restent conformes aux normes et prêts à répondre aux exigences des projets",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6dfdb8ca7fa702b6c626a013"
+    },
+    "name": "Assurer la montée en compétences des soudeurs sur les différents procédés pour renforcer la polyvalence et la performance de l'équipe",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c80b46869fb103544542ae49"
+    },
+    "name": "Collaborer avec le contremaître peinture pour identifier les solutions de remédiation adaptées aux problèmes détectés, assurant ainsi une amélioration continue des processus de peinture.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ad2e77fd2b4284b22f6bb632"
+    },
+    "name": "Établir un plan de contrôle de fabrication en identifiant les points critiques de production afin de garantir la conformité des pièces réalisées.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5528f6a98d8e8e7bea458e30"
+    },
+    "name": "Contrôler les plans d’ossatures mécaniques en s’assurant du respect des normes, tolérances et exigences projet afin de valider leur faisabilité et conformité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a6ac96cf5928b74786f6a760"
+    },
+    "name": "Contrôler les plans mécaniques en vérifiant leur cohérence avec les modèles 3D et les exigences techniques afin de prévenir les erreurs de fabrication.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b91eae2002cd70bf16ea484f"
+    },
+    "name": "Contrôler les notes de calcul mécanique en s'appuyant sur des hypothèses, méthodes et résultats afin d’assurer leur rigueur et conformité réglementaire.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "99954ae89c9df6db371fceb4"
+    },
+    "name": "Contrôler les notes de calcul d’ossatures en appliquant les référentiels de calcul et les normes associées afin de valider la stabilité structurelle.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0ec65fe5dbfc2309b7f41862"
+    },
+    "name": "Contrôler les notes de calcul sismique en analysant les modèles et les résultats transmis afin de garantir leur conformité aux exigences sismiques.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5233a663580c468c53125995"
+    },
+    "name": "Contrôler les notes de calcul ODS/Dynamique en comparant les résultats avec les critères d’acceptation afin de valider le comportement vibratoire ou dynamique du système.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "be175f671bbd6613c4c49c39"
+    },
+    "name": "Vérifier des spécifications techniques en s'appuyant sur la documentation fournie et sur les exigences identifiées afin d'assurer leur cohérence, complétude et applicabilité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9d7db041bb8a15f7f08d2da2"
+    },
+    "name": "Rédiger des recettes de réception usine en listant les critères de conformité et moyens de contrôle afin de valider la conformité d’un équipement avant expédition.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bc7d1d519899746264c97459"
+    },
+    "name": "Vérifier les plans d'ossatures en s'appuyant les normes de construction afin d’assurer la fiabilité structurelle.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69118b3285e4c23c0577826c"
+    },
+    "name": "Vérifier les plans mécaniques en analysant les différents composants afin de valider leur fonctionnement optimal.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "88f49ceb3d45151169e52108"
+    },
+    "name": "Vérifier les plans de charpentes en examinant les éléments afin de garantir leur solidité et sécurité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e567c0eb22d87ede9c053aa1"
+    },
+    "name": "Établir des plans de contrôle de fabrication en utilisant des outils adaptés afin d’assurer la conformité des pièces produites.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "549ad9a11d71548c5575a1b3"
+    },
+    "name": "Établir des plans de contrôle de montage en précisant les étapes clés afin de faciliter un montage efficace et conforme.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2cd193fad3f0ff7c98f15996"
+    },
+    "name": "Contrôler les assemblages soudés en appliquant les normes d’exécution et de contrôle des soudures afin de garantir leur qualité et leur conformité aux exigences du projet.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dda329cc6212305aa8ba299e"
+    },
+    "name": "Garantir la sécurité des machines en tenant compte des normes relatives afin d’assurer un environnement de travail sécurisé.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2de99b97d154088aae9f8600"
+    },
+    "name": "Transmettre son expertise et son savoir-faire aux parties prenantes du projet afin de renforcer les compétences de l’équipe.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ac38eab3a0065792fafd38e5"
+    },
+    "name": "Proposer des techniques d'amélioration de conception en analysant les processus mis en place afin d'optimiser la productivité générale.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1f0283a4aec8375daa9ca71b"
+    },
+    "name": "Modéliser des pièces mécaniques en 3D en utilisant Inventor afin de définir précisément leur géométrie, leurs fonctions et leurs interfaces pour la fabrication ou la simulation.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "26f71104bc7275afc28ff58a"
+    },
+    "name": "Réaliser des mises en plan avec INVENTOR afin de produire des documents techniques clairs et précis.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d85ce493e04a4bab405afdfc"
+    },
+    "name": "Élaborer des gabarits avec INVENTOR afin de standardiser les processus de conception.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "708bf276099f3bca10744a77"
+    },
+    "name": "Modéliser des pièces mécaniques en 3D en utilisant SOLIDWORKS afin de définir précisément leur géométrie, leurs fonctions et leurs interfaces pour la fabrication ou la simulation.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "949c3709a12f5dd1ea3f3e08"
+    },
+    "name": "Réaliser des mises en plan avec SOLIDWORKS afin de produire des dessins techniques détaillés.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "31d2d238cf9c2a1eb575b7fe"
+    },
+    "name": "Élaborer des gabarits avec SOLIDWORKS afin de simplifier la création des modèles.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f2aed363a02b5d287b6b2525"
+    },
+    "name": "Modéliser des pièces mécaniques en 3D en utilisant CATIA afin de définir précisément leur géométrie, leurs fonctions et leurs interfaces pour la fabrication ou la simulation.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e2b6f969e263733802dc7657"
+    },
+    "name": "Réaliser des mises en plan avec CATIA afin de fournir des instructions claires pour la fabrication.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "73ec2df50af50cc72c92a500"
+    },
+    "name": "Élaborer des gabarits avec CATIA afin de faciliter la modélisation des pièces.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ffe17d20b9d3d09478ef12a5"
+    },
+    "name": "Créer des plans techniques précis et conformes avec AUTOCAD 2D afin de respecter les normes de conception.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "55948af86a5ac716e8b959cf"
+    },
+    "name": "Réaliser des simulations et des vérifications de conception avec NAVISWORKS afin d’assurer la qualité et la conformité des projets",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e3b96a22c262b6f9c0c7bc8f"
+    },
+    "name": "Concevoir des pièces en tenant compte des règles de tolérance géométrique afin d’assurer leur précision et leur compatibilité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "49574bed5913b5695e0f1e24"
+    },
+    "name": "Concevoir des pièces dans le respect des normes d'exécution de fabrication afin de garantir le respect des critères de production et de qualité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "acc36c8cf9ef98620d928fb3"
+    },
+    "name": "Concevoir des solutions en appliquant les règles de conception (DIN, CRT EDF, etc.) afin de respecter les spécifications techniques et réglementaires.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1ea66d119f562dd3f8a39e71"
+    },
+    "name": "Identifier des matériaux adaptés à un projet en s’appuyant sur la norme NF EN 10025 afin d'assurer la résistance mécanique, la conformité réglementaire et la durabilité de la structure.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "64385696826b479bb65a43bd"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "86806440c5eb0254dcadbe2a"
+    },
+    "name": "Concevoir des mécanismes de levage afin de garantir la sécurité et l’efficacité des opérations.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "dfce13a3e0cabf58f88b3d79"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "53e6d52e4aa2c4d73f2d7491"
+    },
+    "name": "Concevoir des ossatures relatives au domaine du levage afin de garantir leur solidité et fonctionnalité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "dfce13a3e0cabf58f88b3d79"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "62077d531df549e619ff4b97"
+    },
+    "name": "Concevoir des mécanismes dans le domaine des ouvrages d'eau afin de répondre aux exigences techniques spécifiques.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "dfce13a3e0cabf58f88b3d79"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2f9f35fedacee02ae216799c"
+    },
+    "name": "Concevoir des ossatures dans le domaine des ouvrages d'eau afin de garantir leur robustesse et leur étanchéité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "dfce13a3e0cabf58f88b3d79"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5dd58bfd494c5cbb7e662d17"
+    },
+    "name": "Concevoir des solutions en tenant compre des impositions liées au Nucléaire afin d'être en conformité avec les normes strictes du secteur.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "dfce13a3e0cabf58f88b3d79"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9fd269e1ce2fddaae8f4fb93"
+    },
+    "name": "Concevoir des charpentes industrielles afin de garantir leur résistance et leur stabilité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "dfce13a3e0cabf58f88b3d79"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "07b446a635ee6a8734572093"
+    },
+    "name": "Mettre en œuvre les normes sur la sécurité des machines (serrurerie, etc.) afin de minimiser les risques pour les opérateurs.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "dfce13a3e0cabf58f88b3d79"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fb05ba5abe45573e0d6c3cbe"
+    },
+    "name": "Inspecter visuellement les soudures pour détecter les défauts.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ddc0ac44578f290dfe31cc77"
+    },
+    "name": "Effectuer des contrôles qualité par magnétoscopie pour vérifier la conformité des soudures.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ec8035092be20b3fe9296632"
+    },
+    "name": "Réaliser le contrôle surfacique par ressuage pour détecter les fissures et autres anomalies.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8eec9d3099c63a2e3f0c5876"
+    },
+    "name": "Réaliser le contrôle surfacique par ultrasons pour évaluer les défauts internes.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "462d83800af9b6db49bdc58e"
+    },
+    "name": "Interpréter les indications des contrôles pour déterminer les actions nécessaires.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f35ea9c246572a5194af9583"
+    },
+    "name": "Identifier et formuler des indications spécifiques sur les pièces contrôlées.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "52e5dabf2198ec113d092937"
+    },
+    "name": "Cartographier les zones d'indication de soudure non conformes pour faciliter la reprise.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ec8802983ae51dcc0a66cf8f"
+    },
+    "name": "Rendre compte du suivi et remonter les dysfonctionnements ou améliorations à sa hiérarchie et aux responsables de services concernés.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "88a32fe05c51820096ade49e"
+    },
+    "name": "Définir avec sa direction les actions qualité à décliner sur son périmètre et animer cette communication.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7f05b5e71670fd2de80d3bc9"
+    },
+    "name": "Fournir une aide technique aux soudeurs pour résoudre les problèmes et améliorer la qualité du soudage",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "74bbf56e80cc38556591ee35"
+    },
+    "name": "Assurer les remontées d'information pour disposer d'une vue d'ensemble claire et réactive des opérations",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "33e814621e510ee3f609b248"
+    },
+    "name": "Préparer les inspections de soudage pour vérifier la qualité et la conformité des soudures",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a138264db9f2242c53c7ce32"
+    },
+    "name": "Vérifier la bonne utilisation des appareils de soudage pour prolonger leur durée de vie et assurer la sécurité du personnel",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5533929b5e78d1cff245c490"
+    },
+    "name": "Contrôler et calibrer les équipements de test tels que le BHL nucléaire, l'elcomètre épaisseur 346, et le 319 pour mesurer la température et l'humidité, afin d'assurer la précision des mesures.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "44ab9ce4429dca593e8b2386"
+    },
+    "name": "Vérifier les auto-contrôles pour la métallisation afin de garantir que les standards de qualité sont respectés tout au long du processus de production.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "32dd88e7da71cc464ba7299d"
+    },
+    "name": "Effectuer un contrôle visuel sur les pièces pour détecter des défauts tels que coulures, sous-épaisseurs et impuretés en se référant au cahier des charges, pour assurer la conformité des produits.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "518a133e550c9e2aad24a34b"
+    },
+    "name": "Effectuer un contrôle des épaisseurs à l'aide d'un elcomètre pour garantir que les pièces respectent les épaisseurs spécifiées.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "38bc0c7680f649ab15942432"
+    },
+    "name": "Réaliser un contrôle après sablage à l'aide de la plaquette GRIT pour évaluer la rugosité de la surface et assurer une préparation adéquate avant la peinture.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f03fa971e0e114c222b2df3a"
+    },
+    "name": "Réaliser après soufflage un test de poussière à l'aide de scotch et analyser selon le tableau d'analyse pour vérifier la propreté de la surface.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f426eccf1ff810d0cc0bb955"
+    },
+    "name": "Réaliser un test de pH pour vérifier la salinité après le sablage des premières pièces d'un nouvel ouvrage, assurant ainsi la préparation adéquate des surfaces.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b7c267b29d540eb6e04f1956"
+    },
+    "name": "Réaliser les différents tests de rugosité à l'aide d'une machine RA pour les BHL, afin d'assurer que les surfaces sont conformes aux spécifications demandées.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8895c45d771ef9b87ef3507a"
+    },
+    "name": "Réaliser des tests d'arrachement pour vérifier la conformité en fonction des critères demandés, garantissant ainsi la robustesse et l'adhérence des revêtements.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8932a0058f25e6884cf5c95d"
+    },
+    "name": "Examiner visuellement la qualité des pièces produites pour assurer la conformité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7ce34d21b41e2d7244b9cad9"
+    },
+    "name": "Valider les procès-verbaux de réalisation après vérification des contrôles effectués.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8b495551cabc97b4748bfa78"
+    },
+    "name": "Vérifier la conformité des procédures aux normes établies dans le cahier des charges des commanditaires.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "da9e5c7da156aa712c437e9c"
+    },
+    "name": "Décider de la conformité ou de la non-conformité des pièces contrôlées.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f5df586d3d97fad8ab71eb1b"
+    },
+    "name": "Vérifier la qualité de l’autocontrôle fait par les opérateurs de son périmètre.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "667f5e226d9b490d47c7753d"
+    },
+    "name": "Identifier les anomalies et alerter pour prévenir les problèmes de qualité",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "82802187864447f2f69dbe5a"
+    },
+    "name": "Détecter et remonter les actions de non qualité en soudage (écarts qualité) pour corriger les défauts rapidement et maintenir les standards",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9b72d33b99ab3f2aac3ba758"
+    },
+    "name": "Piloter la remise en conformité (réparations de soudage) pour corriger les soudures non conformes et s'assurer de leur adéquation",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4d3591de61f70440a28cec1c"
+    },
+    "name": "Vérifier la qualité de l’autocontrôle effectué par les soudeurs pour garantir une autocontrôle fiable et précis",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "032058c7057cf941ef33c048"
+    },
+    "name": "Contrôler et évaluer les compétences du personnel en soudage, nouveaux embauchés, intérimaires ou sous-traitants pour s'assurer qu'ils possèdent les compétences requises et maintenir des standards élevés",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a98e8c04eff7efa3ffbf4807"
+    },
+    "name": "Réaliser des audits qualité des soudeurs pour vérifier la conformité continue aux standards de qualité",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cb635799ce3be8e0b284feae"
+    },
+    "name": "Marquer les zones de non-conformité en identifiant les sur-épaisseurs ou sous-épaisseurs qui dépassent les tolérances fixées dans le cahier des charges, afin de faciliter les actions correctives.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65b1371fb8dff68f99a3aa1a"
+    },
+    "name": "Détecter, avertir, et tracer les non-conformités dans le fichier idoine pour maintenir une traçabilité claire et permettre une résolution rapide des problèmes.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4307ca35df9287a272c43e62"
+    },
+    "name": "Qualifier le niveau de non-conformité et adapter le système d'alerte en conséquence pour une réponse rapide et appropriée aux problèmes de qualité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "20a88a234d9fb37d811ba543"
+    },
+    "name": "Vérifier la mise en œuvre des remédiations pour s'assurer que les actions correctives ont été appliquées et sont efficaces.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3ec6b8fdc5d2683621ced6d7"
+    },
+    "name": "Assurer le suivi des attendus du cahier des charges pour garantir la conformité aux exigences.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "9e401dc10ec6bc9ce26792ef"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "12027047444198249d514586"
+    },
+    "name": "Assurer la traçabilité des opérations de contrôle et de réparation.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "9e401dc10ec6bc9ce26792ef"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "98869f81a353123e7cbf0e6b"
+    },
+    "name": "Coordonner les opérations de soudage pour assurer une exécution efficace et sans interruption des travaux",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "9e401dc10ec6bc9ce26792ef"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fc97b963f6ccef2411cb5f05"
+    },
+    "name": "Assurer l’identification et la traçabilité, et remplir les documents de suivi qualité comme les plans qualité, les LOFC et les fiches de suivi de soudage pour permettre une traçabilité et un contrôle rigoureux des opérations",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "9e401dc10ec6bc9ce26792ef"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ba0428031b45b585314b4f04"
+    },
+    "name": "Procéder aux requalifications nécessaires et tenir à jour le tableau de suivi des qualifications soudeurs pour garder une équipe de soudeurs toujours qualifiée et conforme",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "9e401dc10ec6bc9ce26792ef"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a9993daaff29174c8a59494c"
+    },
+    "name": "Rédiger des fiches d'instruction pour guider les processus de travail. (niveau 2)",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1fa880edd7eba1f2f86ea596"
+    },
+    "name": "Rédiger des procès-verbaux pour documenter les contrôles réalisés. (niveau 3)",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "390ac4c8eb6e6ee61f94bc1e"
+    },
+    "name": "Rédiger des procédures pour standardiser les opérations. (niveau 3)",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "51a83f42c878ce00b348f623"
+    },
+    "name": "Rédiger des rapports de réparation pour documenter les interventions à effectuer.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5cdd8b4671e8f776d26e7ebf"
+    },
+    "name": "Récupérer les instructions auprès des ingénieurs soudeurs pour s'assurer que les directives de soudage sont correctement mises en œuvre",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d7f758d851096df9ad11b5c1"
+    },
+    "name": "Décliner les instructions de soudage en atelier et mettre les DMOS au poste de travail pour assurer la conformité et la clarté des procédures de soudage",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a728273c2a93714aa3a609e6"
+    },
+    "name": "Respecter l'application des procédures de soudage pour maintenir les standards de qualité et de sécurité",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cc98a5ac46cf6946f497bb66"
+    },
+    "name": "Faire respecter l'application des procédures de soudage pour assurer la conformité aux normes établies",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9423ef209d8b310ac0a3bc93"
+    },
+    "name": "Respecter l'application des règles de l'art pour garantir des soudures de haute qualité",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bd38b1c99829e235040b3167"
+    },
+    "name": "Faire respecter l'application des règles de l'art pour éviter les défauts et les non-conformités",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e591862d4cbeab14e56aaa04"
+    },
+    "name": "Savoir lire un plan de fabrication pour suivre et exécuter avec précision les directives de production",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2aeeae5cf9555cdbd941123c"
+    },
+    "name": "Savoir lire un plan de contrôle soudure pour vérifier et documenter la conformité des soudures",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c7339c2d33861f4fd4decfcc"
+    },
+    "name": "Savoir lire les instructions de soudage (registre DMOS, fiches de suivi, etc.) pour appliquer correctement les procédures de soudage",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e971c5724491dbbaaf14fc21"
+    },
+    "name": "Appliquer les procédures du SQ au niveau du soudage pour garantir la conformité et la qualité",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "381035ba193eee3f4fbc94f3"
+    },
+    "name": "Mettre en place des spécificités au niveau du soudage pour répondre aux besoins particuliers des projets",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9fe1b7042441e16019230c94"
+    },
+    "name": "Noter sur les pièces les instructions et informations relatives au soudage (cordons de soudures, soudures pleine pénétration, numéro DMOS, etc.) pour assurer une trace claire et précise des opérations",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2afcfb8f93fc805b4bcd87df"
+    },
+    "name": "Vérifier les préparations de soudage (chanfrein, propreté, etc.) pour garantir des conditions optimales avant le soudage",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "285895190263100df67a4fe3"
+    },
+    "name": "Établir les rapports relatifs aux goujons pour documenter le travail effectué et les résultats obtenus",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59b70fad5f0b0998a2e98653"
+    },
+    "name": "Prendre connaissance du Plan d'Assurance Qualité (PAQ) pour paramétrer les contrôles en conséquence, assurant ainsi que les opérations de contrôle sont conformes aux exigences de qualité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "732108fa78cb308e74c7bcdb"
+    },
+    "name": "Coder et marquer les différents types d'anomalies (piqures, coulures, sur-épaisseurs, sous-épaisseurs) pour une classification précise et une gestion efficace des défauts.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f5a40dc3f99a0ab1a8e4d3de"
+    },
+    "name": "Lire les plans pour identifier les zones de réservation peinture afin de s'assurer que ces zones sont correctement protégées et préparées.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "eea080d330b0d510180af629"
+    },
+    "name": "Lire un plan d'assemblage pour suivre les instructions et assurer la précision des assemblages.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f40fec8967ef4997d6854551"
+    },
+    "name": "Déplacer des pièces à l'aide d'un pont roulant pour positionner correctement les composants et optimiser la réalisation du travail.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "28dbbff88e88bfb900f32c07"
+    },
+    "name": "Travailler en autonomie pour accomplir des tâches de manière indépendante et fiable.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f076404b5931579ec80b4571"
+    },
+    "name": "Tracer les pièces à assembler avec une pointe à tracer pour marquer les lignes de coupe et de soudage avec précision.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "28ad5fa99a596170377d0547"
+    },
+    "name": "Réaliser un pointage avec le procédé TIG (141) pour assembler temporairement les pièces avant le soudage complet.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4cda1c35ab73b08c8b9a7b68"
+    },
+    "name": "Réaliser un pointage avec le procédé 136 et 138 pour assurer des pré-assemblages solides et précis.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6c6afbc6608d2cc593df873c"
+    },
+    "name": "Utiliser un retourneur à sangles pour manipuler de grandes pièces et optimiser les opérations d'assemblage.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1cb6ac3286cc36ed840f840e"
+    },
+    "name": "Détecter des erreurs sur  les plans et signaler les anomalies pour éviter des non-conformités",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1a08db095945ea98958f6966"
+    },
+    "name": "Utiliser les différents apparaux de levage adéquats et conformément aux procédures associées",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "76742354a730f7ed65776877"
+    },
+    "name": "Rendre compte du suivi et remonter les dysfonctionnements ou améliorations à sa hiérarchie et aux responsables de services concernés.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7703fdfe73e0c69f60ee366f"
+    },
+    "name": "Définir avec sa direction les actions qualité à décliner sur son périmètre et animer cette communication.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e12401ccf566faa664edfc36"
+    },
+    "name": "Faire preuve de rigueur en appliquant des normes strictes et des procédures détaillées afin de garantir la qualité et la précision du travail accompli.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7fda2659493ba7aac2007755"
+    },
+    "name": "Effectuer un contrôle dimensionnel pour vérifier que les pièces correspondent aux spécifications requises en prenant en compte les contraintes géométriques de la pièce et les tolérances des différentes côtes",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d2d9879c303267972b2e9be4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fec01597a17fdf2e75ce2f3c"
+    },
+    "name": "Réaliser un contrôle topographique à l'aide d'un théodolite pour assurer des alignements et des niveaux précis.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d2d9879c303267972b2e9be4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "471885a903c03b30c39aac2f"
+    },
+    "name": "Utiliser une meule pour préparer et ajuster les surfaces des pièces avant l'assemblage ou le soudage.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d2d9879c303267972b2e9be4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2e7e3546a1796f2daa80f8c3"
+    },
+    "name": "Oxycouper à l'aide du chalumeau oxycoupeur pour découper des pièces métalliques avec précision.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d2d9879c303267972b2e9be4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "43aa00dcc87b630a17b959cb"
+    },
+    "name": "Découper  à l'aide d'un coupeur plasma pour effectuer des découpes complexes et précises.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d2d9879c303267972b2e9be4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3f34201756cd14f1ef840efe"
+    },
+    "name": "Retourner de petites pièces à l'aide d'un pont roulant pour faciliter le travail sur différentes faces.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d2d9879c303267972b2e9be4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c5945d5fbe61b17ccd85a658"
+    },
+    "name": "Utiliser les tirs forts et les crics pour ajuster et positionner les pièces lourdes avec précision.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d2d9879c303267972b2e9be4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a8dbb35d565a1e85c268507e"
+    },
+    "name": "Utiliser les ciseaux et les pinces de levage pour déplacer et aligner les composants en toute sécurité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d2d9879c303267972b2e9be4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8b691ec209f71081838874c7"
+    },
+    "name": "Identifier le poids des différents éléments à manutentioner",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d2d9879c303267972b2e9be4"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cdd86ff7781efd91eaeef728"
+    },
+    "name": "Lire une nomenclature pour identifier et assurer une prestation en conformité avec les pré-requis.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ae5b9d05cf43c772cf21459e"
+    },
+    "name": "Utiliser un pointeau pneumatique pour marquer les positions de perçage et d'assemblage.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9c15f4a4233070832cfeb841"
+    },
+    "name": "Réaliser des chaudes de retrait à l'aide d'un chalumeau chauffeur pour ajuster et redresser les pièces métalliques.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1c20ceec2226467309e32e0a"
+    },
+    "name": "Renseigner un PV dimensionnel pour documenter les dimensions vérifiées et garantir la traçabilité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "77b9ee956f541147cfbc1a5a"
+    },
+    "name": "Lire un DMOS pour respecter les paramètres de soudage",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "89a096e30b2f8ae921da5b73"
+    },
+    "name": "Identifier les différents types de matériaux par le plan et la nomenclature ( type d'acier, nuances…)",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cf3e12d82fb81fadc159f93d"
+    },
+    "name": "Identifier le sens de gravité d'une pièce pour assurer sa stabilité en cours de fabrication et la bonne marche des manutentions.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ecbcb66d86b141239e36e33b"
+    },
+    "name": "Assembler des profils métalliques (type HEB) et les accessoires entre eux en respectant les indications du plan pour créer des structures conformes aux exigences de conception.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0b5ec2061c63bd071a11aed7"
+    },
+    "name": "Lire une procédure de fabrication pour comprendre et exécuter correctement les opérations.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5630658b8b0e94a2a7154a71"
+    },
+    "name": "Lire des plans pour interpréter les directives de production",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6f77b72a362720d853392dd2"
+    },
+    "name": "Lire des DMOS pour suivre les spécifications de soudage et assurer la conformité des soudures.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1b3ac08a746e97c603f10219"
+    },
+    "name": "Préparer les pièces pour les opérations d'assemblage ou de soudage en suivant les plans et les procédures.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65870b294d8a3c3f7fa3ac16"
+    },
+    "name": "Travailler en équipe pour collaborer efficacement avec les collègues et atteindre les objectifs communs.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "62d35d165faedb1d3e16e2ea"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b5d829bdc7e5b503f444c5e2"
+    },
+    "name": "Réaliser un auto-contrôle pour vérifier la qualité de son propre travail et garantir la conformité des assemblages.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "62d35d165faedb1d3e16e2ea"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "af459d7ffb3aedb5413d48c7"
+    },
+    "name": "Contrôler les inclinaisons à l'aide d'un rapporteur d'angle pour vérifier la conformité de l'assemblage par rapport au plan",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8f9165355c16f10b65e14dc3"
+    },
+    "name": "Etre force de proposition face à des non-conformités ou des problématiques diverses pour proposer des solutions et mettre en œuvre des actions correctives rapidement.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "376ca029e2c69d1f6926a8be"
+    },
+    "name": "Nettoyer parfaitement les soudures et tôles en enlevant les défauts surfaciques visibles et les projections pour obtenir une surface propre et prête pour l'inspection.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "db91b0a229b0da1d2049281a"
+    },
+    "name": "Scier les matériaux à l'aide de scie ou meule pour découper les pièces nécessaires aux assemblages.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "11addb28a91d79b231e4bdc8"
+    },
+    "name": "Entretenir le matériel pour prolonger sa durée de vie et maintenir son bon fonctionnement.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "87fbba1a177bdf651919814d"
+    },
+    "name": "Utiliser un chariot de soudage semi-auto pour faciliter le processus de soudage et améliorer l'efficacité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2df06db634597aec63c9dd3b"
+    },
+    "name": "Utiliser la potence ESAB pour manipuler les équipements de soudage lourds et complexes.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b260cf0e2258207ce5084470"
+    },
+    "name": "Conduire une machine PRS pour effectuer des tâches spécifiques de soudage ou d'assemblage.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "04b485fd6b1ea8a2adfd34b7"
+    },
+    "name": "Conduire une machine CMS pour automatiser certaines étapes du processus de production.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "85d4efc1ce2597a9577957a3"
+    },
+    "name": "Utiliser la potence NARROWGAP pour le soudage dans des espaces restreints.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2800fd344614ba336f66b957"
+    },
+    "name": "Conduire une machine à 4 têtes pour des opérations de soudage sous flux multiples.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "da5364e3f5bf79a15d4a55a7"
+    },
+    "name": "Conduire un chariot à double tête sous flux pour augmenter la productivité du soudage.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d6075a6973b5534787a081c2"
+    },
+    "name": "Piloter un robot YASKAWA pour automatiser les tâches de soudage répétitives.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f4508d9356741211a68819f1"
+    },
+    "name": "Utiliser un système de soudage Orbital TIG pour des soudures circulaires de haute précision.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "11e0b9cd1e61290ea7e0fe43"
+    },
+    "name": "Choisir la méthode adéquate en redressage pour corriger les déformations et garantir la justesse des pièces.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1e7ce519db1910603b450ab1"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7ced2edbf056d2afa316b238"
+    },
+    "name": "Contrôler les pièces fournies pour vérifier leur conformité dimensionnelle.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1e7ce519db1910603b450ab1"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1e4c74593805300367c531ae"
+    },
+    "name": "Opérer des chariots élévateurs de catégorie C en respectant les procédures opérationnelles afin d'assurer une manipulation efficace et sécurisée des charges lourdes.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1e7ce519db1910603b450ab1"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "489890d3e1d699c0bfe6e452"
+    },
+    "name": "Contrôler visuellement la qualité du travail, tracer son travail et remplir les documents demandés pour documenter les opérations et garantir la traçabilité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1e7ce519db1910603b450ab1"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ba3823c62f6fefe76e3686de"
+    },
+    "name": "Lire un plan d'usinage pour comprendre et suivre les instructions de fabrication des pièces.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "3ff75c2d548ff37565ecaceb"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7f1fe8c0913cc18750a992e6"
+    },
+    "name": "Posséder les habilitations pour travaux en hauteur et port du harnais pour travailler en toute sécurité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b916134f05dee9912bcb0155"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ff8857c3108e634d626fe7c4"
+    },
+    "name": "Oxycouper à l'aide du chalumeau oxycoupeur pour découper des pièces métalliques avec précision.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b916134f05dee9912bcb0155"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "00ad0f79f33e77654dff864f"
+    },
+    "name": "Découper  à l'aide d'un coupeur plasma pour effectuer des découpes complexes et précises.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b916134f05dee9912bcb0155"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2dacfda7f8abcac7e51572dd"
+    },
+    "name": "Réaliser une maintenance de premier niveau sur le poste à souder pour assurer son bon fonctionnement et la qualité des soudures.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1484d1981881c81611ea1bb1"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b34bcb05e8a0b0ea6171a0c7"
+    },
+    "name": "Vérifier la qualité de l’autocontrôle fait par les opérateurs de son périmètre.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b7bac8cfa2a09e978e9fc712"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b796c8515a233165ab11e460"
+    },
+    "name": "Respecter les cordons de soudure (mono, multi passes et angles) et les tolérances des soudures pour garantir la qualité et la conformité des assemblages.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5995b5701f4a1e764c0600db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8817b9f2962dd0101f6743fc"
+    },
+    "name": "Prendre connaissance et suivre les instructions de soudage sur les DMOS, cahiers ou notices et plans, y compris le respect du temps alloué, pour assurer une exécution précise et conforme des opérations de soudage.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5995b5701f4a1e764c0600db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "456437b2456407a1380a4f3a"
+    },
+    "name": "Effectuer les soudures d'ensembles, sous-ensembles et goujons en utilisant les machines de soudage ou outillages prévus, notamment le métal d'apport, pour assembler des composants de manière efficace et sûre.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5995b5701f4a1e764c0600db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ab08bdaf158bf66b5f416c9f"
+    },
+    "name": "Réaliser une soudure sur un matériau en inox en utilisant le procédé de soudage à l'électrode enrobée pour garantir des soudures robustes et conformes aux standards.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5995b5701f4a1e764c0600db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0b9327a15352641064405ec5"
+    },
+    "name": "Réaliser une soudure sur un matériau en inox en utilisant le procédé de soudage Inox TIG 141 pour obtenir des soudures de haute qualité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5995b5701f4a1e764c0600db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a27efa9a028da517f628b067"
+    },
+    "name": "Réaliser une soudure sur un matériau en inox en utilisant le procédé de soudage Inox SEMI 136 (fil fourré) pour des assemblages résistants.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5995b5701f4a1e764c0600db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a277cd2018e20b98cf8853ac"
+    },
+    "name": "Réaliser une soudure sur un matériau en inox en utilisant le procédé de soudage Inox SEMI 138 (fil fourré) pour des applications spécifiques.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5995b5701f4a1e764c0600db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0c360b13e158dbb8074f0a13"
+    },
+    "name": "Réaliser une soudure sur un matériau en acier en utilisant le procédé de soudage à l’électrode enrobée pour assembler des pièces d'acier de manière fiable.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5995b5701f4a1e764c0600db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "85b6004fbedbe20f7aa11ee5"
+    },
+    "name": "Faire un rechargement INOX pour maintenir ou restaurer l'intégrité des pièces.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5995b5701f4a1e764c0600db"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e4933a16d2f07ba8244e238b"
+    },
+    "name": "Réaliser des petits travaux de chaudronnerie (RAK, suspentes) pour effectuer des ajustements et des prestations de précision.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "224b55cc9aaca0b662111ac9"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9bcdc50f24c9d0473ed2b40a"
+    },
+    "name": "Ranger le matériel du chantier pour maintenir un environnement de travail ordonné et sécurisé.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c6e64f5bae6e1034a86936ac"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "55bc9002bf31e8d3820be3a4"
+    },
+    "name": "Nettoyer la zone de travail pour garantir des conditions de travail sûres et efficaces.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c6e64f5bae6e1034a86936ac"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "115adc72a2292ba3112cb64c"
+    },
+    "name": "Mettre en place des dispositifs de signalisation et de sécurité pour prévenir les accidents et assurer un environnement de travail sûr.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c6e64f5bae6e1034a86936ac"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "aad4bee7ef3d79408ce3270d"
+    },
+    "name": "Manœuvrer le pont de levage pour alimenter et décharger les machines, en assurant ainsi la continuité de la chaîne de production de manière sécurisée.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "7c0dbc1af6664036690c680c"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ab4d1dab5c0c45b68d6510b2"
+    },
+    "name": "Exécuter un programme sur une machine automatique pour réaliser des opérations de production conformes aux exigences de qualité et de délais.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "7c0dbc1af6664036690c680c"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1d5420821ab5b8916154a0b2"
+    },
+    "name": "Réaliser les opérations de pliage en utilisant le gabarit adapté pour obtenir des formes précises.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "7c0dbc1af6664036690c680c"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "54c737f6d3309267c306f51d"
+    },
+    "name": "Réaliser les opérations de cintrage en utilisant les rouleaux adaptés selon les relevés pour assurer des cintrages conformes aux spécifications désirées.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "7c0dbc1af6664036690c680c"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8f0dfc006ef97eb41fa5110c"
+    },
+    "name": "Interpréter des plans de découpe, de chanfreinage, de perçage, de pliage et de roulage afin de préparer et d'exécuter correctement les opérations de fabrication.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "84c1c9ec3186940607625692"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "de951b982bcdb7b847881b17"
+    },
+    "name": "Assurer un premier niveau d'auto-contrôle pour garantir la qualité des éléments en inspectant visuellement et en vérifiant les dimensions.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "3a68d86adddef4e8fa13eb7c"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "834cdad029123c5c424e7f8d"
+    },
+    "name": "Effectuer un contrôle visuel et dimensionnel des éléments coupés en utilisant un mètre, un décamètre, une équerre et un rapporteur d'angles pour vérifier leur conformité avec les plans.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "3a68d86adddef4e8fa13eb7c"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f70c925e906c9b3324b5789e"
+    },
+    "name": "Régler la machine de découpe plasma ESAB afin d'assurer la précision et l'efficacité des opérations de découpe.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "09e04b33660bf615bde44381"
+    },
+    "name": "Régler la machine de découpe cybertome pour optimiser les performances de coupe et la qualité du travail réalisé.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "72a1deed2ffaddfefeac3d11"
+    },
+    "name": "Régler la machine de découpe zinser pour maintenir une performance constante et de haute qualité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bad7d0cc29c5382372cc7568"
+    },
+    "name": "Régler la machine de découpe plasma Messer pour garantir des découpes précises et conformes aux spécifications.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "853dcd9bca26066f2e050e36"
+    },
+    "name": "Régler la machine de chanfreinage Pyrotome pour obtenir des chanfreins précis conformes aux exigences des plans.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a0d9b9cfc1848db87130310c"
+    },
+    "name": "Régler la perceuse magnétique pour réaliser des perçages exacts et en conformité avec les spécifications techniques.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "14aaf2672d4dd1771ac5f835"
+    },
+    "name": "Régler les plieuses verticales pour effectuer des pliages précis et conformes aux angles et dimensions demandés.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cf99514c74617e4d0dc555cb"
+    },
+    "name": "Régler les cintreuses pour réaliser des cintrages précis et conformes aux spécifications des plans.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4df0deccf4b8462388b6e746"
+    },
+    "name": "Régler la perceuse automatique pour obtenir des perçages réguliers et conformes aux tolérances fixées.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2c685b6ca4b6e1d4d0bbfa1c"
+    },
+    "name": "Régler la tronçonneuse pour des coupes nettes et précises selon les dimensions spécifiées.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a3703fedeb6210925f092fcd"
+    },
+    "name": "Récupérer le programme de découpe sur le PC, le transférer sur la machine, effectuer les réglages nécessaires et lancer le programme pour s'assurer du bon déroulement de l'opération, en contrôlant les consommables et les changeant au besoin.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "98bc04c88b53e1dfc4a5ca08"
+    },
+    "name": "Définir le niveau de pression adapté pour obtenir l'angle souhaité afin de garantir la précision et la qualité des pliages.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dcb5368e4761c30b53652d2f"
+    },
+    "name": "Assurer une maintenance de premier niveau sur chaque machine pour prévenir les pannes et garantir leur bon fonctionnement.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8b9dba2e068299ae4c958341"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0d11f5451db413b510ef149a"
+    },
+    "name": "Effectuer un relevé de dimensions sur un procès-verbal dimensionnel afin d'assurer la traçabilité et la conformité des éléments débités.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a82b5cadf9077d55cee92a2e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b7a5edb85ee266e5d3eeecb8"
+    },
+    "name": "Réaliser un diagnostic de premier niveau des causes d'une non-conformité pour identifier et proposer des solutions immédiates.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "47d799433861224c8b48dfbf"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d58412f969c53787881b2e40"
+    },
+    "name": "Compléter les fiches de relevé d'efficience pour suivre la performance",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8ae70d346f0aa588ad083e0a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "aae0195140937bb1a86ee9cf"
+    },
+    "name": "Faire appliquer le Système Qualité",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dae7602afc102556ac38c8af"
+    },
+    "name": "Mettre en place le système qualité spécifique EPR2",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ac84509da337d3e56bc215d5"
+    },
+    "name": "Améliorer le système qualité EMF en place",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "10923e4899d4bbc25bc95f32"
+    },
+    "name": "Améliorer le système qualité EPR2 en place",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "84fb778aafde1d280bbed857"
+    },
+    "name": "S'assurer de la conformité réglementaire",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2260de77f5d16ff02eabd143"
+    },
+    "name": "S'assurer de la conformité réglementaire ISO 19443",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "298af1eb8d034e7b06817efc"
+    },
+    "name": "S'assurer de la conformité réglementaire ISO 9001",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "467fc98a321ce8f65efb89dd"
+    },
+    "name": "Garantir et suivre la satisfaction des clients",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d4232c3db76b1442a1550d59"
+    },
+    "name": "Maitriser les principes de la culture surêté nucléaire",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "257c68e2cf4d2e77409ea40c"
+    },
+    "name": "Lutter contre les CFS (contrefaçons, fraudes et produits suspects)",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8134a04f964c44c029fa5674"
+    },
+    "name": "identifier les EIP (elements Importants pour la Proctection des intérêts) et AIP (Activités Importantes pour la Proctection des intérêts) et s'assurer de leur confirmité",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "135bc25d1b573bfbfa6d7e1b"
+    },
+    "name": "S'assurer du respect des Plans de Surveillance, Plans de Contrôle et Plans Qualité",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "773eb36059fb024d8ba98568"
+    },
+    "name": "Garantir la conformité des exigences",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4017e033a43e5802b786c649"
+    },
+    "name": "Gérer la configuration",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "be87fb09f2153ad41b5e102b"
+    },
+    "name": "Mettre en place et suivre les actions qualités",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "36a17d88f28a338130b3d6ba"
+    },
+    "name": "Gérer les modifications auprès des clients",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5af6e349f245889736ae97fc"
+    },
+    "name": "Identifier les FNC",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ee5bb288ca21c879f9793448"
+    },
+    "name": "S'assurer de la déclinaison des exigences aux prestataires",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d62873610f6479aeacaae457"
+    },
+    "name": "S'assurer du respect de la confidentialité des données",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d0e6de6bdc3f3fe0f37bbaa8"
+    },
+    "name": "Etablir et faire respecter le PAQ",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ae79b4b15417f9fca9ba6635"
+    },
+    "name": "S'assurer de la conformité du dossier livré au client",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4925755af1b76dfc226f4cd6"
+    },
+    "name": "Suivre la veille normative et documentaire",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5ffef2c8e8a6d610e8f7946d"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8f5016021c4846a43f0a6769"
+    },
+    "name": "Sensibiliser et former le personnel au système qualité",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "edb08c6539bbe3aa93ca1e06"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "83c22fa4ddccc43289160b07"
+    },
+    "name": "Sensibiliser et former le personnel et les prestataires à la surête nucléaire",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "edb08c6539bbe3aa93ca1e06"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d028e99dfe2243e750f7135e"
+    },
+    "name": "Gérer les riques et analyser les risques associés",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "93339ed6fa274e62066d1dfb"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5bdaefcb99dcac822194dc3d"
+    },
+    "name": "Surveiller à l'aide d'audits internes la conformité du système",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "93339ed6fa274e62066d1dfb"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2b02aa0a3a49852b26ad102a"
+    },
+    "name": "Planifier et réaliser les audits externes",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "93339ed6fa274e62066d1dfb"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b69215694b03bb7e9c93f5d1"
+    },
+    "name": "Auditer et suivre nos prestataires externes",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "93339ed6fa274e62066d1dfb"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2eab8b8e855ef20dcce119be"
+    },
+    "name": "Auditer et suivre nos prestataires externes IPSN",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "93339ed6fa274e62066d1dfb"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8c248be7361f330567d52164"
+    },
+    "name": "Anticiper l'adaptation des moyens selon les demandes des chefs de projet",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f8478be3c766a7467c1da80e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b6d71272bf03ae70243547b6"
+    },
+    "name": "Vérifier la conformité des plans techniques",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "21568697aafdcc45a06ca92c"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "26e7c7122467f61d9801486f"
+    },
+    "name": "Planifier l'industrialisation des projets",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2e4bd720f9503c852141ec06"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e639546ae5fbb08465b4f037"
+    },
+    "name": "Définir les moyens humains et matériels nécessaires aux projets",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2e4bd720f9503c852141ec06"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ce9b834a099ec34eabc5be75"
+    },
+    "name": "Planifier et coordonner l'activité des intervenants externes",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2e4bd720f9503c852141ec06"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "91a53ae9675c092cbc130d14"
+    },
+    "name": "Gérer les budgets des projets",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "9fb7fdeba7a61ea53c82b762"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c01849f41031d2a9965dae36"
+    },
+    "name": "Définir les investissements",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "9fb7fdeba7a61ea53c82b762"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "42a03d7ab803857ec0178b5a"
+    },
+    "name": "Analyser des documents contractuelles et techniques des clients",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ba28ed267e405f2b8df96873"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c422be37baf0b47df3fad73b"
+    },
+    "name": "Proposer des solutions techniques avant gardiste",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ba28ed267e405f2b8df96873"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0362ad3bcbddc09b1dd71b95"
+    },
+    "name": "Valider les méthodes de réalosation et les phasages de fabrication",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ba28ed267e405f2b8df96873"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e207a11b643c86210120db59"
+    },
+    "name": "Assurer la veille technique",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "ba28ed267e405f2b8df96873"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3c7a843556f169011b353ca0"
+    },
+    "name": "Gérer les riques et analyser les risques associés",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "23a16c6be6c74aca88ba9935"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ccfbe74c3bab0e521e8b6b7"
+    },
+    "name": "Réaliser des études statiques et de flux",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a34160132fecffbb0cfb16a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "45596256c1c6dbd4e86d53de"
+    },
+    "name": "Réaliser les méthodes techniques en vue des étapes de fabrication des projets",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a34160132fecffbb0cfb16a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "735b15c545a3fda8f7f1723e"
+    },
+    "name": "Réaliser les études techniques",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a34160132fecffbb0cfb16a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "446f86065ca9e76e0b50f934"
+    },
+    "name": "Réaliser les méthodes générales",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a34160132fecffbb0cfb16a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3eb346be84379fc2a6a36fa2"
+    },
+    "name": "S'assurer de la conformité réglementaire 1090-2",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a34160132fecffbb0cfb16a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3c131e7a2f7d3e6cc23a6e85"
+    },
+    "name": "S'assurer de la conformité réglementaire RCC-CW",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a34160132fecffbb0cfb16a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "119b9567e0263a7024d89d47"
+    },
+    "name": "S'assurer de la conformité des  normes ISO liés à l'activité technique",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a34160132fecffbb0cfb16a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7671a5f881795530f3b87a6f"
+    },
+    "name": "Suivre la veille normative et documentaire",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8a34160132fecffbb0cfb16a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "91ca78651b9a411aa511cb8c"
+    },
+    "name": "Animer et gérer des projets",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1547e81cf05f912189647086"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "43999053ca7698581526bf31"
+    },
+    "name": "Manager une équipe technique (en direct et en transverse)",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1547e81cf05f912189647086"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "33813ba36fa11cc785a9d3b8"
+    },
+    "name": "Calculer les ROI (Retour sur investissements) associés",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1547e81cf05f912189647086"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8967525569be8e17c3ec18c0"
+    },
+    "name": "Valider les solutions envisagées par son équipe",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1547e81cf05f912189647086"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c576ade11395d4fe3412ea5a"
+    },
+    "name": "Négocier les remises d'offres d'investissements",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2244c0149c4841619e850a4f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a7bd899320e18530def2f26f"
+    },
+    "name": "Rédiger le cahier des charges",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "23d9164bfbbe6a1fd4388c67"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5d9023a86dab9d3728d97c48"
+    },
+    "name": "Rédiger des procédures",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "23d9164bfbbe6a1fd4388c67"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0291a0239eb0e4580601cc16"
+    },
+    "name": "Rédiger le cahier des charges",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2c170602d48e021bdcfad06f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4d276f42aa76ab2f659b5352"
+    },
+    "name": "Analyser des documents contractuelles et techniques des clients",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2c170602d48e021bdcfad06f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ff500aa93e5e082079ab8b8b"
+    },
+    "name": "Réaliser des études statiques et de flux",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2c170602d48e021bdcfad06f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8f62d463ac4e5b9ed193cf93"
+    },
+    "name": "Calculer les ROI (Retour sur investissements) associés",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2c170602d48e021bdcfad06f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9f4ab8ca5e61cc1c73604be0"
+    },
+    "name": "Réaliser les études techniques",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2c170602d48e021bdcfad06f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6944c7bd9a635c0a7c7236ff"
+    },
+    "name": "Valider les méthodes de réalisation et les phasages de fabrication",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2c170602d48e021bdcfad06f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "96479410bda3f11540fce2ab"
+    },
+    "name": "Réaliser les méthodes techniques en vue des étapes de fabrication des projets",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2c170602d48e021bdcfad06f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cbcb17d54eb257e0abdb7194"
+    },
+    "name": "Réaliser les méthodes générales",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2c170602d48e021bdcfad06f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f3e48f76709f4b8199a8d1ea"
+    },
+    "name": "Rédiger des procédures",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2c170602d48e021bdcfad06f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "68f54718e3ba8df76563c4e7"
+    },
+    "name": "Animer et gérer des projets",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "80383bea93ca710b24db9aba"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "57c265d13a0a892ae5332ead"
+    },
+    "name": "Définir les moyens humains et matériels nécessaires aux projets",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "80383bea93ca710b24db9aba"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "445c86caadacd0e907f414f4"
+    },
+    "name": "Rechercher et proposer des solutions innovantes",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "80383bea93ca710b24db9aba"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9089993da0c9e0d51115e8b5"
+    },
+    "name": "Planifier et coordonner l'activité des intervenants externes",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "80383bea93ca710b24db9aba"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c1b2acd9c5e36fef8384a33b"
+    },
+    "name": "Réaliser et analyser des mesures de temps",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "80383bea93ca710b24db9aba"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e6ad0259cb7f51e325d9d725"
+    },
+    "name": "Gérer les riques et analyser les risques associés",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "183bf632c382037a2954b528"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2825a5162d739da91729f41f"
+    },
+    "name": "Rechercher et consulter des fournisseurs externes",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "183bf632c382037a2954b528"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cfa9ff44cc36324631351759"
+    },
+    "name": "Savoir utiliser et interpréter la norme 1090-2",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "caeca8c070a312149287db01"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9a7812bdf0b91590e734e98c"
+    },
+    "name": "Savoir utiliser et interpréter la norme RCC-CW",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "caeca8c070a312149287db01"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "912ca74fdcea86e0239dcade"
+    },
+    "name": "Savoir utiliser et interpréter les normes ISO liés à l'activité technique",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "caeca8c070a312149287db01"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "610580e700b6321fd14bacf7"
+    },
+    "name": "Suivre la veille normative et documentaire",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "caeca8c070a312149287db01"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8591b951823ffe0e25dbaa57"
+    },
+    "name": "Communiquer efficacement en plusieurs langues en adaptant son vocabulaire technique au contexte afin de faciliter les échanges en environnement international.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b1f50481fca4a6633186cff6"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0717e5ddbad65f3957a3dbd1"
+    },
+    "name": "Présenter des solutions techniques en faisant preuve de persuasion et en mobilisant des arguments objectifs et clairs afin d’influencer positivement les décisions techniques ou stratégiques.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "b1f50481fca4a6633186cff6"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f78fb01fd0563c9eb594389"
+    },
+    "name": "Accompagner les chefs de projets sur les aspects techniques en apportant conseils, retours d’expérience et soutien opérationnel afin de contribuer à la réussite du projet.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "4fe13415276d7395bcec5e81"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "afdf190b332e4211c0c09470"
+    },
+    "name": "Accompagner les inspecteurs ou les visites clients et expliquer les processus de contrôle.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "4fe13415276d7395bcec5e81"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9610bf0a6d5cbd523235973a"
+    },
+    "name": "Défendre et argumenter les décisions en cas de litige lors des contrôles clients.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "4fe13415276d7395bcec5e81"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5239934331013ecdc275253d"
+    },
+    "name": "Expliquer les zones d'anomalie à l'aide de schémas ou sans, selon les besoins.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "4fe13415276d7395bcec5e81"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c26374d7b86fc1fbc6e4ac92"
+    },
+    "name": "Faire preuve de pédagogie avec tous les interlocuteurs pour faciliter la compréhension et la coopération.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "4fe13415276d7395bcec5e81"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1294b45bb13eece6d80c6c25"
+    },
+    "name": "Proposer les actions d’amélioration et les faire valider par sa hiérarchie. Partager les bonnes pratiques",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "4fe13415276d7395bcec5e81"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "637c86759d980003896d4091"
+    },
+    "name": "Former et sensibiliser aux actions de formation qualité initiées dans son périmètre.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "4fe13415276d7395bcec5e81"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "890adcc5883f045a6d7db4ff"
+    },
+    "name": "Travailler en équipe et collaborer efficacement en communiquant de manière proactive et en partageant les responsabilités pour atteindre les objectifs communs et favoriser un environnement de travail harmonieux.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "4fe13415276d7395bcec5e81"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dc959e0c4010a97bfcfc579e"
+    },
+    "name": "Faire preuve de sens de l'écoute et du relationnel en prêtant une attention active et en interagissant de manière empathique pour favoriser une communication efficace et des relations de travail harmonieuses.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "4fe13415276d7395bcec5e81"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0b83aa98b10625dc8a8b976a"
+    },
+    "name": "Communiquer efficacement enanglais en adaptant son vocabulaire technique au contexte afin de faciliter les échanges en environnement international.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "4db65882dc0088bbfa66a1ff"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8d267abe28670fddcd4f5c68"
+    },
+    "name": "Gérer le stress dans des situations complexes.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fe3bef0827b41b3ee1ad7c46"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "307acaa5ad66c2bad69a6dd0"
+    },
+    "name": "Gérer son temps et ses priorités en planifiant les tâches de manière stratégique et en se concentrant sur les activités à forte valeur ajoutée pour maximiser l'efficacité et respecter les délais.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fe3bef0827b41b3ee1ad7c46"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "12fa6d9ea5a2fe43f9c62e13"
+    },
+    "name": "Travailler en autonomie en gérant ses tâches et son temps de manière efficace pour atteindre les objectifs fixés.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "fe3bef0827b41b3ee1ad7c46"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8cfe8ef94d98069efaef40d8"
+    },
+    "name": "Communiquer dans plusieurs langues pour s'adapter à des clients multiculturels.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c375b880ba3a437de5ed3d76"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ae8732e337199da5589e339b"
+    },
+    "name": "Communiquer efficacement à l'écrit pour tracer des opérations de contrôle ou transmettre des instructions ou informations",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c375b880ba3a437de5ed3d76"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6aa97dec414a0413761db9a6"
+    },
+    "name": "Maîtriser l'outil informatique (pack Office) pour gérer efficacement la documentation, les rapports et les communications liées au soudage",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c375b880ba3a437de5ed3d76"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fd2d31ba4db38023abe81582"
+    },
+    "name": "Accompagner les audits des clients pendant ou après les contrôles pour répondre aux questions et démontrer la conformité aux standards de qualité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c375b880ba3a437de5ed3d76"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2d5b5eca897ec3029f1f0b75"
+    },
+    "name": "Compléter les procès-verbaux de conformité ou non-conformité à chaque étape du contrôle pour documenter et assurer la traçabilité des résultats.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c375b880ba3a437de5ed3d76"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a03827b4e48bf6f2059be94f"
+    },
+    "name": "Participer à des causeries animées par le contremaître peinture auprès des peintres pour échanger sur les bonnes pratiques et les méthodes de travail.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "c375b880ba3a437de5ed3d76"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1033bc8b17b5c85b282797d9"
+    },
+    "name": "Faire preuve de rigueur en appliquant des normes strictes et des procédures détaillées afin de garantir la qualité et la précision du travail accompli.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5cb1b3e14ca40c3ddc16bc4f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8275325cb1bd3c19acd1d7ee"
+    },
+    "name": "Proposer les actions d’amélioration et les faire valider par sa hiérarchie. Partager les bonnes pratiques",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5cb1b3e14ca40c3ddc16bc4f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "471b925538a14c9e0aaa902b"
+    },
+    "name": "Former et sensibiliser aux actions de formation qualité initiées dans son périmètre.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5cb1b3e14ca40c3ddc16bc4f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "be6e3bc337327d7f1b58c794"
+    },
+    "name": "Gérer son temps et ses priorités en planifiant les tâches de manière stratégique et en se concentrant sur les activités à forte valeur ajoutée pour maximiser l'efficacité et respecter les délais.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5cb1b3e14ca40c3ddc16bc4f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65abb629a0d937d264730bc9"
+    },
+    "name": "Alerter le responsable en cas d'anomalie en fournissant une qualification précise du problème pour une résolution rapide et efficace.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "5cb1b3e14ca40c3ddc16bc4f"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b066018975848ac4cf946640"
+    },
+    "name": "Communiquer efficacement à l'oral et à l'écrit pour tracer des opérations de contrôle ou transmettre des instructions ou informations",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "0567b273f5e96f3be378f71e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8e25e556affbbce3d0a556fd"
+    },
+    "name": "Faire preuve de sens de l'écoute et du relationnel en prêtant une attention active et en interagissant de manière empathique pour favoriser une communication efficace et des relations de travail harmonieuses.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "0567b273f5e96f3be378f71e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "647b1fff7d4ca23d016b9bfe"
+    },
+    "name": "Communiquer clairement et efficacement pour faciliter la coordination des tâches et la résolution des problèmes.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "0567b273f5e96f3be378f71e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e1cea697a9ad847f917bd5e9"
+    },
+    "name": "Travailler en équipe et collaborer efficacement en communiquant de manière proactive et en partageant les responsabilités pour atteindre les objectifs communs et favoriser un environnement de travail harmonieux.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "20fef83e669e49308c010089"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "76c00853d13a78f2777469a4"
+    },
+    "name": "Contrôler les inclinaisons à l'aide d'un rapporteur d'angle pour vérifier la conformité de l'assemblage par rapport au plan",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "2b38938878d1110d9f9fd9b5"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c8a009b5feb062e7f253cb34"
+    },
+    "name": "Avoir le sens de l’écoute et du relationnel pour communiquer efficacement et travailler harmonieusement avec les autres.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "9e84f35206f4c2c518fbd15e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d8c9fe24cd2599d096bd3b3b"
+    },
+    "name": "Communiquer à l’écrit pour documenter les opérations et les résultats de manière claire et précise.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "9e84f35206f4c2c518fbd15e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7b59898c52c474a24604789b"
+    },
+    "name": "Communiquer à l’oral pour échanger des informations et des instructions de manière efficace.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "9e84f35206f4c2c518fbd15e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "958d06b1e21e79730b1181e8"
+    },
+    "name": "Être autonome pour accomplir les tâches de manière indépendante et fiable.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8ed99167dc974eed3d253052"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "477818e0766f89222a238278"
+    },
+    "name": "Faire preuve de rigueur pour maintenir des standards élevés de qualité et de conformité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8ed99167dc974eed3d253052"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bb29e106eb1d95398cc34abd"
+    },
+    "name": "Travailler en équipe pour collaborer avec les collègues et atteindre les objectifs communs.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a21e526ae0b4e57070706f36"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f72c713a1fbf898fd2470329"
+    },
+    "name": "Collaborer efficacement en équipe pour atteindre des objectifs communs, en partageant les informations et les ressources.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a21e526ae0b4e57070706f36"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "633cdc4298ede160fdd31b02"
+    },
+    "name": "Travailler en équipe et collaborer efficacement en communiquant de manière proactive et en partageant les responsabilités pour atteindre les objectifs communs et favoriser un environnement de travail harmonieux.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a21e526ae0b4e57070706f36"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2c5439522897c1154f08d9d3"
+    },
+    "name": "Utiliser des vérins hydrauliques pour soulever et ajuster les pièces lourdes pendant les opérations de montage.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1b795e8e26050f014e9c74ee"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7c46afbb892a3c9492a772ba"
+    },
+    "name": "Choisir la méthode adéquate en assemblage pour optimiser l'efficacité et la qualité du montage.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1b795e8e26050f014e9c74ee"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "98df0875f88a4910abee29bb"
+    },
+    "name": "Manipuler des engins de levage et de manutention avec précision et en suivant les normes de sécurité pour optimiser le transport des marchandises.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1b795e8e26050f014e9c74ee"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3d2edf2e71b3967fc87dc899"
+    },
+    "name": "Conduire des engins de manutention spécifiques en appliquant les méthodes appropriées pour garantir un déplacement sécurisé et efficace deséléments sur le site de travail.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1b795e8e26050f014e9c74ee"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "56a829259fcab91cc4484edb"
+    },
+    "name": "Utiliser un GO/NO GO en lien avec l'appréciation de la conformité des dimensions des pièces.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1b795e8e26050f014e9c74ee"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "88a82ecb0bbdc9a9e7a6d750"
+    },
+    "name": "Contrôler la température d'entre-passes selon le DMOS pour respecter les spécifications techniques et éviter les défauts de soudure.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1b795e8e26050f014e9c74ee"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2bccf3990536a27da06f8a48"
+    },
+    "name": "Réaliser les finitions de meulage ou les reprises sur les pièces non acceptables pour atteindre les standards de qualité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1b795e8e26050f014e9c74ee"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f7c42e9336e5903b7f2febad"
+    },
+    "name": "Réaliser un auto-contrôle pour vérifier la qualité de son propre travail et garantir la conformité.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1b795e8e26050f014e9c74ee"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "93e20de760bcb2a828d348d9"
+    },
+    "name": "Préchauffer les pièces selon les DMOS pour assurer une soudabilité optimale et prévenir les fissures.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1b795e8e26050f014e9c74ee"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2ebbcd131a5461f691b6efe4"
+    },
+    "name": "Contrôler les pièces usinées (visuel, dimensionnel) avant assemblage pour s'assurer qu'elles respectent les spécifications requises.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "1b795e8e26050f014e9c74ee"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c4f2c1634a64d9b08a74bf4c"
+    },
+    "name": "Porter systématiquement les Équipements de Protection Individuelle adaptés à chaque tâche pour prévenir les risques d'accidents et de blessures.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f8395d20319753f1babef64e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b4b577ce31a0877dbc77a76c"
+    },
+    "name": "Respecter strictement les règles de sécurité et les protocoles établis par l'entreprise pour minimiser les risques d'accidents et favoriser un environnement de travail sécurisé.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f8395d20319753f1babef64e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fee4b73e6d6d65f9d4f5c4ea"
+    },
+    "name": "Maintenir la propreté et l'ordre du poste de travail en effectuant un nettoyage régulier et en rangeant les outils et matériaux utilisés afin de garantir un environnement de travail sécuritaire et productif.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "f8395d20319753f1babef64e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "21414d510483274182522c23"
+    },
+    "name": "Installer les équipements de chauffe  par induction pour le préchauffage des pièces à souder.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "637e969a541c66222da70c71"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6f2bd13d7f9aeef61babe420"
+    },
+    "name": "Signaler les dysfonctionnements ou problèmes matériels à sa hierarchie",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "637e969a541c66222da70c71"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "213cdcc18eb3f762d4efdcb3"
+    },
+    "name": "Respecter strictement les règles de sécurité et les protocoles établis par l'entreprise pour minimiser les risques d'accidents et favoriser un environnement de travail sécurisé.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "637e969a541c66222da70c71"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e62ad5437dfd783809b5834c"
+    },
+    "name": "Porter systématiquement les Équipements de Protection Individuelle adaptés à chaque tâche pour prévenir les risques d'accidents et de blessures.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "8c1340684961b62299c29a85"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "24837c3062d47d505609b366"
+    },
+    "name": "Respecter les règles environnementales en suivant les protocoles écologiques et légaux pour minimiser l'impact environnemental et garantir une conformité réglementaire.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "a87460e01bad0cc78398220e"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4cfd127db97cb5a183a3239f"
+    },
+    "name": "Maintenir la propreté et l'ordre du poste de travail en effectuant un nettoyage régulier et en rangeant les outils et matériaux utilisés afin de garantir un environnement de travail sécuritaire et productif.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "830adbbd3ebdfa7ef621abe6"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4439519c89e91b34bbaefd99"
+    },
+    "name": "Travailler en hauteur pour effectuer des opérations sur des structures élevées de manière sécurisée.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d83adf4883c35d32948a30cd"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a54bd8765206804b6ffc8e25"
+    },
+    "name": "Maintenir la propreté et l'ordre du poste de travail en effectuant un nettoyage régulier et en rangeant les outils et matériaux utilisés afin de garantir un environnement de travail sécuritaire et productif.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d83adf4883c35d32948a30cd"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cb2b6e0fad8b7020ead53715"
+    },
+    "name": "Porter systématiquement les Équipements de Protection Individuelle adaptés à chaque tâche pour prévenir les risques d'accidents et de blessures.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d83adf4883c35d32948a30cd"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dddd749560c23656cc2366b3"
+    },
+    "name": "Respecter strictement les règles de sécurité et les protocoles établis par l'entreprise pour minimiser les risques d'accidents et favoriser un environnement de travail sécurisé.",
+    "expectedLevel": null,
+    "macroSkillId": {
+      "$oid": "d83adf4883c35d32948a30cd"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  }
+]

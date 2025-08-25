@@ -39,7 +39,6 @@ export const createMacroSkillType = async (params: CreateMacroSkillTypeInput): P
 // MacroSkill Service Functions
 export const getAllMacroSkills = async (): Promise<MacroSkillResponse[]> => {
     const macroSkillsCollection = getMacroSkillsCollection();
-    const macroSkillTypesCollection = getMacroSkillTypesCollection();
 
     const pipeline = [
         {
@@ -54,9 +53,6 @@ export const getAllMacroSkills = async (): Promise<MacroSkillResponse[]> => {
             $unwind: "$macroSkillType"
         }
     ];
-
-    console.log('test')
-    console.log(pipeline)
 
     const cursor = macroSkillsCollection.aggregate<MacroSkill & { macroSkillType: MacroSkillType }>(pipeline);
     const results = await cursor.toArray();
