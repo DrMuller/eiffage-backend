@@ -10,6 +10,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=local
       - MONGO_INITDB_DATABASE=eiffage-dev
     volumes:
+      - ./.docker/import:/import
       - ./.docker/mongo-volume:/data/db
       - ./.docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     ports:

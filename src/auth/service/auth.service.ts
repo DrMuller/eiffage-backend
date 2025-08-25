@@ -44,10 +44,9 @@ export const createUser = async (
     password: string,
     firstName: string,
     lastName: string,
-    phone: string,
   }
 ): Promise<AuthResponse> => {
-  const { email, password, firstName, lastName, phone } = params;
+  const { email, password, firstName, lastName } = params;
   const existingUser = await getUsersCollection().findOne({ email });
   if (existingUser) {
     throw new ConflictException("User already exists");
@@ -60,9 +59,6 @@ export const createUser = async (
     password: hashedPassword,
     firstName,
     lastName,
-    phone,
-
-    marketingOptIn: false,
     roles: ["USER"] as Role[],
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -79,11 +75,9 @@ export const createUserWithoutPassword = async (
     email: string,
     firstName: string,
     lastName: string,
-    phone: string,
-    organisationId?: string
   }
 ): Promise<UserResponse> => {
-  const { email, firstName, lastName, phone, organisationId } = params;
+  const { email, firstName, lastName } = params;
   const existingUser = await getUsersCollection().findOne({ email });
   if (existingUser) {
     throw new ConflictException("User already exists");
@@ -99,9 +93,6 @@ export const createUserWithoutPassword = async (
     password: hashedPassword,
     firstName,
     lastName,
-    phone,
-
-    marketingOptIn: false,
     roles: ["USER"] as Role[],
     createdAt: new Date(),
     updatedAt: new Date(),

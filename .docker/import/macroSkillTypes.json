@@ -1,0 +1,20 @@
+[
+  {
+    "_id": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "name": "Macro-compétences techniques"
+  },
+  {
+    "_id": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "name": "Macro-compétences comportementales"
+  },
+  {
+    "_id": {
+      "$oid": "8125e4c8eda8c284a57a4b8b"
+    },
+    "name": "Macro-compétences QPSE"
+  }
+]

@@ -1,0 +1,866 @@
+[
+  {
+    "_id": {
+      "$oid": "8d1ce8d8e8c2e485b78a88ce"
+    },
+    "name": "Manager en appliquant le principe de subsidiarité",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8a8d5a7f63331f6a07cfd3a0"
+    },
+    "name": "Utiliser les outils métiers et digitaux de son activité",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fcf420b74f105a824a450775"
+    },
+    "name": "Appliquer les normes et réglementations de son domaine d'activité",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2f769c0e3d86faff1f0301fc"
+    },
+    "name": "Analyser et restituer les données : reportings / tableaux de bords",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c1f28609e640e469221dd593"
+    },
+    "name": "Produire les livrables dans le respect des règles et des processus en place",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "83087c25b4b8cfb344f20264"
+    },
+    "name": "Connaître l'environnement technique et professionnel de son activité",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e41a358644e3284fd90859db"
+    },
+    "name": "Contrôler la production",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ff0006f6b22d1244c0bcc2e8"
+    },
+    "name": "Réaliser l'activité en utilisant et en privilégiant des méthodes de travail collaboratives",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64385696826b479bb65a43bd"
+    },
+    "name": "Connaitre les normes et réglementations",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dfce13a3e0cabf58f88b3d79"
+    },
+    "name": "Connaître l’environnement technique et professionnel de l’activité",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b798218b5f5479744968ae35"
+    },
+    "name": "Assurer le suivi technique des différents contrôles et essais",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f4d55f1be04d62124320aa1d"
+    },
+    "name": "Analyser la conformité de la prestation",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9e401dc10ec6bc9ce26792ef"
+    },
+    "name": "Gérer et administrer les travaux à réaliser en respectant le cadre légal, administratif et budgétaire défini, et en garantissant la traçabilité documentaire et administrative prévue",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a43984aadf7826571f7b4f5e"
+    },
+    "name": "Comprendre et suivre les procédures et modes opératoires",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "55128ab48b715f7a9d62bd90"
+    },
+    "name": "Mettre en oeuvre les spécificités techniques de l'activité en connaissant et en respectant les procédés, normes et réglementations du métier (fabrication, façonnage, montage et assemblage en chaudronnerie)",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d2d9879c303267972b2e9be4"
+    },
+    "name": "Réaliser et faire réaliser les activités professionnelles de chaudronnerie avec efficacité, en connaissant leur environnement technique et professionnel, et les bases théoriques nécessaires à leur bonne réalisation",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "212bee1b2a01c6bedee22cd2"
+    },
+    "name": "Organiser et réaliser l'activité prévue à partir de la lecture d'un plan",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "62d35d165faedb1d3e16e2ea"
+    },
+    "name": "Mettre au point un assemblage (soudure, pointage, colle, rivet, agrafes…)",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "be82248562f036dd7ab5fc15"
+    },
+    "name": "Utiliser les matériels, outils mis à disposition en respectant les consignes d'exploitation et les règles de sécurité, et en assurant sa maintenance de premier niveau",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1e7ce519db1910603b450ab1"
+    },
+    "name": "Renseigner et transmettre une fiche de suivi, d'auto-contrôle correctement renseignée et transmise dans les délais impartis",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3ff75c2d548ff37565ecaceb"
+    },
+    "name": "Assurer une veille continue des nouvelles méthodes et techniques de fabrication dans le métier considéré",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b916134f05dee9912bcb0155"
+    },
+    "name": "Encourager et valoriser les bonnes pratiques professionnelles, en les diffusant et en les communiquant le plus largement possible",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1484d1981881c81611ea1bb1"
+    },
+    "name": "Diagnostiquer des pannes",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b7bac8cfa2a09e978e9fc712"
+    },
+    "name": "Connaitre les processus de fabrication, montage et assemblage",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5995b5701f4a1e764c0600db"
+    },
+    "name": "Mettre en œuvre les spécificités techniques de l'activité en connaissant et en respectant les procédés, normes et réglementations du métier (soudage, conduite de machine de soudage)",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "224b55cc9aaca0b662111ac9"
+    },
+    "name": "Réaliser les activités professionnelles de chaudronnerie avec efficacité, en connaissant leur environnement technique et professionnel, et les bases théoriques nécessaires à leur bonne réalisation (construction, normes de soudage TIG MIG MAG)",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c6e64f5bae6e1034a86936ac"
+    },
+    "name": "Implanter et installer la zone de travail en effectuant les balisages et les marquages nécessaires à la signalisation et à la sécurisation des lieux",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7c0dbc1af6664036690c680c"
+    },
+    "name": "Utiliser les machines/outils nécessaires (perceuse, tronçonneuse…)",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "84c1c9ec3186940607625692"
+    },
+    "name": "Interpréter un plan/schéma d'exécution",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3a68d86adddef4e8fa13eb7c"
+    },
+    "name": "Effectuer un contrôle visuel et dimensionnel",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "214731e51656baa16667e049"
+    },
+    "name": "Régler la machine en fonction de critère (matières, dimension du brut, état de surface attendu…)",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8b9dba2e068299ae4c958341"
+    },
+    "name": "Assurer la maintenance de premier niveau de l'outillage (nettoyage, graissage…)",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a82b5cadf9077d55cee92a2e"
+    },
+    "name": "Effectuer les relevés de côtes en usine/ atelier ou sur chantier",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "47d799433861224c8b48dfbf"
+    },
+    "name": "Contrôler les outils et modalités de contrôle",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8ae70d346f0aa588ad083e0a"
+    },
+    "name": "Réaliser un bilan, rapport ou compte-rendu",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "543ae871f161ab717c43816d"
+    },
+    "name": "Maîtriser les modèles de systèmes de management et l'approche par processus",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ffef2c8e8a6d610e8f7946d"
+    },
+    "name": "Réaliser une veille juridique, technique et documentaire",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "edb08c6539bbe3aa93ca1e06"
+    },
+    "name": "Pratiquer le management transversal",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "93339ed6fa274e62066d1dfb"
+    },
+    "name": "Utiliser les techniques d’évaluation, de diagnostics, d’audit et de gestion des risques",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f8478be3c766a7467c1da80e"
+    },
+    "name": "Anticiper et gérer les risques",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "21568697aafdcc45a06ca92c"
+    },
+    "name": "Connaitre la lecture de plan",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2e4bd720f9503c852141ec06"
+    },
+    "name": "Utiliser les outils de planification",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9fb7fdeba7a61ea53c82b762"
+    },
+    "name": "Assurer les gestions administrative et contractuelle",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ba28ed267e405f2b8df96873"
+    },
+    "name": "Maitriser l'environnement technique et professionnel de l'activité",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "23a16c6be6c74aca88ba9935"
+    },
+    "name": "Appliquer les règles de sécurité en signalant les situations à risques",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8a34160132fecffbb0cfb16a"
+    },
+    "name": "Mettre en œuvre les spécificités techniques de l'activité en connaissant et en respectant les procédés, normes et réglementations du métier",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1547e81cf05f912189647086"
+    },
+    "name": "Utiliser les méthodologies de gestion de projet",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2244c0149c4841619e850a4f"
+    },
+    "name": "Mener des négociations",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "23d9164bfbbe6a1fd4388c67"
+    },
+    "name": "Rédiger des documents de manière professionnelle",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2c170602d48e021bdcfad06f"
+    },
+    "name": "Avoir une expertise en études d’exécution",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "80383bea93ca710b24db9aba"
+    },
+    "name": "Avoir une expertise en travaux (expérience chantier)",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "183bf632c382037a2954b528"
+    },
+    "name": "Connaitre le domaine d’activité (vocabulaire technique)",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "caeca8c070a312149287db01"
+    },
+    "name": "Connaitre les différentes techniques et normes de construction",
+    "macroSkillTypeId": {
+      "$oid": "f4bf7cce7a90b092f4f9b73b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b1f50481fca4a6633186cff6"
+    },
+    "name": "Communiquer efficacement à l'écrit et l'oral",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4fe13415276d7395bcec5e81"
+    },
+    "name": "Travailler en équipe et collaborer efficacement",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4db65882dc0088bbfa66a1ff"
+    },
+    "name": "Communiquer à l'écrit",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fe3bef0827b41b3ee1ad7c46"
+    },
+    "name": "Gérer son temps et ses priorités",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c375b880ba3a437de5ed3d76"
+    },
+    "name": "Communiquer efficacement à l'écrit",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5cb1b3e14ca40c3ddc16bc4f"
+    },
+    "name": "Faire preuve de rigueur",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0567b273f5e96f3be378f71e"
+    },
+    "name": "Avoir le sens de l’écoute et du relationnel",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "20fef83e669e49308c010089"
+    },
+    "name": "Être autonome",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2b38938878d1110d9f9fd9b5"
+    },
+    "name": "Communiquer à l’oral",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9e84f35206f4c2c518fbd15e"
+    },
+    "name": "Communiquer à l'écrit et à l'oral",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8ed99167dc974eed3d253052"
+    },
+    "name": "Agir en autonomie avec rigueur",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a21e526ae0b4e57070706f36"
+    },
+    "name": "Travailler en équipe",
+    "macroSkillTypeId": {
+      "$oid": "974f6bae770d00b5ef422b3a"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1b795e8e26050f014e9c74ee"
+    },
+    "name": "S'assurer de la qualité des tâches réalisées",
+    "macroSkillTypeId": {
+      "$oid": "8125e4c8eda8c284a57a4b8b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f8395d20319753f1babef64e"
+    },
+    "name": "QPSE - S'assurer de la qualité des tâches réalisées",
+    "macroSkillTypeId": {
+      "$oid": "8125e4c8eda8c284a57a4b8b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "637e969a541c66222da70c71"
+    },
+    "name": "Appliquer les règles de sécurité et signaler les situations à risques",
+    "macroSkillTypeId": {
+      "$oid": "8125e4c8eda8c284a57a4b8b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8c1340684961b62299c29a85"
+    },
+    "name": "Respecter le port des EPI adaptés",
+    "macroSkillTypeId": {
+      "$oid": "8125e4c8eda8c284a57a4b8b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a87460e01bad0cc78398220e"
+    },
+    "name": "Respecter les règles environnementales",
+    "macroSkillTypeId": {
+      "$oid": "8125e4c8eda8c284a57a4b8b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "830adbbd3ebdfa7ef621abe6"
+    },
+    "name": "Nettoyer et ranger le poste de travail",
+    "macroSkillTypeId": {
+      "$oid": "8125e4c8eda8c284a57a4b8b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d83adf4883c35d32948a30cd"
+    },
+    "name": "Appliquer les règles de sécurité",
+    "macroSkillTypeId": {
+      "$oid": "8125e4c8eda8c284a57a4b8b"
+    },
+    "createdAt": {
+      "$date": "2025-08-13T09:28:45.632051+00:00"
+    }
+  }
+]
