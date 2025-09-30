@@ -42,6 +42,8 @@ export type UserResponse = {
   firstName: string;
   lastName: string;
   email: string;
+  code: string;
+  managerUserId: string | null;
   roles: Role[];
   createdAt: Date;
   updatedAt: Date;

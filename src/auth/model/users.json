@@ -1,0 +1,98 @@
+
+{
+    "_id": "507f1f77bcf86cd799439011",
+    "email": "vincent.mullier+manager01@gmail.com",
+    "password": "$2b$10$uPGM7agPwtAr1WuRMfq7J.hl7qzpnc0NQKuCxVKEG9q9hlh2W0ZK.",
+    "firstName": "Marie",
+    "lastName": "Dupont",
+    "matricule": "EIF001",
+    "managerUserId": "507f1f77bcf86cd799439012",
+    "roles": ["MANAGER"],
+    "createdAt": "2024-01-15T08:00:00.000Z",
+    "updatedAt": "2024-01-15T08:00:00.000Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439012",
+    "email": "vincent.mullier+manager02@gmail.com",
+    "password": "$2b$10$uPGM7agPwtAr1WuRMfq7J.hl7qzpnc0NQKuCxVKEG9q9hlh2W0ZK.",
+    "firstName": "Jean",
+    "lastName": "Martin",
+    "matricule": "EIF002",
+    "managerUserId": "507f1f77bcf86cd799439011",
+    "roles": ["MANAGER"],
+    "createdAt": "2024-01-15T08:00:00.000Z",
+    "updatedAt": "2024-01-15T08:00:00.000Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439013",
+    "email": "vincent.mullier+user01@gmail.com",
+    "password": "$2b$10$uPGM7agPwtAr1WuRMfq7J.hl7qzpnc0NQKuCxVKEG9q9hlh2W0ZK.",
+    "firstName": "Sophie",
+    "lastName": "Bernard",
+    "matricule": "EIF003",
+    "managerUserId": "507f1f77bcf86cd799439011",
+    "roles": ["USER"],
+    "createdAt": "2024-02-01T08:00:00.000Z",
+    "updatedAt": "2024-02-01T08:00:00.000Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439014",
+    "email": "vincent.mullier+user02@gmail.com",
+    "password": "$2b$10$uPGM7agPwtAr1WuRMfq7J.hl7qzpnc0NQKuCxVKEG9q9hlh2W0ZK.",
+    "firstName": "Pierre",
+    "lastName": "Moreau",
+    "matricule": "EIF004",
+    "managerUserId": "507f1f77bcf86cd799439011",
+    "roles": ["USER"],
+    "createdAt": "2024-02-05T08:00:00.000Z",
+    "updatedAt": "2024-02-05T08:00:00.000Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439015",
+    "email": "vincent.mullier+user03@gmail.com",
+    "password": "$2b$10$uPGM7agPwtAr1WuRMfq7J.hl7qzpnc0NQKuCxVKEG9q9hlh2W0ZK.",
+    "firstName": "Claire",
+    "lastName": "Rousseau",
+    "matricule": "EIF005",
+    "managerUserId": "507f1f77bcf86cd799439011",
+    "roles": ["USER"],
+    "createdAt": "2024-02-10T08:00:00.000Z",
+    "updatedAt": "2024-02-10T08:00:00.000Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439016",
+    "email": "vincent.mullier+user04@gmail.com",
+    "password": "$2b$10$uPGM7agPwtAr1WuRMfq7J.hl7qzpnc0NQKuCxVKEG9q9hlh2W0ZK.",
+    "firstName": "Antoine",
+    "lastName": "Leroy",
+    "matricule": "EIF006",
+    "managerUserId": "507f1f77bcf86cd799439012",
+    "roles": ["USER"],
+    "createdAt": "2024-02-15T08:00:00.000Z",
+    "updatedAt": "2024-02-15T08:00:00.000Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439017",
+    "email": "vincent.mullier+user05@gmail.com",
+    "password": "$2b$10$uPGM7agPwtAr1WuRMfq7J.hl7qzpnc0NQKuCxVKEG9q9hlh2W0ZK.",
+    "firstName": "Camille",
+    "lastName": "Simon",
+    "matricule": "EIF007",
+    "managerUserId": "507f1f77bcf86cd799439012",
+    "roles": ["USER"],
+    "createdAt": "2024-02-20T08:00:00.000Z",
+    "updatedAt": "2024-02-20T08:00:00.000Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439018",
+    "email": "vincent.mullier+user06@gmail.com",
+    "password": "$2b$10$uPGM7agPwtAr1WuRMfq7J.hl7qzpnc0NQKuCxVKEG9q9hlh2W0ZK.",
+    "firstName": "Lucas",
+    "lastName": "Petit",
+    "matricule": "EIF008",
+    "managerUserId": "507f1f77bcf86cd799439012",
+    "roles": ["USER"],
+    "createdAt": "2024-02-25T08:00:00.000Z",
+    "updatedAt": "2024-02-25T08:00:00.000Z"
+  }
+]

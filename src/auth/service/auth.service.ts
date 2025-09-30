@@ -32,6 +32,8 @@ const convertToUserResponse = (user: User): UserResponse => {
     email: user.email,
     firstName: user.firstName,
     lastName: user.lastName,
+    code: user.code,
+    managerUserId: user.managerUserId,
     roles: user.roles,
     createdAt: user.createdAt,
     updatedAt: user.updatedAt,
@@ -44,21 +46,24 @@ export const createUser = async (
     password: string,
     firstName: string,
     lastName: string,
+    code: string,
   }
 ): Promise<AuthResponse> => {
-  const { email, password, firstName, lastName } = params;
+  const { email, password, firstName, lastName, code } = params;
   const existingUser = await getUsersCollection().findOne({ email });
   if (existingUser) {
     throw new ConflictException("User already exists");
   }
 
   const hashedPassword = await hashPassword(password);
-  const newUser = {
+  const newUser: User = {
     _id: new ObjectId(),
     email,
     password: hashedPassword,
     firstName,
     lastName,
+    code,
+    managerUserId: null,
     roles: ["USER"] as Role[],
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -75,9 +80,10 @@ export const createUserWithoutPassword = async (
     email: string,
     firstName: string,
     lastName: string,
+    code: string,
   }
 ): Promise<UserResponse> => {
-  const { email, firstName, lastName } = params;
+  const { email, firstName, lastName, code } = params;
   const existingUser = await getUsersCollection().findOne({ email });
   if (existingUser) {
     throw new ConflictException("User already exists");
@@ -87,12 +93,14 @@ export const createUserWithoutPassword = async (
   const randomPassword = Math.random().toString(36).slice(-8);
   const hashedPassword = await hashPassword(randomPassword);
 
-  const newUser = {
+  const newUser: User = {
     _id: new ObjectId(),
     email,
     password: hashedPassword,
     firstName,
     lastName,
+    code,
+    managerUserId: null,
     roles: ["USER"] as Role[],
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -143,7 +151,7 @@ export async function resetPassword(resetPassword: AccountResetPassword): Promis
   let decodedToken;
   try {
     decodedToken = verifyResetToken<ResetTokenPayload>(resetPassword.token);
-  } catch (e) {
+  } catch {
     throw new BadRequestException('Invalid reset token');
   }
   const user = await getUsersCollection().findOneById(decodedToken._id);
@@ -151,8 +159,63 @@ export async function resetPassword(resetPassword: AccountResetPassword): Promis
   await getUsersCollection().update(user)
 }
 
-export const getUsers = async (): Promise<UserResponse[]> => {
+export async function getUsers(): Promise<UserResponse[]> {
   const users = await getUsersCollection().find({});
+  return users.map(convertToUserResponse);
+}
+
+export async function updateUser(
+  _id: string,
+  params: {
+    firstName?: string;
+    lastName?: string;
+    roles?: Role[];
+  }
+): Promise<UserResponse> {
+  const existingUser = await getUsersCollection().findOneById(_id);
+  if (!existingUser) {
+    throw new NotFoundException("User not found");
+  }
+
+  const updateData: any = {
+    updatedAt: new Date(),
+  };
+
+  if (params.firstName !== undefined) {
+    updateData.firstName = params.firstName;
+  }
+  if (params.lastName !== undefined) {
+    updateData.lastName = params.lastName;
+  }
+  if (params.roles !== undefined) {
+    updateData.roles = params.roles;
+  }
+
+  const updatedUser = await getUsersCollection().findOneAndUpdate(
+    { _id: new ObjectId(_id) },
+    updateData
+  );
+
+  return convertToUserResponse(updatedUser);
+};
+
+export async function deleteUserById(id: string): Promise<void> {
+  const userCollection = getUsersCollection();
+  const refreshTokenCollection = getRefreshTokensCollection();
+
+  // remove ManagerUserId of all users that have the managerUserId equal to the id
+  const usersManaged = await userCollection.find({ managerUserId: new ObjectId(id) });
+  const usersManagedUpdated = usersManaged.map(user => ({ ...user, managerUserId: null }));
+  await userCollection.updateMany(usersManagedUpdated);
+
+  // delete all refresh tokens of the user
+  await refreshTokenCollection.deleteMany({ userId: new ObjectId(id) });
+  await userCollection.deleteOne({ _id: new ObjectId(id) });
+}
+
+export async function getAllManagers(): Promise<UserResponse[]> {
+  const userCollection = getUsersCollection();
+  const users = await userCollection.find({ roles: { $in: ['MANAGER'] } });
   return users.map(convertToUserResponse);
 }
 

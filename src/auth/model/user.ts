@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 
-export const Roles = ['USER', 'ADMIN'] as const;
+export const Roles = ['USER', 'RH', 'MANAGER', 'ADMIN'] as const;
 export type Role = (typeof Roles)[number];
 
 export interface User {
@@ -9,6 +9,8 @@ export interface User {
   password: string;
   firstName: string;
   lastName: string;
+  code: string;
+  managerUserId: ObjectId | null;
   roles: Role[];
   createdAt: Date;
   updatedAt: Date;
