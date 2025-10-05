@@ -393,7 +393,7 @@
     "_id": {
       "$oid": "74e33038907ea83f0de2d712"
     },
-    "name": "Mettre en œuvre les normes de sécurité des machines en intégrant les exigences réglementaires dès la conception afin de garantir la protection des utilisateurs et la conformité CE.",
+    "name": "Mettre en œuvre les normes de sécurité des machines en intégrant les exigences réglementaires dès la conception afin de garantir la protection des Employés et la conformité CE.",
     "expectedLevel": null,
     "macroSkillId": {
       "$oid": "fcf420b74f105a824a450775"

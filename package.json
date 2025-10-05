@@ -14,9 +14,16 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "migration": "TZ=UTC ts-node src/migrations/index.ts",
-    "prod:migration": "TZ=UTC node build/migrations/index.js"
+    "prod:migration": "TZ=UTC node build/migrations/index.js",
+    "seed": "TZ=UTC ts-node src/scripts/seed.ts",
+    "prod:seed": "TZ=UTC node build/scripts/seed.js"
   },
-  "keywords": ["express", "typescript", "authentication", "scaffolding"],
+  "keywords": [
+    "express",
+    "typescript",
+    "authentication",
+    "scaffolding"
+  ],
   "author": "",
   "license": "ISC",
   "description": "Express TypeScript scaffolding with authentication",

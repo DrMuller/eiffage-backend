@@ -1,23 +1,43 @@
 import { z } from "zod";
-import { Role } from "../model/user";
+import { Role, Roles } from "../model/user";
 
-export const registerSchema = z.object({
+export const RegisterSchema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(8, "Password must be at least 8 characters"),
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
+  code: z.string().min(1, "Code is required"),
+  jobId: z.string().min(1).optional(),
 });
+export type RegisterRequest = z.infer<typeof RegisterSchema>;
 
-export const loginSchema = z.object({
+export const UpdateUserSchema = z.object({
+  firstName: z.string().min(1).optional(),
+  lastName: z.string().min(1).optional(),
+  jobId: z.string().min(1).optional(),
+  managerUserId: z.string().min(1).nullable().optional(),
+  roles: z.array(z.enum(Roles)).optional(),
+});
+export type UpdateUserRequest = z.infer<typeof UpdateUserSchema>;
+
+export const CreateUserWithoutPasswordSchema = z.object({
+  email: z.string().email("Invalid email address"),
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  code: z.string().min(1, "Code is required"),
+});
+export type CreateUserWithoutPasswordRequest = z.infer<typeof CreateUserWithoutPasswordSchema>;
+
+export const LoginSchema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(1, "Password is required"),
 });
 
-export const refreshTokenSchema = z.object({
+export const RefreshTokenSchema = z.object({
   refreshToken: z.string().min(1, "Refresh token is required"),
 });
 
-export const resetPasswordTokenSchema = z.object({
+export const ResetPasswordTokenSchema = z.object({
   email: z.string().email(),
 });
 
@@ -26,11 +46,11 @@ export const ResetPasswordSchema = z.object({
   token: z.string(),
 });
 
-export type AccountResetPasswordToken = z.infer<typeof resetPasswordTokenSchema>;
+export type AccountResetPasswordToken = z.infer<typeof ResetPasswordTokenSchema>;
 export type AccountResetPassword = z.infer<typeof ResetPasswordSchema>;
-export type RegisterInput = z.infer<typeof registerSchema>;
-export type LoginInput = z.infer<typeof loginSchema>;
-export type RefreshTokenInput = z.infer<typeof refreshTokenSchema>;
+export type RegisterInput = z.infer<typeof RegisterSchema>;
+export type LoginInput = z.infer<typeof LoginSchema>;
+export type RefreshTokenInput = z.infer<typeof RefreshTokenSchema>;
 
 export type AuthResponse = {
   accessToken: string;
@@ -43,6 +63,7 @@ export type UserResponse = {
   lastName: string;
   email: string;
   code: string;
+  jobId: string | null;
   managerUserId: string | null;
   roles: Role[];
   createdAt: Date;

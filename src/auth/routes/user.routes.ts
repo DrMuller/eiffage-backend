@@ -3,6 +3,6 @@ import { me } from "../controller/user.controller";
 import jwtMiddleware from "../../middleware/jwt.middleware";
 
 const router = express.Router();
-router.get("/me", [jwtMiddleware(['USER'])], me);
+router.get("/users/me", [jwtMiddleware(['USER'])], me);
 
 export default router;

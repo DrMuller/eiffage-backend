@@ -2,20 +2,19 @@ import { ObjectId } from "mongodb";
 
 export interface Evaluation {
     _id: ObjectId;
+    userJobId?: ObjectId;
+    userJobCode?: string;
+
     // Employee information
-    employeeName: string;
-    employeeRegistrationNumber: string;
-    managerId?: ObjectId;
-    managerName?: string;
+    userId: ObjectId;
+    userName: string;
+    userCode: string;
+
+    managerUserId?: ObjectId;
+    managerUserName?: string;
+    managerUserCode?: string;
     observationDate: Date;
-    
-    // Job information
-    employeeId: ObjectId;
-    jobFamily: string;
-    jobProfile: string;
-    jobTitle: string;
-    position: string;
-    
+
     // Metadata
     createdAt: Date;
     updatedAt: Date;

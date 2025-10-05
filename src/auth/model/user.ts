@@ -9,7 +9,8 @@ export interface User {
   password: string;
   firstName: string;
   lastName: string;
-  code: string;
+  code: string; // Matricule
+  jobId: ObjectId | null;
   managerUserId: ObjectId | null;
   roles: Role[];
   createdAt: Date;

@@ -4,9 +4,10 @@ import { Role, User } from "../model/user";
 import { MongoCollection, ObjectId } from "../../utils/mongo/MongoCollection";
 import { createResetToken, createTokens, RefreshTokenPayload, ResetTokenPayload, verify, verifyResetToken } from "../../utils/jwt/jwtHelper";
 import { BadRequestException, ConflictException, NotFoundException, UnauthorizedException } from "../../utils/HttpException";
-import { AccountResetPassword, AccountResetPasswordToken, AuthResponse, UserResponse } from "../dto/auth.dto";
+import { AccountResetPassword, AccountResetPasswordToken, AuthResponse, RegisterRequest, UpdateUserRequest, UserResponse } from "../dto/auth.dto";
 import { sendPasswordResetEmail } from "../../notification/service/brevo.service";
 import appConfig from "../../app.config";
+import { CreateUserWithoutPasswordRequest } from "../controller/auth.controller";
 
 export const loginUser = async (params: {
   email: string,
@@ -14,7 +15,10 @@ export const loginUser = async (params: {
 }): Promise<AuthResponse> => {
   const { email, password } = params;
   const usersCollection = getUsersCollection();
-  const user = await usersCollection.findOneOrFail({ email });
+  const user = await usersCollection.findOne({ email });
+  if (!user) {
+    throw new UnauthorizedException("Invalid credentials");
+  }
   await validatePassword(password, user.password);
   const tokens = createTokens(user);
   await saveRefreshToken({ _id: user._id, refreshToken: tokens.refreshToken });
@@ -33,7 +37,8 @@ const convertToUserResponse = (user: User): UserResponse => {
     firstName: user.firstName,
     lastName: user.lastName,
     code: user.code,
-    managerUserId: user.managerUserId,
+    jobId: user.jobId?.toString() ?? null,
+    managerUserId: user.managerUserId?.toString() ?? null,
     roles: user.roles,
     createdAt: user.createdAt,
     updatedAt: user.updatedAt,
@@ -41,15 +46,9 @@ const convertToUserResponse = (user: User): UserResponse => {
 }
 
 export const createUser = async (
-  params: {
-    email: string,
-    password: string,
-    firstName: string,
-    lastName: string,
-    code: string,
-  }
+  params: RegisterRequest
 ): Promise<AuthResponse> => {
-  const { email, password, firstName, lastName, code } = params;
+  const { email, password, firstName, lastName, code, jobId } = params;
   const existingUser = await getUsersCollection().findOne({ email });
   if (existingUser) {
     throw new ConflictException("User already exists");
@@ -63,6 +62,7 @@ export const createUser = async (
     firstName,
     lastName,
     code,
+    jobId: jobId ? new ObjectId(jobId) : null,
     managerUserId: null,
     roles: ["USER"] as Role[],
     createdAt: new Date(),
@@ -76,12 +76,7 @@ export const createUser = async (
 }
 
 export const createUserWithoutPassword = async (
-  params: {
-    email: string,
-    firstName: string,
-    lastName: string,
-    code: string,
-  }
+  params: CreateUserWithoutPasswordRequest
 ): Promise<UserResponse> => {
   const { email, firstName, lastName, code } = params;
   const existingUser = await getUsersCollection().findOne({ email });
@@ -100,6 +95,7 @@ export const createUserWithoutPassword = async (
     firstName,
     lastName,
     code,
+    jobId: null,
     managerUserId: null,
     roles: ["USER"] as Role[],
     createdAt: new Date(),
@@ -166,29 +162,34 @@ export async function getUsers(): Promise<UserResponse[]> {
 
 export async function updateUser(
   _id: string,
-  params: {
-    firstName?: string;
-    lastName?: string;
-    roles?: Role[];
-  }
+  params: UpdateUserRequest
 ): Promise<UserResponse> {
+  const { firstName, lastName, jobId, managerUserId, roles } = params;
   const existingUser = await getUsersCollection().findOneById(_id);
   if (!existingUser) {
     throw new NotFoundException("User not found");
   }
 
+  console.log({ firstName, lastName, jobId, managerUserId, roles });
+
   const updateData: any = {
     updatedAt: new Date(),
   };
 
-  if (params.firstName !== undefined) {
-    updateData.firstName = params.firstName;
+  if (firstName !== undefined) {
+    updateData.firstName = firstName;
   }
-  if (params.lastName !== undefined) {
-    updateData.lastName = params.lastName;
+  if (lastName !== undefined) {
+    updateData.lastName = lastName;
   }
-  if (params.roles !== undefined) {
-    updateData.roles = params.roles;
+  if (roles !== undefined) {
+    updateData.roles = roles;
+  }
+  if (managerUserId !== undefined) {
+    updateData.managerUserId = managerUserId ? new ObjectId(managerUserId) : null;
+  }
+  if (jobId !== undefined) {
+    updateData.jobId = jobId ? new ObjectId(jobId) : null;
   }
 
   const updatedUser = await getUsersCollection().findOneAndUpdate(
@@ -197,7 +198,7 @@ export async function updateUser(
   );
 
   return convertToUserResponse(updatedUser);
-};
+}
 
 export async function deleteUserById(id: string): Promise<void> {
   const userCollection = getUsersCollection();
@@ -217,6 +218,76 @@ export async function getAllManagers(): Promise<UserResponse[]> {
   const userCollection = getUsersCollection();
   const users = await userCollection.find({ roles: { $in: ['MANAGER'] } });
   return users.map(convertToUserResponse);
+}
+
+export async function searchUsers(params: {
+  q?: string;
+  skillName?: string;
+  jobName?: string;
+  observedLevel?: string;
+  jobIds?: string[];
+}): Promise<UserResponse[]> {
+  const { q, skillName, jobName, observedLevel, jobIds } = params;
+
+  const pipeline: any[] = [];
+
+  if (q && q.trim().length > 0) {
+    const regex = new RegExp(q, 'i');
+    pipeline.push({
+      $match: {
+        $or: [
+          { firstName: { $regex: regex } },
+          { lastName: { $regex: regex } },
+          { email: { $regex: regex } },
+          { code: { $regex: regex } },
+        ],
+      },
+    });
+  }
+
+  if ((jobName && jobName.trim().length > 0) || (jobIds && jobIds.length > 0)) {
+    const jobRegex = jobName ? new RegExp(jobName, 'i') : undefined;
+    pipeline.push(
+      { $lookup: { from: 'job', localField: 'jobId', foreignField: '_id', as: 'job' } },
+      { $unwind: '$job' },
+      ...(jobRegex ? [{ $match: { 'job.name': { $regex: jobRegex } } }] : []),
+      ...(jobIds && jobIds.length > 0
+        ? [{ $match: { 'job._id': { $in: jobIds.filter(Boolean).map((id) => new ObjectId(id)) } } }]
+        : []),
+    );
+  }
+
+  if ((skillName && skillName.trim().length > 0) || (observedLevel && observedLevel.trim().length > 0)) {
+    const skillStages: any[] = [
+      { $lookup: { from: 'evaluation', localField: '_id', foreignField: 'userId', as: 'evals' } },
+      { $unwind: '$evals' },
+      { $lookup: { from: 'evaluation_skill', localField: 'evals._id', foreignField: 'evaluationId', as: 'evalSkills' } },
+      { $unwind: '$evalSkills' },
+    ];
+    if (skillName && skillName.trim().length > 0) {
+      const skillRegex = new RegExp(skillName, 'i');
+      skillStages.push(
+        { $lookup: { from: 'skill', localField: 'evalSkills.skillId', foreignField: '_id', as: 'skill' } },
+        { $unwind: '$skill' },
+        { $match: { 'skill.name': { $regex: skillRegex } } },
+      );
+    }
+    if (observedLevel && observedLevel.trim().length > 0) {
+      skillStages.push({ $match: { 'evalSkills.observedLevel': observedLevel } });
+    }
+    pipeline.push(...skillStages);
+
+    // Group back to user unique
+    pipeline.push(
+      { $group: { _id: '$_id', doc: { $first: '$$ROOT' } } },
+      { $replaceRoot: { newRoot: '$doc' } },
+    );
+  }
+
+  const usersCollection = getUsersCollection();
+  const cursor = usersCollection.aggregate<User & any>(pipeline.length > 0 ? pipeline : [{ $match: {} }]);
+  const results = await cursor.toArray();
+  return results.map(convertToUserResponse);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

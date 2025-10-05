@@ -5,6 +5,7 @@ dotenv.config();
 import express, { Express } from "express";
 import { authRoutes, userRoutes, userAdminRoutes } from "./auth";
 import { skillsRoutes } from "./skills";
+import { jobRoutes } from "./job";
 import { evaluationRoutes } from "./evaluation";
 import helmet from "helmet";
 import cors from "cors";
@@ -32,17 +33,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Admin routes
-app.use("/admin/users", userAdminRoutes);
+app.use("/admin", userAdminRoutes);
 
 // Auth routes
-app.use("/auth", authRoutes);
-app.use("/users", userRoutes);
+app.use(authRoutes);
+app.use(userRoutes);
 
 // Skills routes
-app.use("/api", skillsRoutes);
+app.use(skillsRoutes);
+
+// Job routes
+app.use(jobRoutes);
 
 // Evaluation routes
-app.use("/api", evaluationRoutes);
+app.use(evaluationRoutes);
 
 // Error handler middleware
 app.use(errorHandler);

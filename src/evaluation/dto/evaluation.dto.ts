@@ -2,29 +2,27 @@ import { z } from "zod";
 
 // Evaluation schemas
 export const createEvaluationSchema = z.object({
-    employeeName: z.string().min(1, "Employee name is required"),
-    employeeRegistrationNumber: z.string().min(1, "Employee registration number is required"),
-    managerId: z.string().optional(),
-    managerName: z.string().optional(),
+    userJobId: z.string().optional(),
+    userJobCode: z.string().optional(),
+    userId: z.string().min(1, "User ID is required"),
+    userName: z.string().min(1, "User name is required"),
+    userCode: z.string().min(1, "User code is required"),
+    managerUserId: z.string().optional(),
+    managerUserName: z.string().optional(),
+    managerUserCode: z.string().optional(),
     observationDate: z.string().transform((str) => new Date(str)),
-    employeeId: z.string().min(1, "Employee ID is required"),
-    jobFamily: z.string().min(1, "Job family is required"),
-    jobProfile: z.string().min(1, "Job profile is required"),
-    jobTitle: z.string().min(1, "Job title is required"),
-    position: z.string().min(1, "Position is required"),
 });
 
 export const updateEvaluationSchema = z.object({
-    employeeName: z.string().min(1).optional(),
-    employeeRegistrationNumber: z.string().min(1).optional(),
-    managerId: z.string().optional(),
-    managerName: z.string().optional(),
+    userJobId: z.string().optional().nullable(),
+    userJobCode: z.string().optional().nullable(),
+    userId: z.string().optional(),
+    userName: z.string().optional(),
+    userCode: z.string().optional(),
+    managerUserId: z.string().optional().nullable(),
+    managerUserName: z.string().optional().nullable(),
+    managerUserCode: z.string().optional().nullable(),
     observationDate: z.string().transform((str) => new Date(str)).optional(),
-    employeeId: z.string().min(1).optional(),
-    jobFamily: z.string().min(1).optional(),
-    jobProfile: z.string().min(1).optional(),
-    jobTitle: z.string().min(1).optional(),
-    position: z.string().min(1).optional(),
 });
 
 export type CreateEvaluationInput = z.infer<typeof createEvaluationSchema>;
@@ -32,16 +30,15 @@ export type UpdateEvaluationInput = z.infer<typeof updateEvaluationSchema>;
 
 export type EvaluationResponse = {
     _id: string;
-    employeeName: string;
-    employeeRegistrationNumber: string;
-    managerId?: string;
-    managerName?: string;
+    userJobId?: string;
+    userJobCode?: string;
+    userId: string;
+    userName: string;
+    userCode: string;
+    managerUserId?: string;
+    managerUserName?: string;
+    managerUserCode?: string;
     observationDate: Date;
-    employeeId: string;
-    jobFamily: string;
-    jobProfile: string;
-    jobTitle: string;
-    position: string;
     createdAt: Date;
     updatedAt: Date;
     createdBy: string;

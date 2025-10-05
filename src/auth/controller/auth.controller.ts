@@ -8,37 +8,37 @@ import {
   createUserWithoutPassword,
 } from "../service/auth.service";
 import {
-  registerSchema,
-  loginSchema,
-  refreshTokenSchema,
+  RegisterSchema,
+  LoginSchema,
+  RefreshTokenSchema,
   ResetPasswordSchema,
-  resetPasswordTokenSchema,
+  ResetPasswordTokenSchema,
 } from "../dto/auth.dto";
 import { asyncHandler } from "../../utils/express/asyncHandler";
 import appConfig from "../../app.config";
 import { z } from "zod";
 
 export const signup = asyncHandler(async (req: Request, res: Response) => {
-  const validation = registerSchema.parse(req.body);
+  const validation = RegisterSchema.parse(req.body);
   const user = await createUser(validation);
   res.status(201).json(user);
 });
 
 export const signin = asyncHandler(async (req: Request, res: Response) => {
-  const request = loginSchema.parse(req.body);
+  const request = LoginSchema.parse(req.body);
   const user = await loginUser(request);
   res.status(200).json(user);
 });
 
 export const refreshAccessToken = asyncHandler(async (req: Request, res: Response) => {
-  const { refreshToken: token } = refreshTokenSchema.parse(req.body);
+  const { refreshToken: token } = RefreshTokenSchema.parse(req.body);
   const tokens = await refreshToken(token);
   res.status(200).json(tokens);
 });
 
 export const postResetPasswordToken = asyncHandler(async (req: Request, res: Response) => {
   const urlReset = appConfig.webapp.resetUrl;
-  const resetPasswordToken = resetPasswordTokenSchema.parse(req.body);
+  const resetPasswordToken = ResetPasswordTokenSchema.parse(req.body);
   await getResetPasswordToken(resetPasswordToken, urlReset);
   res.status(204).send();
 });
@@ -49,11 +49,14 @@ export const postResetPassword = asyncHandler(async (req: Request, res: Response
   res.status(204).send();
 });
 
-const createUserWithoutPasswordSchema = z.object({
+export const createUserWithoutPasswordSchema = z.object({
   email: z.string().email("Invalid email address"),
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
+  code: z.string().min(1, "Code is required"),
 });
+export type CreateUserWithoutPasswordRequest = z.infer<typeof createUserWithoutPasswordSchema>;
+
 
 export const createUserWithoutPasswordHandler = asyncHandler(async (req: Request, res: Response) => {
   const validation = createUserWithoutPasswordSchema.parse(req.body);

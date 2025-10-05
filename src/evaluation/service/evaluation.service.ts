@@ -1,5 +1,5 @@
 import { MongoCollection, ObjectId } from "../../utils/mongo/MongoCollection";
-import { NotFoundException, BadRequestException } from "../../utils/HttpException";
+import { NotFoundException } from "../../utils/HttpException";
 import { Evaluation } from "../model/evaluation";
 import { EvaluationSkill } from "../model/evaluationSkill";
 import { Skill } from "../../skills/model/skill";
@@ -39,51 +39,55 @@ export const getEvaluationWithSkills = async (id: string): Promise<EvaluationRes
 
 export const createEvaluation = async (params: CreateEvaluationInput, createdBy: string): Promise<EvaluationResponse> => {
     const {
-        employeeName,
-        employeeRegistrationNumber,
-        managerId,
-        managerName,
+        userJobId,
+        userJobCode,
+        userId,
+        userName,
+        userCode,
+        managerUserId,
+        managerUserName,
+        managerUserCode,
         observationDate,
-        employeeId,
-        jobFamily,
-        jobProfile,
-        jobTitle,
-        position,
     } = params;
 
-    const newEvaluation = {
+    const newEvaluation: Evaluation = {
         _id: new ObjectId(),
-        employeeName,
-        employeeRegistrationNumber,
-        managerId: managerId ? new ObjectId(managerId) : undefined,
-        managerName,
+        userJobId: userJobId ? new ObjectId(userJobId) : undefined,
+        userJobCode: userJobCode,
+        userId: new ObjectId(userId),
+        userName,
+        userCode,
+        managerUserId: managerUserId ? new ObjectId(managerUserId) : undefined,
+        managerUserName,
+        managerUserCode,
         observationDate,
-        employeeId: new ObjectId(employeeId),
-        jobFamily,
-        jobProfile,
-        jobTitle,
-        position,
         createdAt: new Date(),
         updatedAt: new Date(),
         createdBy: new ObjectId(createdBy),
-    };
+    } as Evaluation;
 
-    const evaluation = await getEvaluationsCollection().insertOne(newEvaluation);
+    const evaluation = await getEvaluationsCollection().insertOne(newEvaluation as any);
     return convertToEvaluationResponse(evaluation);
 };
 
 export const updateEvaluation = async (id: string, params: UpdateEvaluationInput): Promise<EvaluationResponse> => {
     const updateData: any = {
-        ...params,
         updatedAt: new Date(),
     };
 
-    if (params.managerId) {
-        updateData.managerId = new ObjectId(params.managerId);
+    if (params.userJobId !== undefined) {
+        updateData.userJobId = params.userJobId ? new ObjectId(params.userJobId) : undefined;
     }
-    if (params.employeeId) {
-        updateData.employeeId = new ObjectId(params.employeeId);
+    if (params.userJobCode !== undefined) updateData.userJobCode = params.userJobCode;
+    if (params.userId !== undefined) updateData.userId = new ObjectId(params.userId);
+    if (params.userName !== undefined) updateData.userName = params.userName;
+    if (params.userCode !== undefined) updateData.userCode = params.userCode;
+    if (params.managerUserId !== undefined) {
+        updateData.managerUserId = params.managerUserId ? new ObjectId(params.managerUserId) : undefined;
     }
+    if (params.managerUserName !== undefined) updateData.managerUserName = params.managerUserName;
+    if (params.managerUserCode !== undefined) updateData.managerUserCode = params.managerUserCode;
+    if (params.observationDate !== undefined) updateData.observationDate = params.observationDate as any;
 
     const evaluation = await getEvaluationsCollection().findOneAndUpdate(
         { _id: new ObjectId(id) } as any,
@@ -257,9 +261,9 @@ function getMacroSkillsCollection(): MongoCollection<MacroSkill> {
     return new MongoCollection<MacroSkill>("macro_skill");
 }
 
-function getMacroSkillTypesCollection(): MongoCollection<MacroSkillType> {
-    return new MongoCollection<MacroSkillType>("macro_skill_type");
-}
+// function getMacroSkillTypesCollection(): MongoCollection<MacroSkillType> {
+//     return new MongoCollection<MacroSkillType>("macro_skill_type");
+// }
 
 // Helper function to get evaluation skills with full details
 async function getEvaluationSkillsWithDetails(evaluationId?: string): Promise<EvaluationSkillResponse[]> {
@@ -321,20 +325,19 @@ function getEvaluationSkillAggregationPipeline() {
 function convertToEvaluationResponse(evaluation: Evaluation): EvaluationResponse {
     return {
         _id: evaluation._id.toString(),
-        employeeName: evaluation.employeeName,
-        employeeRegistrationNumber: evaluation.employeeRegistrationNumber,
-        managerId: evaluation.managerId?.toString(),
-        managerName: evaluation.managerName,
+        userJobId: evaluation.userJobId?.toString(),
+        userJobCode: evaluation.userJobCode,
+        userId: evaluation.userId.toString(),
+        userName: evaluation.userName,
+        userCode: evaluation.userCode,
+        managerUserId: evaluation.managerUserId?.toString(),
+        managerUserName: evaluation.managerUserName,
+        managerUserCode: evaluation.managerUserCode,
         observationDate: evaluation.observationDate,
-        employeeId: evaluation.employeeId.toString(),
-        jobFamily: evaluation.jobFamily,
-        jobProfile: evaluation.jobProfile,
-        jobTitle: evaluation.jobTitle,
-        position: evaluation.position,
         createdAt: evaluation.createdAt,
         updatedAt: evaluation.updatedAt,
         createdBy: evaluation.createdBy.toString(),
-    };
+    } as EvaluationResponse;
 }
 
 function convertToEvaluationSkillResponse(
