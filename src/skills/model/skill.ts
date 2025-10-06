@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 export interface Skill {
     _id: ObjectId;
     name: string;
-    expectedLevel: string | null;
+    expectedLevel: number | null;
     macroSkillId: ObjectId;
     createdAt: Date;
 }

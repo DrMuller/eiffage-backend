@@ -6,8 +6,8 @@ export interface EvaluationSkill {
     skillId: ObjectId;
     macroSkillId: ObjectId;
     macroSkillTypeId: ObjectId;
-    expectedLevel: string | null;
-    observedLevel: string | null;
+    expectedLevel: number | null;
+    observedLevel: number | null;
     gap: number | null; // Calculated field: observedLevel - expectedLevel
     createdAt: Date;
 }

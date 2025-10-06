@@ -290,6 +290,14 @@ export async function searchUsers(params: {
   return results.map(convertToUserResponse);
 }
 
+export async function getTeamMembers(managerId: string): Promise<UserResponse[]> {
+  const userCollection = getUsersCollection();
+  const teamMembers = await userCollection.find({
+    managerUserId: new ObjectId(managerId)
+  });
+  return teamMembers.map(convertToUserResponse);
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function getUsersCollection(): MongoCollection<User> {

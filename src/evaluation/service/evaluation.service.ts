@@ -7,7 +7,6 @@ import { MacroSkill } from "../../skills/model/macroSkill";
 import { MacroSkillType } from "../../skills/model/macroSkillType";
 import {
     CreateEvaluationInput,
-    UpdateEvaluationInput,
     EvaluationResponse,
     CreateEvaluationSkillInput,
     UpdateEvaluationSkillInput,
@@ -42,12 +41,7 @@ export const createEvaluation = async (params: CreateEvaluationInput, createdBy:
         userJobId,
         userJobCode,
         userId,
-        userName,
-        userCode,
         managerUserId,
-        managerUserName,
-        managerUserCode,
-        observationDate,
     } = params;
 
     const newEvaluation: Evaluation = {
@@ -55,44 +49,13 @@ export const createEvaluation = async (params: CreateEvaluationInput, createdBy:
         userJobId: userJobId ? new ObjectId(userJobId) : undefined,
         userJobCode: userJobCode,
         userId: new ObjectId(userId),
-        userName,
-        userCode,
         managerUserId: managerUserId ? new ObjectId(managerUserId) : undefined,
-        managerUserName,
-        managerUserCode,
-        observationDate,
         createdAt: new Date(),
         updatedAt: new Date(),
         createdBy: new ObjectId(createdBy),
     } as Evaluation;
 
     const evaluation = await getEvaluationsCollection().insertOne(newEvaluation as any);
-    return convertToEvaluationResponse(evaluation);
-};
-
-export const updateEvaluation = async (id: string, params: UpdateEvaluationInput): Promise<EvaluationResponse> => {
-    const updateData: any = {
-        updatedAt: new Date(),
-    };
-
-    if (params.userJobId !== undefined) {
-        updateData.userJobId = params.userJobId ? new ObjectId(params.userJobId) : undefined;
-    }
-    if (params.userJobCode !== undefined) updateData.userJobCode = params.userJobCode;
-    if (params.userId !== undefined) updateData.userId = new ObjectId(params.userId);
-    if (params.userName !== undefined) updateData.userName = params.userName;
-    if (params.userCode !== undefined) updateData.userCode = params.userCode;
-    if (params.managerUserId !== undefined) {
-        updateData.managerUserId = params.managerUserId ? new ObjectId(params.managerUserId) : undefined;
-    }
-    if (params.managerUserName !== undefined) updateData.managerUserName = params.managerUserName;
-    if (params.managerUserCode !== undefined) updateData.managerUserCode = params.managerUserCode;
-    if (params.observationDate !== undefined) updateData.observationDate = params.observationDate as any;
-
-    const evaluation = await getEvaluationsCollection().findOneAndUpdate(
-        { _id: new ObjectId(id) } as any,
-        updateData
-    );
     return convertToEvaluationResponse(evaluation);
 };
 
@@ -168,8 +131,8 @@ export const createEvaluationSkill = async (params: CreateEvaluationSkillInput):
     // Calculate gap if both levels are provided
     let gap: number | null = null;
     if (expectedLevel && observedLevel) {
-        const expectedNum = parseFloat(expectedLevel);
-        const observedNum = parseFloat(observedLevel);
+        const expectedNum = expectedLevel;
+        const observedNum = observedLevel;
         if (!isNaN(expectedNum) && !isNaN(observedNum)) {
             gap = observedNum - expectedNum;
         }
@@ -200,8 +163,8 @@ export const updateEvaluationSkill = async (id: string, params: UpdateEvaluation
     const observedLevel = params.observedLevel !== undefined ? params.observedLevel : existingEvaluationSkill.observedLevel;
 
     if (expectedLevel && observedLevel) {
-        const expectedNum = parseFloat(expectedLevel);
-        const observedNum = parseFloat(observedLevel);
+        const expectedNum = expectedLevel;
+        const observedNum = observedLevel;
         if (!isNaN(expectedNum) && !isNaN(observedNum)) {
             gap = observedNum - expectedNum;
         }
@@ -328,12 +291,7 @@ function convertToEvaluationResponse(evaluation: Evaluation): EvaluationResponse
         userJobId: evaluation.userJobId?.toString(),
         userJobCode: evaluation.userJobCode,
         userId: evaluation.userId.toString(),
-        userName: evaluation.userName,
-        userCode: evaluation.userCode,
         managerUserId: evaluation.managerUserId?.toString(),
-        managerUserName: evaluation.managerUserName,
-        managerUserCode: evaluation.managerUserCode,
-        observationDate: evaluation.observationDate,
         createdAt: evaluation.createdAt,
         updatedAt: evaluation.updatedAt,
         createdBy: evaluation.createdBy.toString(),
