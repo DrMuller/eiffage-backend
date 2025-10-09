@@ -152,11 +152,20 @@ export const getAllSkills = async (): Promise<SkillResponse[]> => {
         },
         {
             $unwind: "$macroSkill.macroSkillType"
+        },
+        {
+            $lookup: {
+                from: "job_skill",
+                localField: "_id",
+                foreignField: "skillId",
+                as: "jobSkills"
+            }
         }
     ];
 
     const cursor = skillsCollection.aggregate<Skill & {
-        macroSkill: MacroSkill & { macroSkillType: MacroSkillType }
+        macroSkill: MacroSkill & { macroSkillType: MacroSkillType },
+        jobSkills: { jobId: ObjectId }[]
     }>(pipeline);
     const results = await cursor.toArray();
 
@@ -172,6 +181,7 @@ export const getAllSkills = async (): Promise<SkillResponse[]> => {
             macroSkillType: convertToMacroSkillTypeResponse(result.macroSkill.macroSkillType),
             createdAt: result.macroSkill.createdAt,
         },
+        jobIds: result.jobSkills?.map(js => js.jobId.toString()) || [],
         createdAt: result.createdAt,
     }));
 };
@@ -204,11 +214,20 @@ export const getSkillById = async (id: string): Promise<SkillResponse> => {
         },
         {
             $unwind: "$macroSkill.macroSkillType"
+        },
+        {
+            $lookup: {
+                from: "job_skill",
+                localField: "_id",
+                foreignField: "skillId",
+                as: "jobSkills"
+            }
         }
     ];
 
     const cursor = skillsCollection.aggregate<Skill & {
-        macroSkill: MacroSkill & { macroSkillType: MacroSkillType }
+        macroSkill: MacroSkill & { macroSkillType: MacroSkillType },
+        jobSkills: { jobId: ObjectId }[]
     }>(pipeline);
     const results = await cursor.toArray();
 
@@ -229,6 +248,7 @@ export const getSkillById = async (id: string): Promise<SkillResponse> => {
             macroSkillType: convertToMacroSkillTypeResponse(result.macroSkill.macroSkillType),
             createdAt: result.macroSkill.createdAt,
         },
+        jobIds: result.jobSkills?.map(js => js.jobId.toString()) || [],
         createdAt: result.createdAt,
     };
 };

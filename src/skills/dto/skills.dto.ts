@@ -35,7 +35,7 @@ export type MacroSkillResponse = {
 // Skill schemas
 export const createSkillSchema = z.object({
     name: z.string().min(1, "Name is required"),
-    expectedLevel: z.string().nullable().optional(),
+    expectedLevel: z.number().nullable().optional(),
     macroSkillId: z.string().min(1, "Macro skill ID is required"),
 });
 
@@ -44,7 +44,7 @@ export type CreateSkillInput = z.infer<typeof createSkillSchema>;
 export type SkillResponse = {
     _id: string;
     name: string;
-    expectedLevel: string | null;
+    expectedLevel: number | null;
     macroSkillId: string;
     macroSkill: {
         _id: string;
@@ -53,5 +53,6 @@ export type SkillResponse = {
         macroSkillType: MacroSkillTypeResponse;
         createdAt: Date;
     };
+    jobIds: string[];
     createdAt: Date;
 };

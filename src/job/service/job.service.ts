@@ -208,7 +208,7 @@ function convertToMacroSkillTypeResponse(macroSkillType: MacroSkillType): MacroS
     };
 }
 
-function convertToSkillResponse(skill: Skill & { macroSkill: MacroSkill & { macroSkillType: MacroSkillType } }): SkillResponse {
+function convertToSkillResponse(skill: Skill & { macroSkill: MacroSkill & { macroSkillType: MacroSkillType }, jobSkills?: { jobId: ObjectId }[] }): SkillResponse {
     return {
         _id: skill._id.toString(),
         name: skill.name,
@@ -221,6 +221,7 @@ function convertToSkillResponse(skill: Skill & { macroSkill: MacroSkill & { macr
             macroSkillType: convertToMacroSkillTypeResponse(skill.macroSkill.macroSkillType),
             createdAt: skill.macroSkill.createdAt,
         },
+        jobIds: skill.jobSkills?.map(js => js.jobId.toString()) || [],
         createdAt: skill.createdAt,
     };
 }
@@ -247,8 +248,16 @@ async function getEnrichedSkill(skillId: string): Promise<SkillResponse> {
             },
         },
         { $unwind: "$macroSkill.macroSkillType" },
+        {
+            $lookup: {
+                from: "job_skill",
+                localField: "_id",
+                foreignField: "skillId",
+                as: "jobSkills",
+            },
+        },
     ];
-    const cursor = skillsCollection.aggregate<Skill & { macroSkill: MacroSkill & { macroSkillType: MacroSkillType } }>(pipeline);
+    const cursor = skillsCollection.aggregate<Skill & { macroSkill: MacroSkill & { macroSkillType: MacroSkillType }, jobSkills: { jobId: ObjectId }[] }>(pipeline);
     const results = await cursor.toArray();
     if (results.length === 0) throw new NotFoundException("Skill not found");
     return convertToSkillResponse(results[0]);
