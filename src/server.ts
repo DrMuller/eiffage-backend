@@ -6,7 +6,7 @@ import express, { Express } from "express";
 import { authRoutes, userRoutes, userAdminRoutes } from "./auth";
 import { skillsRoutes } from "./skills";
 import { jobRoutes } from "./job";
-import { evaluationRoutes } from "./evaluation";
+import { evaluationRoutes, evaluationCampaignRoutes } from "./evaluation";
 import helmet from "helmet";
 import cors from "cors";
 import logger from "./utils/logger";
@@ -47,6 +47,7 @@ app.use(jobRoutes);
 
 // Evaluation routes
 app.use(evaluationRoutes);
+app.use(evaluationCampaignRoutes);
 
 // Error handler middleware
 app.use(errorHandler);
