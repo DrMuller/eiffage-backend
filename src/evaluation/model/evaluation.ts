@@ -6,6 +6,7 @@ export interface Evaluation {
     userJobCode?: string;
     userId: ObjectId;
     managerUserId?: ObjectId;
+    evaluationCampaignId: ObjectId;
     createdAt: Date;
     updatedAt: Date;
     createdBy: ObjectId;

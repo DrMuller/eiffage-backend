@@ -6,6 +6,7 @@ export const createEvaluationSchema = z.object({
     userJobCode: z.string().optional(),
     userId: z.string(),
     managerUserId: z.string(),
+    evaluationCampaignId: z.string().min(1, "Evaluation Campaign ID is required"),
 });
 
 export type CreateEvaluationInput = z.infer<typeof createEvaluationSchema>;
@@ -16,6 +17,7 @@ export type EvaluationResponse = {
     userJobCode?: string;
     userId: string;
     managerUserId: string;
+    evaluationCampaignId: string;
     observationDate: Date;
     createdAt: Date;
     updatedAt: Date;
@@ -52,6 +54,7 @@ export type BulkCreateEvaluationSkillsInput = z.infer<typeof bulkCreateEvaluatio
 export type EvaluationSkillResponse = {
     _id: string;
     evaluationId: string;
+    evaluationCampaignId: string;
     skillId: string;
     macroSkillId: string;
     macroSkillTypeId: string;

@@ -42,6 +42,7 @@ export const createEvaluation = async (params: CreateEvaluationInput, createdBy:
         userJobCode,
         userId,
         managerUserId,
+        evaluationCampaignId,
     } = params;
 
     const newEvaluation: Evaluation = {
@@ -50,6 +51,7 @@ export const createEvaluation = async (params: CreateEvaluationInput, createdBy:
         userJobCode: userJobCode,
         userId: new ObjectId(userId),
         managerUserId: managerUserId ? new ObjectId(managerUserId) : undefined,
+        evaluationCampaignId: new ObjectId(evaluationCampaignId),
         createdAt: new Date(),
         updatedAt: new Date(),
         createdBy: new ObjectId(createdBy),
@@ -122,7 +124,7 @@ export const createEvaluationSkill = async (params: CreateEvaluationSkillInput):
     const { evaluationId, skillId, expectedLevel, observedLevel } = params;
 
     // Verify that the evaluation exists
-    await getEvaluationsCollection().findOneById(evaluationId);
+    const evaluation = await getEvaluationsCollection().findOneById(evaluationId);
 
     // Get the skill to extract macro skill information
     const skill = await getSkillsCollection().findOneById(skillId);
@@ -141,6 +143,7 @@ export const createEvaluationSkill = async (params: CreateEvaluationSkillInput):
     const newEvaluationSkill = {
         _id: new ObjectId(),
         evaluationId: new ObjectId(evaluationId),
+        evaluationCampaignId: evaluation.evaluationCampaignId,
         skillId: new ObjectId(skillId),
         macroSkillId: skill.macroSkillId,
         macroSkillTypeId: macroSkill.macroSkillTypeId,
@@ -292,6 +295,7 @@ function convertToEvaluationResponse(evaluation: Evaluation): EvaluationResponse
         userJobCode: evaluation.userJobCode,
         userId: evaluation.userId.toString(),
         managerUserId: evaluation.managerUserId?.toString(),
+        evaluationCampaignId: evaluation.evaluationCampaignId?.toString(),
         createdAt: evaluation.createdAt,
         updatedAt: evaluation.updatedAt,
         createdBy: evaluation.createdBy.toString(),
@@ -308,6 +312,7 @@ function convertToEvaluationSkillResponse(
     return {
         _id: evaluationSkill._id.toString(),
         evaluationId: evaluationSkill.evaluationId.toString(),
+        evaluationCampaignId: evaluationSkill.evaluationCampaignId?.toString(),
         skillId: evaluationSkill.skillId.toString(),
         macroSkillId: evaluationSkill.macroSkillId.toString(),
         macroSkillTypeId: evaluationSkill.macroSkillTypeId.toString(),
