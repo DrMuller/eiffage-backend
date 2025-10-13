@@ -4,7 +4,6 @@ import { Evaluation } from "../model/evaluation";
 import { EvaluationSkill, EvaluationSkillEnriched } from "../model/evaluationSkill";
 import { Skill } from "../../skills/model/skill";
 import { MacroSkill } from "../../skills/model/macroSkill";
-import { MacroSkillType } from "../../skills/model/macroSkillType";
 import { SkillLevel } from "../model/skillLevel";
 import { EvaluationCampaign } from "../model/evaluationCampaign";
 import {

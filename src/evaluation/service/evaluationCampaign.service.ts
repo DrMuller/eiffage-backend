@@ -5,6 +5,7 @@ import {
     UpdateEvaluationCampaignInput,
     EvaluationCampaignResponse,
 } from "../dto/evaluationCampaign.dto";
+import { NotFoundException } from "../../utils/HttpException";
 
 // Helper function for collection access
 function getEvaluationCampaignsCollection(): MongoCollection<EvaluationCampaign> {
@@ -26,6 +27,20 @@ function convertToEvaluationCampaignResponse(campaign: EvaluationCampaign): Eval
 export const getAllEvaluationCampaigns = async (): Promise<EvaluationCampaignResponse[]> => {
     const campaigns = await getEvaluationCampaignsCollection().find({});
     return campaigns.map(convertToEvaluationCampaignResponse);
+};
+
+// Get current active campaign (now between startDate and endDate). If none, 404.
+export const getCurrentEvaluationCampaign = async (): Promise<EvaluationCampaignResponse> => {
+    const now = new Date();
+    const campaign = await getEvaluationCampaignsCollection().findOne(
+        {
+            startDate: { $lte: now } as any,
+            endDate: { $gte: now } as any,
+        } as any,
+        { sort: { startDate: -1 } as any }
+    );
+    if (!campaign) throw new NotFoundException("No active evaluation campaign");
+    return convertToEvaluationCampaignResponse(campaign);
 };
 
 export const getEvaluationCampaignById = async (id: string): Promise<EvaluationCampaignResponse> => {

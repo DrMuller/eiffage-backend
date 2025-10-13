@@ -1,15 +1,19 @@
 import { Request, Response } from "express";
 import {
-    getAllMacroSkillTypes,
-    getMacroSkillTypeById,
-    createMacroSkillType,
-    getAllMacroSkills,
-    getMacroSkillById,
-    createMacroSkill,
     getAllSkills,
     getSkillById,
     createSkill,
 } from "../service/skills.service";
+import {
+    getAllMacroSkillTypes,
+    getMacroSkillTypeById,
+    createMacroSkillType,
+} from "../service/macroSkillType.service";
+import {
+    getAllMacroSkills,
+    getMacroSkillById,
+    createMacroSkill,
+} from "../service/macroSkill.service";
 import {
     createMacroSkillTypeSchema,
     createMacroSkillSchema,

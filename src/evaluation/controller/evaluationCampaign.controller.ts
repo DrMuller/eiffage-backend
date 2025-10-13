@@ -5,6 +5,7 @@ import {
     createEvaluationCampaign,
     updateEvaluationCampaign,
     deleteEvaluationCampaign,
+    getCurrentEvaluationCampaign,
 } from "../service/evaluationCampaign.service";
 import {
     createEvaluationCampaignSchema,
@@ -41,5 +42,10 @@ export const deleteEvaluationCampaignHandler = asyncHandler(async (req: Request,
     const { id } = req.params;
     await deleteEvaluationCampaign(id);
     res.status(204).send();
+});
+
+export const getCurrentEvaluationCampaignHandler = asyncHandler(async (req: Request, res: Response) => {
+    const campaign = await getCurrentEvaluationCampaign();
+    res.status(200).json(campaign);
 });
 
