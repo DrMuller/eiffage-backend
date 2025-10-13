@@ -1,7 +1,4 @@
 import { z } from "zod";
-import { MacroSkillType } from "../model/macroSkillType";
-import { MacroSkill } from "../model/macroSkill";
-import { Skill } from "../model/skill";
 
 // MacroSkillType schemas
 export const createMacroSkillTypeSchema = z.object({
@@ -44,15 +41,22 @@ export type CreateSkillInput = z.infer<typeof createSkillSchema>;
 export type SkillResponse = {
     _id: string;
     name: string;
-    expectedLevel: number | null;
     macroSkillId: string;
-    macroSkill: {
-        _id: string;
-        name: string;
-        macroSkillTypeId: string;
-        macroSkillType: MacroSkillTypeResponse;
-        createdAt: Date;
-    };
-    jobIds: string[];
+    macroSkillName: string;
+    macroSkillTypeId: string;
+    macroSkillTypeName: string;
+    jobSkills: { jobId: string, expectedLevel: number }[];
     createdAt: Date;
+};
+
+export type JobSkillResponse = {
+    _id: string;
+    skillId: string;
+    skillName: string;
+    macroSkillId: string;
+    macroSkillName: string;
+    macroSkillTypeId: string;
+    macroSkillTypeName: string;
+    jobId: string;
+    expectedLevel: number;
 };

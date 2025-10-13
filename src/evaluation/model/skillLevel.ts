@@ -1,9 +1,13 @@
 import { ObjectId } from "mongodb";
 
-export interface JobSkill {
+export interface SkillLevel {
     _id: ObjectId;
-    jobId: ObjectId;
+    userId: ObjectId;
     skillId: ObjectId;
-    expectedLevel: number;
+    level: number | null;
     createdAt: Date;
+    updatedAt: Date;
 }
+
+
+

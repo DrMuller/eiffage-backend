@@ -29,21 +29,18 @@ export type EvaluationResponse = {
 export const createEvaluationSkillSchema = z.object({
     evaluationId: z.string().min(1, "Evaluation ID is required"),
     skillId: z.string().min(1, "Skill ID is required"),
-    expectedLevel: z.number().nullable().optional(),
-    observedLevel: z.number().nullable().optional(),
+    observedLevel: z.number(),
 });
 
 export const updateEvaluationSkillSchema = z.object({
-    expectedLevel: z.number().nullable().optional(),
-    observedLevel: z.number().nullable().optional(),
+    observedLevel: z.number(),
 });
 
 export const bulkCreateEvaluationSkillsSchema = z.object({
     evaluationId: z.string().min(1, "Evaluation ID is required"),
     skills: z.array(z.object({
         skillId: z.string().min(1, "Skill ID is required"),
-        expectedLevel: z.number().nullable().optional(),
-        observedLevel: z.number().nullable().optional(),
+        observedLevel: z.number(),
     })).min(1, "At least one skill is required"),
 });
 
@@ -58,26 +55,11 @@ export type EvaluationSkillResponse = {
     skillId: string;
     macroSkillId: string;
     macroSkillTypeId: string;
-    expectedLevel: number | null;
-    observedLevel: number | null;
-    gap: number | null;
+    observedLevel: number;
+    skillName: string;
+    macroSkillName: string;
+    macroSkillTypeName: string;
     createdAt: Date;
-    skill: {
-        _id: string;
-        name: string;
-        expectedLevel: number | null;
-        macroSkill: {
-            _id: string;
-            name: string;
-            macroSkillType: {
-                _id: string;
-                name: string;
-                createdAt?: Date;
-            };
-            createdAt?: Date;
-        };
-        createdAt: Date;
-    };
 };
 
 // Complete evaluation with skills
@@ -85,8 +67,7 @@ export const createCompleteEvaluationSchema = z.object({
     evaluation: createEvaluationSchema,
     skills: z.array(z.object({
         skillId: z.string().min(1, "Skill ID is required"),
-        expectedLevel: z.number().nullable().optional(),
-        observedLevel: z.number().nullable().optional(),
+        observedLevel: z.number(),
     })).min(1, "At least one skill is required"),
 });
 

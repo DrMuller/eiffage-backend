@@ -1,10 +1,12 @@
 import { MongoCollection, ObjectId } from "../../utils/mongo/MongoCollection";
 import { NotFoundException } from "../../utils/HttpException";
 import { Evaluation } from "../model/evaluation";
-import { EvaluationSkill } from "../model/evaluationSkill";
+import { EvaluationSkill, EvaluationSkillEnriched } from "../model/evaluationSkill";
 import { Skill } from "../../skills/model/skill";
 import { MacroSkill } from "../../skills/model/macroSkill";
 import { MacroSkillType } from "../../skills/model/macroSkillType";
+import { SkillLevel } from "../model/skillLevel";
+import { EvaluationCampaign } from "../model/evaluationCampaign";
 import {
     CreateEvaluationInput,
     EvaluationResponse,
@@ -85,7 +87,13 @@ export const createCompleteEvaluation = async (
     await bulkCreateEvaluationSkills(skillsData);
 
     // Return the complete evaluation with skills
-    return await getEvaluationWithSkills(evaluation._id);
+    const evaluationWithSkills = await getEvaluationWithSkills(evaluation._id);
+
+    // Update SkillLevel entries based on rules
+    const evaluationModel = await getEvaluationsCollection().findOneById(evaluation._id);
+    await updateSkillLevelsAfterEvaluation(evaluationModel);
+
+    return evaluationWithSkills;
 };
 
 // EvaluationSkill Service Functions
@@ -105,11 +113,7 @@ export const getEvaluationSkillById = async (id: string): Promise<EvaluationSkil
         ...getEvaluationSkillAggregationPipeline(),
     ];
 
-    const cursor = evaluationSkillsCollection.aggregate<EvaluationSkill & {
-        skill: Skill & {
-            macroSkill: MacroSkill & { macroSkillType: MacroSkillType }
-        }
-    }>(pipeline);
+    const cursor = evaluationSkillsCollection.aggregate<EvaluationSkillEnriched>(pipeline);
 
     const results = await cursor.toArray();
 
@@ -121,7 +125,7 @@ export const getEvaluationSkillById = async (id: string): Promise<EvaluationSkil
 };
 
 export const createEvaluationSkill = async (params: CreateEvaluationSkillInput): Promise<EvaluationSkillResponse> => {
-    const { evaluationId, skillId, expectedLevel, observedLevel } = params;
+    const { evaluationId, skillId, observedLevel } = params;
 
     // Verify that the evaluation exists
     const evaluation = await getEvaluationsCollection().findOneById(evaluationId);
@@ -130,16 +134,6 @@ export const createEvaluationSkill = async (params: CreateEvaluationSkillInput):
     const skill = await getSkillsCollection().findOneById(skillId);
     const macroSkill = await getMacroSkillsCollection().findOneById(skill.macroSkillId.toString());
 
-    // Calculate gap if both levels are provided
-    let gap: number | null = null;
-    if (expectedLevel && observedLevel) {
-        const expectedNum = expectedLevel;
-        const observedNum = observedLevel;
-        if (!isNaN(expectedNum) && !isNaN(observedNum)) {
-            gap = observedNum - expectedNum;
-        }
-    }
-
     const newEvaluationSkill = {
         _id: new ObjectId(),
         evaluationId: new ObjectId(evaluationId),
@@ -147,9 +141,7 @@ export const createEvaluationSkill = async (params: CreateEvaluationSkillInput):
         skillId: new ObjectId(skillId),
         macroSkillId: skill.macroSkillId,
         macroSkillTypeId: macroSkill.macroSkillTypeId,
-        expectedLevel: expectedLevel || null,
-        observedLevel: observedLevel || null,
-        gap,
+        observedLevel: observedLevel,
         createdAt: new Date(),
     };
 
@@ -158,25 +150,8 @@ export const createEvaluationSkill = async (params: CreateEvaluationSkillInput):
 };
 
 export const updateEvaluationSkill = async (id: string, params: UpdateEvaluationSkillInput): Promise<EvaluationSkillResponse> => {
-    const existingEvaluationSkill = await getEvaluationSkillsCollection().findOneById(id);
-
-    // Calculate gap if both levels are provided
-    let gap: number | null = null;
-    const expectedLevel = params.expectedLevel !== undefined ? params.expectedLevel : existingEvaluationSkill.expectedLevel;
-    const observedLevel = params.observedLevel !== undefined ? params.observedLevel : existingEvaluationSkill.observedLevel;
-
-    if (expectedLevel && observedLevel) {
-        const expectedNum = expectedLevel;
-        const observedNum = observedLevel;
-        if (!isNaN(expectedNum) && !isNaN(observedNum)) {
-            gap = observedNum - expectedNum;
-        }
-    }
-
-    const updateData = {
-        ...params,
-        gap,
-    };
+    // Only observedLevel can be updated on EvaluationSkill now
+    const updateData = { ...params } as Partial<EvaluationSkill>;
 
     await getEvaluationSkillsCollection().findOneAndUpdate(
         { _id: new ObjectId(id) } as any,
@@ -201,7 +176,6 @@ export const bulkCreateEvaluationSkills = async (params: BulkCreateEvaluationSki
         const evaluationSkill = await createEvaluationSkill({
             evaluationId,
             skillId: skillData.skillId,
-            expectedLevel: skillData.expectedLevel,
             observedLevel: skillData.observedLevel,
         });
         results.push(evaluationSkill);
@@ -244,14 +218,126 @@ async function getEvaluationSkillsWithDetails(evaluationId?: string): Promise<Ev
         ...getEvaluationSkillAggregationPipeline(),
     ];
 
-    const cursor = evaluationSkillsCollection.aggregate<EvaluationSkill & {
-        skill: Skill & {
-            macroSkill: MacroSkill & { macroSkillType: MacroSkillType }
-        }
-    }>(pipeline);
-
+    const cursor = evaluationSkillsCollection.aggregate<EvaluationSkillEnriched>(pipeline);
     const results = await cursor.toArray();
     return results.map(convertToEvaluationSkillResponse);
+}
+
+// Additional collections
+function getEvaluationCampaignsCollection(): MongoCollection<EvaluationCampaign> {
+    return new MongoCollection<EvaluationCampaign>("evaluation_campaign");
+}
+
+function getSkillLevelsCollection(): MongoCollection<SkillLevel> {
+    return new MongoCollection<SkillLevel>("skill_level");
+}
+
+// Update SkillLevel according to rules after an evaluation is created
+async function updateSkillLevelsAfterEvaluation(evaluation: Evaluation): Promise<void> {
+    // Ensure campaign exists (fetched but not used explicitly beyond validation)
+    await getEvaluationCampaignsCollection().findOneById(evaluation.evaluationCampaignId.toString());
+
+    // Get skills created for this evaluation
+    const createdSkills = await getEvaluationSkillsWithDetails(evaluation._id.toString());
+
+    for (const created of createdSkills) {
+        const newLevel = created.observedLevel;
+        // Find previous evaluationSkill for this user+skill, excluding current evaluation
+        const previous = await findPreviousEvaluationSkillOfUserForSkill(
+            evaluation.userId,
+            new ObjectId(created.skillId),
+            evaluation._id
+        );
+
+        let levelToSave: number = newLevel;
+
+        if (previous) {
+            const sameCampaign = previous.evaluation.evaluationCampaignId.toString() === evaluation.evaluationCampaignId.toString();
+            const previousLevel = previous.observedLevel ?? newLevel;
+            if (sameCampaign) {
+                levelToSave = average(previousLevel, newLevel);
+            } else {
+                const existingSkillLevel = await getSkillLevelsCollection().findOne({
+                    userId: evaluation.userId,
+                    skillId: new ObjectId(created.skillId),
+                } as any);
+                if (existingSkillLevel) {
+                    levelToSave = average(existingSkillLevel.level ?? newLevel, newLevel);
+                } else {
+                    levelToSave = newLevel;
+                }
+            }
+        } else {
+            const existingSkillLevel = await getSkillLevelsCollection().findOne({
+                userId: evaluation.userId,
+                skillId: new ObjectId(created.skillId),
+            } as any);
+            if (existingSkillLevel) {
+                levelToSave = average(existingSkillLevel.level ?? newLevel, newLevel);
+            } else {
+                levelToSave = newLevel;
+            }
+        }
+
+        // Upsert SkillLevel
+        const existing = await getSkillLevelsCollection().findOne({
+            userId: evaluation.userId,
+            skillId: new ObjectId(created.skillId),
+        } as any);
+
+        if (existing) {
+            await getSkillLevelsCollection().findOneAndUpdate(
+                { _id: existing._id } as any,
+                {
+                    level: levelToSave,
+                    updatedAt: new Date(),
+                }
+            );
+        } else {
+            await getSkillLevelsCollection().insertOne({
+                _id: new ObjectId(),
+                userId: evaluation.userId,
+                skillId: new ObjectId(created.skillId),
+                level: levelToSave,
+                createdAt: new Date(),
+                updatedAt: new Date(),
+            });
+        }
+    }
+}
+
+function average(a: number, b: number): number {
+    return (a + b) / 2;
+}
+
+
+// Find the previous evaluationSkill for a user and skill, excluding the current evaluation
+async function findPreviousEvaluationSkillOfUserForSkill(
+    userId: ObjectId,
+    skillId: ObjectId,
+    currentEvaluationId: ObjectId
+): Promise<(EvaluationSkill & { evaluation: Evaluation }) | null> {
+    const evaluationSkillsCollection = getEvaluationSkillsCollection();
+
+    const pipeline: any[] = [
+        { $match: { skillId } },
+        { $sort: { createdAt: -1 } },
+        {
+            $lookup: {
+                from: "evaluation",
+                localField: "evaluationId",
+                foreignField: "_id",
+                as: "evaluation",
+            },
+        },
+        { $unwind: "$evaluation" },
+        { $match: { "evaluation.userId": userId, "evaluation._id": { $ne: currentEvaluationId } } },
+        { $limit: 1 },
+    ];
+
+    const cursor = evaluationSkillsCollection.aggregate<EvaluationSkill & { evaluation: Evaluation }>(pipeline);
+    const results = await cursor.toArray();
+    return results[0] || null;
 }
 
 // Helper function to get the aggregation pipeline for evaluation skills
@@ -284,6 +370,22 @@ function getEvaluationSkillAggregationPipeline() {
             }
         },
         { $unwind: "$skill.macroSkill.macroSkillType" },
+        {
+            $project:
+            {
+                _id: 1,
+                evaluationId: 1,
+                evaluationCampaignId: 1,
+                skillId: 1,
+                skillName: "$skill.name",
+                macroSkillId: 1,
+                macroSkillName: "$skill.macroSkill.name",
+                macroSkillTypeId: 1,
+                macroSkillTypeName: "$skill.macroSkill.macroSkillType.name",
+                observedLevel: 1,
+                createdAt: 1
+            }
+        },
     ];
 }
 
@@ -303,11 +405,7 @@ function convertToEvaluationResponse(evaluation: Evaluation): EvaluationResponse
 }
 
 function convertToEvaluationSkillResponse(
-    evaluationSkill: EvaluationSkill & {
-        skill: Skill & {
-            macroSkill: MacroSkill & { macroSkillType: MacroSkillType }
-        }
-    }
+    evaluationSkill: EvaluationSkillEnriched
 ): EvaluationSkillResponse {
     return {
         _id: evaluationSkill._id.toString(),
@@ -316,25 +414,10 @@ function convertToEvaluationSkillResponse(
         skillId: evaluationSkill.skillId.toString(),
         macroSkillId: evaluationSkill.macroSkillId.toString(),
         macroSkillTypeId: evaluationSkill.macroSkillTypeId.toString(),
-        expectedLevel: evaluationSkill.expectedLevel,
         observedLevel: evaluationSkill.observedLevel,
-        gap: evaluationSkill.gap,
+        skillName: evaluationSkill.skillName,
+        macroSkillName: evaluationSkill.macroSkillName,
+        macroSkillTypeName: evaluationSkill.macroSkillTypeName,
         createdAt: evaluationSkill.createdAt,
-        skill: {
-            _id: evaluationSkill.skill._id.toString(),
-            name: evaluationSkill.skill.name,
-            expectedLevel: evaluationSkill.skill.expectedLevel,
-            macroSkill: {
-                _id: evaluationSkill.skill.macroSkill._id.toString(),
-                name: evaluationSkill.skill.macroSkill.name,
-                macroSkillType: {
-                    _id: evaluationSkill.skill.macroSkill.macroSkillType._id.toString(),
-                    name: evaluationSkill.skill.macroSkill.macroSkillType.name,
-                    createdAt: evaluationSkill.skill.macroSkill.macroSkillType.createdAt,
-                },
-                createdAt: evaluationSkill.skill.macroSkill.createdAt,
-            },
-            createdAt: evaluationSkill.skill.createdAt,
-        },
     };
 }

@@ -165,25 +165,11 @@ export const getAllSkills = async (): Promise<SkillResponse[]> => {
 
     const cursor = skillsCollection.aggregate<Skill & {
         macroSkill: MacroSkill & { macroSkillType: MacroSkillType },
-        jobSkills: { jobId: ObjectId }[]
+        jobSkills: { jobId: ObjectId, expectedLevel: number }[]
     }>(pipeline);
     const results = await cursor.toArray();
 
-    return results.map(result => ({
-        _id: result._id.toString(),
-        name: result.name,
-        expectedLevel: result.expectedLevel,
-        macroSkillId: result.macroSkillId.toString(),
-        macroSkill: {
-            _id: result.macroSkill._id.toString(),
-            name: result.macroSkill.name,
-            macroSkillTypeId: result.macroSkill.macroSkillTypeId.toString(),
-            macroSkillType: convertToMacroSkillTypeResponse(result.macroSkill.macroSkillType),
-            createdAt: result.macroSkill.createdAt,
-        },
-        jobIds: result.jobSkills?.map(js => js.jobId.toString()) || [],
-        createdAt: result.createdAt,
-    }));
+    return results.map(result => convertToSkillResponse(result));
 };
 
 export const getSkillById = async (id: string): Promise<SkillResponse> => {
@@ -227,7 +213,7 @@ export const getSkillById = async (id: string): Promise<SkillResponse> => {
 
     const cursor = skillsCollection.aggregate<Skill & {
         macroSkill: MacroSkill & { macroSkillType: MacroSkillType },
-        jobSkills: { jobId: ObjectId }[]
+        jobSkills: { jobId: ObjectId, expectedLevel: number }[]
     }>(pipeline);
     const results = await cursor.toArray();
 
@@ -239,16 +225,14 @@ export const getSkillById = async (id: string): Promise<SkillResponse> => {
     return {
         _id: result._id.toString(),
         name: result.name,
-        expectedLevel: result.expectedLevel,
         macroSkillId: result.macroSkillId.toString(),
-        macroSkill: {
-            _id: result.macroSkill._id.toString(),
-            name: result.macroSkill.name,
-            macroSkillTypeId: result.macroSkill.macroSkillTypeId.toString(),
-            macroSkillType: convertToMacroSkillTypeResponse(result.macroSkill.macroSkillType),
-            createdAt: result.macroSkill.createdAt,
-        },
-        jobIds: result.jobSkills?.map(js => js.jobId.toString()) || [],
+        macroSkillName: result.macroSkill.name,
+        macroSkillTypeId: result.macroSkill.macroSkillTypeId.toString(),
+        macroSkillTypeName: result.macroSkill.macroSkillType.name,
+        jobSkills: result.jobSkills?.map(js => ({
+            jobId: js.jobId.toString(),
+            expectedLevel: js.expectedLevel
+        })) || [],
         createdAt: result.createdAt,
     };
 };
@@ -298,5 +282,28 @@ function convertToMacroSkillTypeResponse(macroSkillType: MacroSkillType): MacroS
         _id: macroSkillType._id.toString(),
         name: macroSkillType.name,
         createdAt: macroSkillType.createdAt,
+    };
+}
+
+export function convertToSkillResponse(
+    skill: Skill &
+    { jobSkills: { jobId: ObjectId, expectedLevel: number }[] } &
+    { macroSkill: MacroSkill & { macroSkillType: MacroSkillType } }
+
+): SkillResponse {
+    return {
+        _id: skill._id.toString(),
+        name: skill.name,
+        macroSkillId: skill.macroSkillId.toString(),
+        macroSkillName: skill.macroSkill.name,
+        macroSkillTypeId: skill.macroSkill.macroSkillTypeId.toString(),
+        macroSkillTypeName: skill.macroSkill.macroSkillType.name,
+        jobSkills: skill.jobSkills?.map(js => {
+            return {
+                jobId: js.jobId.toString(),
+                expectedLevel: js.expectedLevel
+            }
+        }) || [],
+        createdAt: skill.createdAt,
     };
 }

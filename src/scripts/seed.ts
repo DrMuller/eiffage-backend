@@ -69,7 +69,7 @@ async function ensureJobsAndLinks() {
         const skillIds = pickTenRandomSkillIds();
         for (const skillId of skillIds) {
             // Level expected left null for now
-            await addSkillToJob(job._id, { skillId, levelExpected: null });
+            await addSkillToJob(job._id, { skillId, expectedLevel: 3 });
         }
         // eslint-disable-next-line no-console
         console.log(`Seeded job ${name} with code ${code} and 10 skills.`);

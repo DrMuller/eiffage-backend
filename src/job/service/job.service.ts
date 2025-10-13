@@ -13,7 +13,8 @@ import {
     UpdateJobInput,
     UpdateJobSkillInput,
 } from "../dto/job.dto";
-import { MacroSkillTypeResponse, SkillResponse } from "../../skills/dto/skills.dto";
+import { JobSkillResponse, MacroSkillTypeResponse, SkillResponse } from "../../skills/dto/skills.dto";
+import { convertToSkillResponse } from "../../skills/service/skills.service";
 
 export async function getAllJobs(): Promise<JobResponse[]> {
     const jobs = await getJobsCollection().find({}, { sort: { createdAt: -1 } });
@@ -35,10 +36,10 @@ export async function searchJobs(query: string): Promise<JobResponse[]> {
 
 export async function getJobById(id: string): Promise<JobWithSkillsResponse> {
     const job = await getJobsCollection().findOneById(id);
-    const skills = await getJobSkills(id);
+    const jobSkills = await getJobSkills(id);
     return {
         ...convertToJobResponse(job),
-        skills,
+        jobSkills,
     };
 }
 
@@ -76,7 +77,7 @@ export async function deleteJob(id: string): Promise<void> {
     await getJobsCollection().deleteOne({ _id: new ObjectId(id) });
 }
 
-export async function getJobSkills(jobId: string): Promise<Array<{ skill: SkillResponse; levelExpected: string | null }>> {
+export async function getJobSkills(jobId: string): Promise<JobSkillResponse[]> {
     // Ensure job exists
     await getJobsCollection().findOneById(jobId);
 
@@ -112,63 +113,46 @@ export async function getJobSkills(jobId: string): Promise<Array<{ skill: SkillR
         { $unwind: "$skill.macroSkill.macroSkillType" },
     ];
 
-    const cursor = collection.aggregate<JobSkill & { skill: Skill & { macroSkill: MacroSkill & { macroSkillType: MacroSkillType } } }>(pipeline);
+    const cursor = collection.aggregate<JobSkill & { skill: Skill } & { macroSkill: MacroSkill & { macroSkillType: MacroSkillType } }>(pipeline);
     const results = await cursor.toArray();
 
-    return results.map((r) => ({
-        levelExpected: r.levelExpected,
-        skill: convertToSkillResponse(r.skill),
-    }));
+    return results.map((r) => convertToJobSkillResponse(r));
 }
 
-export async function addSkillToJob(jobId: string, params: AddSkillToJobInput): Promise<{ skill: SkillResponse; levelExpected: string | null }> {
-    const { skillId, levelExpected } = params;
+export async function addSkillToJob(jobId: string, params: AddSkillToJobInput): Promise<JobSkill> {
+    const { skillId, expectedLevel } = params;
+    await getJobsCollection().findOneOrFail({ _id: new ObjectId(jobId) });
+    await getSkillsCollection().findOneOrFail({ _id: new ObjectId(skillId) });
 
-    // Validate job and skill existence
-    await getJobsCollection().findOneById(jobId);
-    try {
-        await getSkillsCollection().findOneById(skillId);
-    } catch {
-        throw new BadRequestException("Invalid skill ID");
-    }
-
-    // Ensure link does not already exist
     const existing = await getJobSkillsCollection().findOne({ jobId: new ObjectId(jobId), skillId: new ObjectId(skillId) });
     if (existing) {
         throw new BadRequestException("Skill already linked to job");
     }
-
     const link: JobSkill = {
         _id: new ObjectId(),
         jobId: new ObjectId(jobId),
         skillId: new ObjectId(skillId),
-        levelExpected: levelExpected ?? null,
+        expectedLevel,
         createdAt: new Date(),
     };
     await getJobSkillsCollection().insertOne(link);
-
-    const skill = await getSkillsCollection().findOneById(skillId);
-    // Load macroSkill and macroSkillType to return full SkillResponse
-    const enriched = await getEnrichedSkill(skill._id.toString());
-    return { skill: enriched, levelExpected: link.levelExpected };
+    return link;
 }
 
-export async function updateJobSkill(jobId: string, skillId: string, updates: UpdateJobSkillInput): Promise<{ skill: SkillResponse; levelExpected: string | null }> {
-    await getJobsCollection().findOneById(jobId);
-    await getSkillsCollection().findOneById(skillId);
+export async function updateJobSkill(jobId: string, skillId: string, updates: UpdateJobSkillInput) {
+    await getJobsCollection().findOneOrFail({ _id: new ObjectId(jobId) });
+    await getSkillsCollection().findOneOrFail({ _id: new ObjectId(skillId) });
 
     const updated = await getJobSkillsCollection().findOneAndUpdate(
         { jobId: new ObjectId(jobId), skillId: new ObjectId(skillId) },
         { ...updates }
     );
-
-    const enriched = await getEnrichedSkill(skillId);
-    return { skill: enriched, levelExpected: updated.levelExpected };
+    return updated;
 }
 
 export async function removeJobSkill(jobId: string, skillId: string): Promise<void> {
-    await getJobsCollection().findOneById(jobId);
-    await getSkillsCollection().findOneById(skillId);
+    await getJobsCollection().findOneOrFail({ _id: new ObjectId(jobId) });
+    await getSkillsCollection().findOneOrFail({ _id: new ObjectId(skillId) });
     const result = await getJobSkillsCollection().deleteOne({ jobId: new ObjectId(jobId), skillId: new ObjectId(skillId) });
     if (result.deletedCount === 0) {
         throw new NotFoundException("Job skill link not found");
@@ -208,21 +192,23 @@ function convertToMacroSkillTypeResponse(macroSkillType: MacroSkillType): MacroS
     };
 }
 
-function convertToSkillResponse(skill: Skill & { macroSkill: MacroSkill & { macroSkillType: MacroSkillType }, jobSkills?: { jobId: ObjectId }[] }): SkillResponse {
+
+function convertToJobSkillResponse(
+    jobSkill: JobSkill &
+    { skill: Skill } &
+    { macroSkill: MacroSkill & { macroSkillType: MacroSkillType } }
+
+): JobSkillResponse {
     return {
-        _id: skill._id.toString(),
-        name: skill.name,
-        expectedLevel: skill.expectedLevel,
-        macroSkillId: skill.macroSkillId.toString(),
-        macroSkill: {
-            _id: skill.macroSkill._id.toString(),
-            name: skill.macroSkill.name,
-            macroSkillTypeId: skill.macroSkill.macroSkillTypeId.toString(),
-            macroSkillType: convertToMacroSkillTypeResponse(skill.macroSkill.macroSkillType),
-            createdAt: skill.macroSkill.createdAt,
-        },
-        jobIds: skill.jobSkills?.map(js => js.jobId.toString()) || [],
-        createdAt: skill.createdAt,
+        _id: jobSkill._id.toString(),
+        skillId: jobSkill.skillId.toString(),
+        skillName: jobSkill.skill.name,
+        macroSkillId: jobSkill.macroSkill._id.toString(),
+        macroSkillName: jobSkill.macroSkill.name,
+        macroSkillTypeId: jobSkill.macroSkill.macroSkillTypeId.toString(),
+        macroSkillTypeName: jobSkill.macroSkill.macroSkillType.name,
+        jobId: jobSkill.jobId.toString(),
+        expectedLevel: jobSkill.expectedLevel,
     };
 }
 
@@ -257,7 +243,12 @@ async function getEnrichedSkill(skillId: string): Promise<SkillResponse> {
             },
         },
     ];
-    const cursor = skillsCollection.aggregate<Skill & { macroSkill: MacroSkill & { macroSkillType: MacroSkillType }, jobSkills: { jobId: ObjectId }[] }>(pipeline);
+    const cursor = skillsCollection.aggregate<
+        Skill &
+        {
+            macroSkill: MacroSkill & { macroSkillType: MacroSkillType },
+            jobSkills: { jobId: ObjectId, expectedLevel: number }[]
+        }>(pipeline);
     const results = await cursor.toArray();
     if (results.length === 0) throw new NotFoundException("Skill not found");
     return convertToSkillResponse(results[0]);
