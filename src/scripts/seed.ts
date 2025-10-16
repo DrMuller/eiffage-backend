@@ -108,7 +108,7 @@ async function seedUsersAndManagers(jobIds: string[]) {
             lastName: params.lastName,
             code: params.code,
             jobId: params.jobId,
-            managerUserId: null,
+            managerUserIds: [],
             roles: params.roles,
             createdAt: new Date(),
             updatedAt: new Date(),

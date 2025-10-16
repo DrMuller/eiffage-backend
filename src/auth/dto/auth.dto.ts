@@ -15,7 +15,7 @@ export const UpdateUserSchema = z.object({
   firstName: z.string().min(1).optional(),
   lastName: z.string().min(1).optional(),
   jobId: z.string().min(1).optional(),
-  managerUserId: z.string().min(1).nullable().optional(),
+  managerUserIds: z.array(z.string().min(1)).optional(),
   roles: z.array(z.enum(Roles)).optional(),
 });
 export type UpdateUserRequest = z.infer<typeof UpdateUserSchema>;
@@ -64,7 +64,7 @@ export type UserResponse = {
   email: string;
   code: string;
   jobId: string | null;
-  managerUserId: string | null;
+  managerUserIds: string[];
   roles: Role[];
   createdAt: Date;
   updatedAt: Date;

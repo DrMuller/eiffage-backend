@@ -38,7 +38,7 @@ const convertToUserResponse = (user: User): UserResponse => {
     lastName: user.lastName,
     code: user.code,
     jobId: user.jobId?.toString() ?? null,
-    managerUserId: user.managerUserId?.toString() ?? null,
+    managerUserIds: user.managerUserIds.map(id => id.toString()),
     roles: user.roles,
     createdAt: user.createdAt,
     updatedAt: user.updatedAt,
@@ -63,7 +63,7 @@ export const createUser = async (
     lastName,
     code,
     jobId: jobId ? new ObjectId(jobId) : null,
-    managerUserId: null,
+    managerUserIds: [],
     roles: ["USER"] as Role[],
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -96,7 +96,7 @@ export const createUserWithoutPassword = async (
     lastName,
     code,
     jobId: null,
-    managerUserId: null,
+    managerUserIds: [],
     roles: ["USER"] as Role[],
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -164,13 +164,13 @@ export async function updateUser(
   _id: string,
   params: UpdateUserRequest
 ): Promise<UserResponse> {
-  const { firstName, lastName, jobId, managerUserId, roles } = params;
+  const { firstName, lastName, jobId, managerUserIds, roles } = params;
   const existingUser = await getUsersCollection().findOneById(_id);
   if (!existingUser) {
     throw new NotFoundException("User not found");
   }
 
-  console.log({ firstName, lastName, jobId, managerUserId, roles });
+  console.log({ firstName, lastName, jobId, managerUserIds, roles });
 
   const updateData: any = {
     updatedAt: new Date(),
@@ -185,8 +185,8 @@ export async function updateUser(
   if (roles !== undefined) {
     updateData.roles = roles;
   }
-  if (managerUserId !== undefined) {
-    updateData.managerUserId = managerUserId ? new ObjectId(managerUserId) : null;
+  if (managerUserIds !== undefined) {
+    updateData.managerUserIds = managerUserIds.map(id => new ObjectId(id));
   }
   if (jobId !== undefined) {
     updateData.jobId = jobId ? new ObjectId(jobId) : null;
@@ -204,9 +204,12 @@ export async function deleteUserById(id: string): Promise<void> {
   const userCollection = getUsersCollection();
   const refreshTokenCollection = getRefreshTokensCollection();
 
-  // remove ManagerUserId of all users that have the managerUserId equal to the id
-  const usersManaged = await userCollection.find({ managerUserId: new ObjectId(id) });
-  const usersManagedUpdated = usersManaged.map(user => ({ ...user, managerUserId: null }));
+  // Remove this manager from all users that have them in their managerUserIds array
+  const usersManaged = await userCollection.find({ managerUserIds: new ObjectId(id) });
+  const usersManagedUpdated = usersManaged.map(user => ({
+    ...user,
+    managerUserIds: user.managerUserIds.filter(managerId => !managerId.equals(new ObjectId(id)))
+  }));
   await userCollection.updateMany(usersManagedUpdated);
 
   // delete all refresh tokens of the user
@@ -293,7 +296,7 @@ export async function searchUsers(params: {
 export async function getTeamMembers(managerId: string): Promise<UserResponse[]> {
   const userCollection = getUsersCollection();
   const teamMembers = await userCollection.find({
-    managerUserId: new ObjectId(managerId)
+    managerUserIds: new ObjectId(managerId)
   });
   return teamMembers.map(convertToUserResponse);
 }
