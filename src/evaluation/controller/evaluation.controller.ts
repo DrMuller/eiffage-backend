@@ -12,6 +12,7 @@ import {
     createEvaluationSkill,
     deleteEvaluationSkill,
     bulkCreateEvaluationSkills,
+    getAllSkillLevels,
 } from "../service/evaluation.service";
 import {
     createEvaluationSchema,
@@ -90,4 +91,13 @@ export const bulkCreateEvaluationSkillsHandler = asyncHandler(async (req: Reques
     const validation = bulkCreateEvaluationSkillsSchema.parse(req.body);
     const evaluationSkills = await bulkCreateEvaluationSkills(validation);
     res.status(201).json(evaluationSkills);
+});
+
+export const getSkillLevelsHandler = asyncHandler(async (_req: Request, res: Response) => {
+    const { userId } = _req.query;
+    if (!userId) {
+        return res.status(400).json({ error: 'userId is required' });
+    }
+    const levels = await getAllSkillLevels(userId as string);
+    res.status(200).json(levels);
 });

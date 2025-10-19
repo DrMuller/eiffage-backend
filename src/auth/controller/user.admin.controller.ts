@@ -39,6 +39,12 @@ export const searchUsersHandler = asyncHandler(async (req: Request, res: Respons
     ? (jobIdsRaw as string[])
     : (typeof jobIdsRaw === 'string' && jobIdsRaw.length > 0 ? jobIdsRaw.split(',') : undefined);
 
-  const users = await searchUsers({ q, skillName, jobName, observedLevel, jobIds });
+  // skills can be provided as repeated params skillIds and levels pairing by index
+  const toArray = (v: unknown): string[] => Array.isArray(v) ? (v as string[]) : (typeof v === 'string' ? [v] : []);
+  const skillIds = toArray(req.query.skillIds);
+  const levels = toArray(req.query.levels).map((n) => Number(n));
+  const skills = skillIds.map((id, idx) => ({ skillId: id, minLevel: levels[idx] })).filter((p) => p.skillId && Number.isFinite(p.minLevel));
+
+  const users = await searchUsers({ q, skillName, jobName, observedLevel, jobIds, skills: skills.length > 0 ? skills : undefined });
   res.status(200).json(users);
 });

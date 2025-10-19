@@ -229,8 +229,9 @@ export async function searchUsers(params: {
   jobName?: string;
   observedLevel?: string;
   jobIds?: string[];
+  skills?: Array<{ skillId: string; minLevel: number }>
 }): Promise<UserResponse[]> {
-  const { q, skillName, jobName, observedLevel, jobIds } = params;
+  const { q, skillName, jobName, observedLevel, jobIds, skills } = params;
 
   const pipeline: any[] = [];
 
@@ -260,7 +261,8 @@ export async function searchUsers(params: {
     );
   }
 
-  if ((skillName && skillName.trim().length > 0) || (observedLevel && observedLevel.trim().length > 0)) {
+  const useLegacySkillFilter = (!skills || skills.length === 0) && ((skillName && skillName.trim().length > 0) || (observedLevel && observedLevel.trim().length > 0));
+  if (useLegacySkillFilter) {
     const skillStages: any[] = [
       { $lookup: { from: 'evaluation', localField: '_id', foreignField: 'userId', as: 'evals' } },
       { $unwind: '$evals' },
@@ -283,6 +285,40 @@ export async function searchUsers(params: {
     // Group back to user unique
     pipeline.push(
       { $group: { _id: '$_id', doc: { $first: '$$ROOT' } } },
+      { $replaceRoot: { newRoot: '$doc' } },
+    );
+  }
+
+  // New multi-skill ALL (AND) with min level filter
+  if (skills && skills.length > 0) {
+    const requiredIds = skills.map(s => new ObjectId(s.skillId));
+    pipeline.push(
+      { $lookup: { from: 'evaluation', localField: '_id', foreignField: 'userId', as: 'evals' } },
+      { $unwind: '$evals' },
+      { $lookup: { from: 'evaluation_skill', localField: 'evals._id', foreignField: 'evaluationId', as: 'evalSkills' } },
+      { $unwind: '$evalSkills' },
+      {
+        $match: {
+          $or: skills.map(s => ({
+            $and: [
+              { 'evalSkills.skillId': new ObjectId(s.skillId) },
+              { 'evalSkills.observedLevel': { $gte: s.minLevel } },
+            ]
+          }))
+        }
+      },
+      {
+        $group: {
+          _id: '$_id',
+          doc: { $first: '$$ROOT' },
+          matchedSkillIds: { $addToSet: '$evalSkills.skillId' }
+        }
+      },
+      {
+        $match: {
+          $expr: { $setIsSubset: [requiredIds, '$matchedSkillIds'] }
+        }
+      },
       { $replaceRoot: { newRoot: '$doc' } },
     );
   }

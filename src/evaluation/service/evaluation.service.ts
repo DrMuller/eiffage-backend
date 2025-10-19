@@ -14,11 +14,12 @@ import {
     EvaluationSkillResponse,
     BulkCreateEvaluationSkillsInput,
     CreateCompleteEvaluationInput,
+    SkillLevelResponse,
 } from "../dto/evaluation.dto";
 
 // Evaluation Service Functions
 export const getAllEvaluations = async (): Promise<EvaluationResponse[]> => {
-    const evaluations = await getEvaluationsCollection().find({});
+    const evaluations = await getEvaluationsCollection().find({}, { sort: { createdAt: -1 } });
     return evaluations.map(convertToEvaluationResponse);
 };
 
@@ -183,6 +184,12 @@ export const bulkCreateEvaluationSkills = async (params: BulkCreateEvaluationSki
     return results;
 };
 
+// SkillLevel Service Functions
+export const getAllSkillLevels = async (userId: string): Promise<SkillLevelResponse[]> => {
+    const levels = await getSkillLevelsCollection().find({ userId: new ObjectId(userId) });
+    return levels.map(convertToSkillLevelResponse);
+};
+
 // Helper functions for collection access
 function getEvaluationsCollection(): MongoCollection<Evaluation> {
     return new MongoCollection<Evaluation>("evaluation");
@@ -231,112 +238,68 @@ function getSkillLevelsCollection(): MongoCollection<SkillLevel> {
     return new MongoCollection<SkillLevel>("skill_level");
 }
 
+async function findLatestOtherEvaluationInCampaign(evaluation: Evaluation): Promise<Evaluation | null> {
+    return await getEvaluationsCollection().findOne(
+        {
+            userId: evaluation.userId,
+            evaluationCampaignId: evaluation.evaluationCampaignId,
+            managerUserId: { $ne: evaluation.managerUserId } as any,
+        } as any,
+        { sort: { createdAt: -1 } }
+    );
+}
+
+function buildObservedLevelMap(skills: EvaluationSkill[]): Map<string, number> {
+    return new Map(skills.map((s) => [s.skillId.toString(), s.observedLevel]));
+}
+
+function computeAggregatedLevel(currentObserved: number, otherObserved?: number): number {
+    if (typeof otherObserved === "number") return (currentObserved + otherObserved) / 2;
+    return currentObserved;
+}
+
+async function upsertUserSkillLevel(userId: ObjectId, skillId: ObjectId, level: number, now: Date): Promise<void> {
+    const skillLevels = getSkillLevelsCollection();
+    const existing = await skillLevels.findOne({ userId, skillId } as any);
+    if (existing) {
+        await skillLevels.findOneAndUpdate(
+            { _id: existing._id } as any,
+            { level, updatedAt: now } as Partial<SkillLevel>
+        );
+        return;
+    }
+    await skillLevels.insertOne({
+        _id: new ObjectId(),
+        userId,
+        skillId,
+        level,
+        createdAt: now,
+        updatedAt: now,
+    } as SkillLevel);
+}
+
 // Update SkillLevel according to rules after an evaluation is created
 async function updateSkillLevelsAfterEvaluation(evaluation: Evaluation): Promise<void> {
     // Ensure campaign exists (fetched but not used explicitly beyond validation)
     await getEvaluationCampaignsCollection().findOneById(evaluation.evaluationCampaignId.toString());
 
-    // Get skills created for this evaluation
-    const createdSkills = await getEvaluationSkillsWithDetails(evaluation._id.toString());
-
-    for (const created of createdSkills) {
-        const newLevel = created.observedLevel;
-        // Find previous evaluationSkill for this user+skill, excluding current evaluation
-        const previous = await findPreviousEvaluationSkillOfUserForSkill(
-            evaluation.userId,
-            new ObjectId(created.skillId),
-            evaluation._id
-        );
-
-        let levelToSave: number = newLevel;
-
-        if (previous) {
-            const sameCampaign = previous.evaluation.evaluationCampaignId.toString() === evaluation.evaluationCampaignId.toString();
-            const previousLevel = previous.observedLevel ?? newLevel;
-            if (sameCampaign) {
-                levelToSave = average(previousLevel, newLevel);
-            } else {
-                const existingSkillLevel = await getSkillLevelsCollection().findOne({
-                    userId: evaluation.userId,
-                    skillId: new ObjectId(created.skillId),
-                } as any);
-                if (existingSkillLevel) {
-                    levelToSave = average(existingSkillLevel.level ?? newLevel, newLevel);
-                } else {
-                    levelToSave = newLevel;
-                }
-            }
-        } else {
-            const existingSkillLevel = await getSkillLevelsCollection().findOne({
-                userId: evaluation.userId,
-                skillId: new ObjectId(created.skillId),
-            } as any);
-            if (existingSkillLevel) {
-                levelToSave = average(existingSkillLevel.level ?? newLevel, newLevel);
-            } else {
-                levelToSave = newLevel;
-            }
-        }
-
-        // Upsert SkillLevel
-        const existing = await getSkillLevelsCollection().findOne({
-            userId: evaluation.userId,
-            skillId: new ObjectId(created.skillId),
-        } as any);
-
-        if (existing) {
-            await getSkillLevelsCollection().findOneAndUpdate(
-                { _id: existing._id } as any,
-                {
-                    level: levelToSave,
-                    updatedAt: new Date(),
-                }
-            );
-        } else {
-            await getSkillLevelsCollection().insertOne({
-                _id: new ObjectId(),
-                userId: evaluation.userId,
-                skillId: new ObjectId(created.skillId),
-                level: levelToSave,
-                createdAt: new Date(),
-                updatedAt: new Date(),
-            });
-        }
-    }
-}
-
-function average(a: number, b: number): number {
-    return (a + b) / 2;
-}
-
-
-// Find the previous evaluationSkill for a user and skill, excluding the current evaluation
-async function findPreviousEvaluationSkillOfUserForSkill(
-    userId: ObjectId,
-    skillId: ObjectId,
-    currentEvaluationId: ObjectId
-): Promise<(EvaluationSkill & { evaluation: Evaluation }) | null> {
+    // Fetch the skills for the current evaluation
     const evaluationSkillsCollection = getEvaluationSkillsCollection();
+    const currentEvaluationSkills = await evaluationSkillsCollection.find({ evaluationId: evaluation._id });
+    if (!currentEvaluationSkills || currentEvaluationSkills.length === 0) return;
 
-    const pipeline: any[] = [
-        { $match: { skillId } },
-        { $sort: { createdAt: -1 } },
-        {
-            $lookup: {
-                from: "evaluation",
-                localField: "evaluationId",
-                foreignField: "_id",
-                as: "evaluation",
-            },
-        },
-        { $unwind: "$evaluation" },
-        { $match: { "evaluation.userId": userId, "evaluation._id": { $ne: currentEvaluationId } } },
-        { $limit: 1 },
-    ];
+    // Find the latest other evaluation in same campaign for same user but with a different manager
+    const otherEvaluation = await findLatestOtherEvaluationInCampaign(evaluation);
+    const otherEvaluationSkillMap = otherEvaluation
+        ? buildObservedLevelMap(await evaluationSkillsCollection.find({ evaluationId: evaluation._id }))
+        : null;
 
-    const cursor = evaluationSkillsCollection.aggregate<EvaluationSkill & { evaluation: Evaluation }>(pipeline);
-    const results = await cursor.toArray();
-    return results[0] || null;
+    const now = new Date();
+    for (const currentSkill of currentEvaluationSkills) {
+        const otherObserved = otherEvaluationSkillMap?.get(currentSkill.skillId.toString());
+        const levelToSave = computeAggregatedLevel(currentSkill.observedLevel, otherObserved);
+        await upsertUserSkillLevel(evaluation.userId, currentSkill.skillId, levelToSave, now);
+    }
 }
 
 // Helper function to get the aggregation pipeline for evaluation skills
@@ -418,5 +381,16 @@ function convertToEvaluationSkillResponse(
         macroSkillName: evaluationSkill.macroSkillName,
         macroSkillTypeName: evaluationSkill.macroSkillTypeName,
         createdAt: evaluationSkill.createdAt,
+    };
+}
+
+function convertToSkillLevelResponse(skillLevel: SkillLevel): SkillLevelResponse {
+    return {
+        _id: skillLevel._id.toString(),
+        userId: skillLevel.userId.toString(),
+        skillId: skillLevel.skillId.toString(),
+        level: skillLevel.level,
+        createdAt: skillLevel.createdAt,
+        updatedAt: skillLevel.updatedAt,
     };
 }

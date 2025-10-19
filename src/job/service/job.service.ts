@@ -98,24 +98,24 @@ export async function getJobSkills(jobId: string): Promise<JobSkillResponse[]> {
                 from: "macro_skill",
                 localField: "skill.macroSkillId",
                 foreignField: "_id",
-                as: "skill.macroSkill",
+                as: "macroSkill",
             },
         },
-        { $unwind: "$skill.macroSkill" },
+        { $unwind: "$macroSkill" },
         {
             $lookup: {
                 from: "macro_skill_type",
-                localField: "skill.macroSkill.macroSkillTypeId",
+                localField: "macroSkill.macroSkillTypeId",
                 foreignField: "_id",
-                as: "skill.macroSkill.macroSkillType",
+                as: "macroSkill.macroSkillType",
             },
         },
-        { $unwind: "$skill.macroSkill.macroSkillType" },
+        { $unwind: "$macroSkill.macroSkillType" },
     ];
 
     const cursor = collection.aggregate<JobSkill & { skill: Skill } & { macroSkill: MacroSkill & { macroSkillType: MacroSkillType } }>(pipeline);
     const results = await cursor.toArray();
-
+    console.log(results);
     return results.map((r) => convertToJobSkillResponse(r));
 }
 
