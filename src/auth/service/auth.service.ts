@@ -170,8 +170,6 @@ export async function updateUser(
     throw new NotFoundException("User not found");
   }
 
-  console.log({ firstName, lastName, jobId, managerUserIds, roles });
-
   const updateData: any = {
     updatedAt: new Date(),
   };

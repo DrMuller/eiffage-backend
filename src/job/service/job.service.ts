@@ -115,7 +115,6 @@ export async function getJobSkills(jobId: string): Promise<JobSkillResponse[]> {
 
     const cursor = collection.aggregate<JobSkill & { skill: Skill } & { macroSkill: MacroSkill & { macroSkillType: MacroSkillType } }>(pipeline);
     const results = await cursor.toArray();
-    console.log(results);
     return results.map((r) => convertToJobSkillResponse(r));
 }
 
