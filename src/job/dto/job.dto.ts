@@ -43,4 +43,13 @@ export type JobWithSkillsResponse = JobResponse & {
     jobSkills: JobSkillResponse[];
 };
 
+export type JobSkillLevelDistribution = {
+    skillId: string;
+    skillName: string;
+    macroSkillName: string;
+    macroSkillTypeName: string;
+    expectedLevel: number;
+    levelDistribution: Record<number, number>;
+};
+
 

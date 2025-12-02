@@ -11,6 +11,7 @@ import {
     updateJob,
     updateJobSkill,
     searchJobs,
+    getJobSkillLevelDistribution,
 } from "../service/job.service";
 import { addSkillToJobSchema, createJobSchema, updateJobSchema, updateJobSkillSchema } from "../dto/job.dto";
 
@@ -74,6 +75,12 @@ export const removeJobSkillHandler = asyncHandler(async (req: Request, res: Resp
     const { id, skillId } = req.params as { id: string; skillId: string };
     await removeJobSkill(id, skillId);
     res.status(204).send();
+});
+
+export const getJobSkillLevelDistributionHandler = asyncHandler(async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const distribution = await getJobSkillLevelDistribution(id);
+    res.status(200).json(distribution);
 });
 
 

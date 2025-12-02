@@ -146,6 +146,44 @@ export const createSkill = async (params: CreateSkillInput): Promise<SkillRespon
     return await getSkillById(skill._id.toString());
 };
 
+export const updateSkill = async (id: string, params: Partial<CreateSkillInput>): Promise<SkillResponse> => {
+    const skillsCollection = getSkillsCollection();
+
+    // Verify skill exists
+    await skillsCollection.findOneById(id);
+
+    // If macroSkillId is being updated, verify it exists
+    if (params.macroSkillId) {
+        try {
+            await new MongoCollection<MacroSkill>("macro_skill").findOneById(params.macroSkillId);
+        } catch {
+            throw new BadRequestException("Invalid macro skill ID");
+        }
+    }
+
+    const updateData: any = {};
+    if (params.name !== undefined) updateData.name = params.name;
+    if (params.expectedLevel !== undefined) updateData.expectedLevel = params.expectedLevel;
+    if (params.macroSkillId !== undefined) updateData.macroSkillId = new ObjectId(params.macroSkillId);
+
+    await skillsCollection.findOneAndUpdate(
+        { _id: new ObjectId(id) },
+        updateData
+    );
+
+    return await getSkillById(id);
+};
+
+export const deleteSkill = async (id: string): Promise<void> => {
+    const skillsCollection = getSkillsCollection();
+
+    // Verify skill exists
+    await skillsCollection.findOneById(id);
+
+    // Delete the skill
+    await skillsCollection.deleteOne({ _id: new ObjectId(id) });
+};
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function getSkillsCollection(): MongoCollection<Skill> {

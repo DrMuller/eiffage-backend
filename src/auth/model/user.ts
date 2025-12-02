@@ -12,6 +12,8 @@ export interface User {
   code: string; // Matricule
   jobId: ObjectId | null;
   managerUserIds: ObjectId[];
+  gender: 'MALE' | 'FEMALE';
+  birthDate: Date;
   roles: Role[];
   createdAt: Date;
   updatedAt: Date;

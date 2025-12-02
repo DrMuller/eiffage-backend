@@ -3,6 +3,8 @@ import {
     getAllSkills,
     getSkillById,
     createSkill,
+    updateSkill,
+    deleteSkill,
 } from "../service/skills.service";
 import {
     getAllMacroSkillTypes,
@@ -73,4 +75,16 @@ export const createSkillHandler = asyncHandler(async (req: Request, res: Respons
     const validation = createSkillSchema.parse(req.body);
     const skill = await createSkill(validation);
     res.status(201).json(skill);
+});
+
+export const updateSkillHandler = asyncHandler(async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const skill = await updateSkill(id, req.body);
+    res.status(200).json(skill);
+});
+
+export const deleteSkillHandler = asyncHandler(async (req: Request, res: Response) => {
+    const { id } = req.params;
+    await deleteSkill(id);
+    res.status(204).send();
 });

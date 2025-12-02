@@ -148,4 +148,9 @@ export class MongoCollection<TSchema extends WithId<Document>> {
     if (typeof filter === 'undefined') throw new Error('filter is required');
     return this.collection.deleteMany(filter, options);
   }
+
+  async count(filter?: FindFilter<TSchema>): Promise<number> {
+    if (typeof filter === 'undefined') throw new Error('filter is required');
+    return this.collection.countDocuments(filter);
+  }
 }

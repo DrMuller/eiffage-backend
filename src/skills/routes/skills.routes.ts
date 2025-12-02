@@ -9,6 +9,8 @@ import {
     getSkills,
     getSkillByIdHandler,
     createSkillHandler,
+    updateSkillHandler,
+    deleteSkillHandler,
 } from "../controller/skills.controller";
 import jwtMiddleware from "../../middleware/jwt.middleware";
 
@@ -28,5 +30,7 @@ router.post("/macro-skills", [jwtMiddleware(['USER', 'ADMIN'])], createMacroSkil
 router.get("/skills", [jwtMiddleware(['USER'])], getSkills);
 router.get("/skills/:id", [jwtMiddleware(['USER'])], getSkillByIdHandler);
 router.post("/skills", [jwtMiddleware(['USER', 'ADMIN'])], createSkillHandler);
+router.put("/skills/:id", [jwtMiddleware(['USER', 'ADMIN'])], updateSkillHandler);
+router.delete("/skills/:id", [jwtMiddleware(['USER', 'ADMIN'])], deleteSkillHandler);
 
 export default router;

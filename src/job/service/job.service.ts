@@ -1,10 +1,12 @@
 import { MongoCollection, ObjectId } from "../../utils/mongo/MongoCollection";
-import { BadRequestException, NotFoundException } from "../../utils/HttpException";
+import { BadRequestException, ConflictException, NotFoundException } from "../../utils/HttpException";
 import { Job } from "../model/job";
 import { JobSkill } from "../model/jobSkill";
 import { Skill } from "../../skills/model/skill";
 import { MacroSkill } from "../../skills/model/macroSkill";
 import { MacroSkillType } from "../../skills/model/macroSkillType";
+import { EvaluationSkill } from "../../evaluation/model/evaluationSkill";
+import { SkillLevel } from "../../evaluation/model/skillLevel";
 import {
     AddSkillToJobInput,
     CreateJobInput,
@@ -12,6 +14,7 @@ import {
     JobWithSkillsResponse,
     UpdateJobInput,
     UpdateJobSkillInput,
+    JobSkillLevelDistribution,
 } from "../dto/job.dto";
 import { JobSkillResponse, MacroSkillTypeResponse, SkillResponse } from "../../skills/dto/skills.dto";
 import { convertToSkillResponse } from "../../skills/service/skills.service";
@@ -152,10 +155,69 @@ export async function updateJobSkill(jobId: string, skillId: string, updates: Up
 export async function removeJobSkill(jobId: string, skillId: string): Promise<void> {
     await getJobsCollection().findOneOrFail({ _id: new ObjectId(jobId) });
     await getSkillsCollection().findOneOrFail({ _id: new ObjectId(skillId) });
-    const result = await getJobSkillsCollection().deleteOne({ jobId: new ObjectId(jobId), skillId: new ObjectId(skillId) });
+
+    // Check if any evaluation skills are linked to this skill
+    const evaluationSkillsCount = await getEvaluationSkillsCollection().count({
+        skillId: new ObjectId(skillId)
+    });
+
+    if (evaluationSkillsCount > 0) {
+        throw new ConflictException(
+            "Cette compétence ne peut pas être retirée car elle est utilisée dans des évaluations existantes"
+        );
+    }
+
+    // Remove the job-skill link
+    const result = await getJobSkillsCollection().deleteOne({
+        jobId: new ObjectId(jobId),
+        skillId: new ObjectId(skillId)
+    });
+
     if (result.deletedCount === 0) {
         throw new NotFoundException("Job skill link not found");
     }
+
+    // Delete the skill itself
+    await getSkillsCollection().deleteOne({ _id: new ObjectId(skillId) });
+}
+
+export async function getJobSkillLevelDistribution(jobId: string): Promise<JobSkillLevelDistribution[]> {
+    // Ensure job exists
+    await getJobsCollection().findOneById(jobId);
+
+    // Get all job skills for this job
+    const jobSkills = await getJobSkills(jobId);
+
+    // For each job skill, get the distribution of skill levels
+    const distributions: JobSkillLevelDistribution[] = [];
+
+    for (const jobSkill of jobSkills) {
+        const skillId = new ObjectId(jobSkill.skillId);
+
+        // Get all skill levels for this skill
+        const skillLevels = await getSkillLevelsCollection().find({ skillId });
+
+        // Count levels (0, 1, 2, 3, 4)
+        const levelCounts: Record<number, number> = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0 };
+
+        for (const skillLevel of skillLevels) {
+            const level = skillLevel.level ?? 0;
+            if (level >= 0 && level <= 4) {
+                levelCounts[level]++;
+            }
+        }
+
+        distributions.push({
+            skillId: jobSkill.skillId,
+            skillName: jobSkill.skillName,
+            macroSkillName: jobSkill.macroSkillName,
+            macroSkillTypeName: jobSkill.macroSkillTypeName,
+            expectedLevel: jobSkill.expectedLevel,
+            levelDistribution: levelCounts,
+        });
+    }
+
+    return distributions;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -170,6 +232,14 @@ function getJobSkillsCollection(): MongoCollection<JobSkill> {
 
 function getSkillsCollection(): MongoCollection<Skill> {
     return new MongoCollection<Skill>("skill");
+}
+
+function getEvaluationSkillsCollection(): MongoCollection<EvaluationSkill> {
+    return new MongoCollection<EvaluationSkill>("evaluation_skill");
+}
+
+function getSkillLevelsCollection(): MongoCollection<SkillLevel> {
+    return new MongoCollection<SkillLevel>("skill_level");
 }
 
 function convertToJobResponse(job: Job): JobResponse {

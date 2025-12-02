@@ -6,7 +6,9 @@ import express, { Express } from "express";
 import { authRoutes, userRoutes, userAdminRoutes } from "./auth";
 import { skillsRoutes } from "./skills";
 import { jobRoutes } from "./job";
+import { importRoutes } from "./import";
 import { evaluationRoutes, evaluationCampaignRoutes, skillLevelRoutes } from "./evaluation";
+import { habilitationRoutes } from "./habilitation";
 import helmet from "helmet";
 import cors from "cors";
 import logger from "./utils/logger";
@@ -20,8 +22,8 @@ connect();
 const corsOptions = {
     origin: true, // Allow any origin
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin"],
-    exposedHeaders: ["Content-Length", "X-Foo", "X-Bar"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin", "x-page", "x-limit"],
+    exposedHeaders: ["Content-Length", "x-page", "x-limit", "x-total", "x-total-pages"],
     credentials: true,
     preflightContinue: false,
     optionsSuccessStatus: 204,
@@ -34,6 +36,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Admin routes
 app.use("/admin", userAdminRoutes);
+// Storage / Upload routes
+app.use("/import", importRoutes);
 
 // Auth routes
 app.use(authRoutes);
@@ -49,6 +53,9 @@ app.use(jobRoutes);
 app.use(evaluationRoutes);
 app.use(evaluationCampaignRoutes);
 app.use(skillLevelRoutes);
+
+// Habilitation routes
+app.use(habilitationRoutes);
 
 // Error handler middleware
 app.use(errorHandler);
