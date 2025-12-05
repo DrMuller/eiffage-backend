@@ -1,7 +1,7 @@
 import { Db, ObjectId } from 'mongodb';
 import { MigrationInterface } from 'mongo-migrate-ts';
-import * as path from 'path';
-import * as fs from 'fs';
+import qualificationTypesRaw from './seeds/qualificationTypes.json';
+import qualificationsRaw from './seeds/qualifications.json';
 
 export class InitQualificationsCollections1756123047140 implements MigrationInterface {
   public async up(db: Db): Promise<void | never> {
@@ -18,8 +18,6 @@ export class InitQualificationsCollections1756123047140 implements MigrationInte
     await db.collection('qualification').createIndex({ qualificationTypeId: 1, name: 1 });
 
     // Seed initial data
-    const seedsPath = path.join(__dirname, 'seeds');
-
     // Helper function to convert MongoDB Extended JSON to regular objects
     const convertExtendedJson = (obj: any): any => {
       if (Array.isArray(obj)) {
@@ -41,18 +39,12 @@ export class InitQualificationsCollections1756123047140 implements MigrationInte
     };
 
     // Load and insert qualification types
-    const qualificationTypesRaw = JSON.parse(
-      fs.readFileSync(path.join(seedsPath, 'qualificationTypes.json'), 'utf8')
-    );
     const qualificationTypesData = convertExtendedJson(qualificationTypesRaw);
     if (qualificationTypesData.length > 0) {
       await db.collection('qualification_type').insertMany(qualificationTypesData);
     }
 
     // Load and insert qualifications
-    const qualificationsRaw = JSON.parse(
-      fs.readFileSync(path.join(seedsPath, 'qualifications.json'), 'utf8')
-    );
     const qualificationsData = convertExtendedJson(qualificationsRaw);
     if (qualificationsData.length > 0) {
       await db.collection('qualification').insertMany(qualificationsData);
