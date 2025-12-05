@@ -2,10 +2,13 @@ import { Request, Response } from "express";
 import { getUsers, createUserWithoutPassword, updateUser, deleteUserById, getAllManagers, searchUsers } from "../service/auth.service";
 import { asyncHandler } from "../../utils/express/asyncHandler";
 import { UpdateUserSchema } from "../dto/auth.dto";
+import { getPaginationParams, setPaginationHeaders } from "../../utils/pagination/pagination.helper";
 
 export const getAllUsers = asyncHandler(async (req: Request, res: Response) => {
-  const users = await getUsers();
-  res.status(200).json(users);
+  const { page, limit, skip } = getPaginationParams(req, 50);
+  const result = await getUsers({ page, limit, skip });
+  setPaginationHeaders(res, result.meta);
+  res.status(200).json(result);
 });
 
 export const createUser = asyncHandler(async (req: Request, res: Response) => {
@@ -45,6 +48,8 @@ export const searchUsersHandler = asyncHandler(async (req: Request, res: Respons
   const levels = toArray(req.query.levels).map((n) => Number(n));
   const skills = skillIds.map((id, idx) => ({ skillId: id, minLevel: levels[idx] })).filter((p) => p.skillId && Number.isFinite(p.minLevel));
 
-  const users = await searchUsers({ q, skillName, jobName, observedLevel, jobIds, skills: skills.length > 0 ? skills : undefined });
-  res.status(200).json(users);
+  const { page, limit, skip } = getPaginationParams(req, 50);
+  const result = await searchUsers({ q, skillName, jobName, observedLevel, jobIds, skills: skills.length > 0 ? skills : undefined }, { page, limit, skip });
+  setPaginationHeaders(res, result.meta);
+  res.status(200).json(result);
 });

@@ -39,7 +39,7 @@ async function main() {
     
     if (result.errors.length > 0) {
         logger.warn(`Errors (${result.errors.length}):`);
-        result.errors.forEach((error, index) => {
+        result.errors.forEach((error: string, index: number) => {
             logger.warn(`  ${index + 1}. ${error}`);
         });
     }

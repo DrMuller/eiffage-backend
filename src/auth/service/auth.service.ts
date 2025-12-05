@@ -8,6 +8,7 @@ import { AccountResetPassword, AccountResetPasswordToken, AuthResponse, Register
 import { sendPasswordResetEmail } from "../../notification/service/brevo.service";
 import appConfig from "../../app.config";
 import { CreateUserWithoutPasswordRequest } from "../controller/auth.controller";
+import { createPaginatedResponse, PaginatedResponse, PaginationParams } from "../../utils/pagination/pagination.helper";
 
 export const loginUser = async (params: {
   email: string,
@@ -64,6 +65,8 @@ export const createUser = async (
     code,
     jobId: jobId ? new ObjectId(jobId) : null,
     managerUserIds: [],
+    gender: 'MALE',
+    birthDate: new Date('1970-01-01'),
     roles: ["USER"] as Role[],
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -97,6 +100,8 @@ export const createUserWithoutPassword = async (
     code,
     jobId: null,
     managerUserIds: [],
+    gender: 'MALE',
+    birthDate: new Date('1970-01-01'),
     roles: ["USER"] as Role[],
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -155,9 +160,21 @@ export async function resetPassword(resetPassword: AccountResetPassword): Promis
   await getUsersCollection().update(user)
 }
 
-export async function getUsers(): Promise<UserResponse[]> {
-  const users = await getUsersCollection().find({});
-  return users.map(convertToUserResponse);
+export async function getUsers(pagination?: PaginationParams): Promise<PaginatedResponse<UserResponse>> {
+  const usersCollection = getUsersCollection();
+
+  if (!pagination) {
+    const users = await usersCollection.find({});
+    const userResponses = users.map(convertToUserResponse);
+    return createPaginatedResponse(userResponses, 1, userResponses.length, userResponses.length);
+  }
+
+  const { page, limit, skip } = pagination;
+  const total = await usersCollection.count({});
+  const users = await usersCollection.find({}, { skip, limit, sort: { createdAt: -1 } });
+  const userResponses = users.map(convertToUserResponse);
+
+  return createPaginatedResponse(userResponses, page, limit, total);
 }
 
 export async function updateUser(
@@ -228,7 +245,7 @@ export async function searchUsers(params: {
   observedLevel?: string;
   jobIds?: string[];
   skills?: Array<{ skillId: string; minLevel: number }>
-}): Promise<UserResponse[]> {
+}, pagination?: PaginationParams): Promise<PaginatedResponse<UserResponse>> {
   const { q, skillName, jobName, observedLevel, jobIds, skills } = params;
 
   const pipeline: any[] = [];
@@ -322,9 +339,32 @@ export async function searchUsers(params: {
   }
 
   const usersCollection = getUsersCollection();
+
+  // If pagination is requested, we need to count first
+  if (pagination) {
+    const { page, limit, skip } = pagination;
+
+    // Count total matching documents
+    const countPipeline = [...pipeline, { $count: 'total' }];
+    const countCursor = usersCollection.aggregate<{ total: number }>(countPipeline.length > 1 ? countPipeline : [{ $match: {} }, { $count: 'total' }]);
+    const countResults = await countCursor.toArray();
+    const total = countResults.length > 0 ? countResults[0].total : 0;
+
+    // Add pagination to main pipeline
+    pipeline.push({ $skip: skip }, { $limit: limit });
+
+    const cursor = usersCollection.aggregate<User & any>(pipeline.length > 0 ? pipeline : [{ $match: {} }]);
+    const results = await cursor.toArray();
+    const userResponses = results.map(convertToUserResponse);
+
+    return createPaginatedResponse(userResponses, page, limit, total);
+  }
+
+  // Non-paginated request
   const cursor = usersCollection.aggregate<User & any>(pipeline.length > 0 ? pipeline : [{ $match: {} }]);
   const results = await cursor.toArray();
-  return results.map(convertToUserResponse);
+  const userResponses = results.map(convertToUserResponse);
+  return createPaginatedResponse(userResponses, 1, userResponses.length, userResponses.length);
 }
 
 export async function getTeamMembers(managerId: string): Promise<UserResponse[]> {

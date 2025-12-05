@@ -1,7 +1,8 @@
 import { Db, ObjectId } from 'mongodb';
 import { MigrationInterface } from 'mongo-migrate-ts';
-import * as path from 'path';
-import * as fs from 'fs';
+import macroSkillTypesRaw from './seeds/macroSkillTypes.json';
+import macroSkillsRaw from './seeds/macroSkills.json';
+import skillsRaw from './seeds/skills.json';
 
 export class InitSkillsCollections1756123020879 implements MigrationInterface {
   public async up(db: Db): Promise<void | never> {
@@ -28,8 +29,6 @@ export class InitSkillsCollections1756123020879 implements MigrationInterface {
     await db.collection('skill').createIndex({ macroSkillId: 1, expectedLevel: 1 });
 
     // Seed initial data
-    const seedsPath = path.join(__dirname, 'seeds');
-
     // Helper function to convert MongoDB Extended JSON to regular objects
     const convertExtendedJson = (obj: any): any => {
       if (Array.isArray(obj)) {
@@ -51,27 +50,18 @@ export class InitSkillsCollections1756123020879 implements MigrationInterface {
     };
 
     // Load and insert macro skill types
-    const macroSkillTypesRaw = JSON.parse(
-      fs.readFileSync(path.join(seedsPath, 'macroSkillTypes.json'), 'utf8')
-    );
     const macroSkillTypesData = convertExtendedJson(macroSkillTypesRaw);
     if (macroSkillTypesData.length > 0) {
       await db.collection('macro_skill_type').insertMany(macroSkillTypesData);
     }
 
     // Load and insert macro skills
-    const macroSkillsRaw = JSON.parse(
-      fs.readFileSync(path.join(seedsPath, 'macroSkills.json'), 'utf8')
-    );
     const macroSkillsData = convertExtendedJson(macroSkillsRaw);
     if (macroSkillsData.length > 0) {
       await db.collection('macro_skill').insertMany(macroSkillsData);
     }
 
     // Load and insert skills
-    const skillsRaw = JSON.parse(
-      fs.readFileSync(path.join(seedsPath, 'skills.json'), 'utf8')
-    );
     const skillsData = convertExtendedJson(skillsRaw);
     if (skillsData.length > 0) {
       await db.collection('skill').insertMany(skillsData);
