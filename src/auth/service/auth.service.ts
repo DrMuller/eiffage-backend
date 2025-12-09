@@ -31,6 +31,11 @@ export const getMe = async (userId: string): Promise<UserResponse> => {
   return convertToUserResponse(user);
 }
 
+export const getUserById = async (userId: string): Promise<UserResponse> => {
+  const user = await getUsersCollection().findOneById(userId);
+  return convertToUserResponse(user);
+}
+
 const convertToUserResponse = (user: User): UserResponse => {
   return {
     _id: user._id.toString(),

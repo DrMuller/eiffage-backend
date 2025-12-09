@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getUsers, createUserWithoutPassword, updateUser, deleteUserById, getAllManagers, searchUsers, sendUserInvite } from "../service/auth.service";
+import { getUsers, createUserWithoutPassword, updateUser, deleteUserById, getAllManagers, searchUsers, sendUserInvite, getUserById } from "../service/auth.service";
 import { asyncHandler } from "../../utils/express/asyncHandler";
 import { UpdateUserSchema } from "../dto/auth.dto";
 import { getPaginationParams, setPaginationHeaders } from "../../utils/pagination/pagination.helper";
@@ -9,6 +9,12 @@ export const getAllUsers = asyncHandler(async (req: Request, res: Response) => {
   const result = await getUsers({ page, limit, skip });
   setPaginationHeaders(res, result.meta);
   res.status(200).json(result);
+});
+
+export const getUserByIdHandler = asyncHandler(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const user = await getUserById(id);
+  res.status(200).json(user);
 });
 
 export const createUser = asyncHandler(async (req: Request, res: Response) => {
