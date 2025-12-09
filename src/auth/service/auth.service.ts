@@ -41,6 +41,7 @@ const convertToUserResponse = (user: User): UserResponse => {
     jobId: user.jobId?.toString() ?? null,
     managerUserIds: user.managerUserIds.map(id => id.toString()),
     roles: user.roles,
+    invitedAt: user.invitedAt,
     createdAt: user.createdAt,
     updatedAt: user.updatedAt,
   }
@@ -103,6 +104,7 @@ export const createUserWithoutPassword = async (
     gender: 'MALE',
     birthDate: new Date('1970-01-01'),
     roles: ["USER"] as Role[],
+    invitedAt: new Date(),
     createdAt: new Date(),
     updatedAt: new Date(),
   };
@@ -373,6 +375,24 @@ export async function getTeamMembers(managerId: string): Promise<UserResponse[]>
     managerUserIds: new ObjectId(managerId)
   });
   return teamMembers.map(convertToUserResponse);
+}
+
+export async function sendUserInvite(userId: string): Promise<void> {
+  const usersCollection = getUsersCollection();
+  const user = await usersCollection.findOneById(userId);
+  if (!user) {
+    throw new NotFoundException("User not found");
+  }
+
+  // Update invitedAt timestamp
+  await usersCollection.findOneAndUpdate(
+    { _id: new ObjectId(userId) },
+    { invitedAt: new Date(), updatedAt: new Date() }
+  );
+
+  const token = createResetToken(user);
+  const urlReset = `${appConfig.webapp.resetUrl}?token=${token}`;
+  await sendPasswordResetEmail(user.email, { urlReset }, user.firstName);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

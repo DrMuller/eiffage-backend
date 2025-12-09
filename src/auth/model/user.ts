@@ -15,6 +15,7 @@ export interface User {
   gender: 'MALE' | 'FEMALE';
   birthDate: Date;
   roles: Role[];
+  invitedAt?: Date;
   createdAt: Date;
   updatedAt: Date;
 }

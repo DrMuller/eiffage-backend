@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getUsers, createUserWithoutPassword, updateUser, deleteUserById, getAllManagers, searchUsers } from "../service/auth.service";
+import { getUsers, createUserWithoutPassword, updateUser, deleteUserById, getAllManagers, searchUsers, sendUserInvite } from "../service/auth.service";
 import { asyncHandler } from "../../utils/express/asyncHandler";
 import { UpdateUserSchema } from "../dto/auth.dto";
 import { getPaginationParams, setPaginationHeaders } from "../../utils/pagination/pagination.helper";
@@ -52,4 +52,10 @@ export const searchUsersHandler = asyncHandler(async (req: Request, res: Respons
   const result = await searchUsers({ q, skillName, jobName, observedLevel, jobIds, skills: skills.length > 0 ? skills : undefined }, { page, limit, skip });
   setPaginationHeaders(res, result.meta);
   res.status(200).json(result);
+});
+
+export const inviteUser = asyncHandler(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  await sendUserInvite(id);
+  res.status(200).json({ message: "Invite email sent successfully" });
 });

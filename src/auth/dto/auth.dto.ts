@@ -66,6 +66,7 @@ export type UserResponse = {
   jobId: string | null;
   managerUserIds: string[];
   roles: Role[];
+  invitedAt?: Date;
   createdAt: Date;
   updatedAt: Date;
 };
