@@ -3,6 +3,7 @@ import { getUsers, createUserWithoutPassword, updateUser, deleteUserById, getAll
 import { asyncHandler } from "../../utils/express/asyncHandler";
 import { UpdateUserSchema } from "../dto/auth.dto";
 import { getPaginationParams, setPaginationHeaders } from "../../utils/pagination/pagination.helper";
+import { BadRequestException } from "../../utils/HttpException";
 
 export const getAllUsers = asyncHandler(async (req: Request, res: Response) => {
   const { page, limit, skip } = getPaginationParams(req, 50);
@@ -42,6 +43,12 @@ export const getManagers = asyncHandler(async (req: Request, res: Response) => {
 
 export const searchUsersHandler = asyncHandler(async (req: Request, res: Response) => {
   const { q, skillName, jobName, observedLevel } = req.query as { q?: string; skillName?: string; jobName?: string; observedLevel?: string };
+  const gender = (req.query.gender as string | undefined)?.toUpperCase() as ('MALE' | 'FEMALE' | undefined);
+  const establishmentName = req.query.establishmentName as string | undefined;
+  const ageMin = typeof req.query.ageMin === 'string' ? Number(req.query.ageMin) : undefined;
+  const ageMax = typeof req.query.ageMax === 'string' ? Number(req.query.ageMax) : undefined;
+  const seniorityMin = typeof req.query.seniorityMin === 'string' ? Number(req.query.seniorityMin) : undefined;
+  const seniorityMax = typeof req.query.seniorityMax === 'string' ? Number(req.query.seniorityMax) : undefined;
   // jobIds can be provided multiple times (?jobIds=a&jobIds=b) or as a comma-separated string
   const jobIdsRaw = req.query.jobIds;
   const jobIds = Array.isArray(jobIdsRaw)
@@ -55,7 +62,32 @@ export const searchUsersHandler = asyncHandler(async (req: Request, res: Respons
   const skills = skillIds.map((id, idx) => ({ skillId: id, minLevel: levels[idx] })).filter((p) => p.skillId && Number.isFinite(p.minLevel));
 
   const { page, limit, skip } = getPaginationParams(req, 50);
-  const result = await searchUsers({ q, skillName, jobName, observedLevel, jobIds, skills: skills.length > 0 ? skills : undefined }, { page, limit, skip });
+  // Validate establishmentName regex early (if provided)
+  if (typeof establishmentName === 'string' && establishmentName.trim().length > 0) {
+    try {
+      // eslint-disable-next-line no-new
+      new RegExp(establishmentName, 'i');
+    } catch {
+      throw new BadRequestException('Invalid establishmentName regex');
+    }
+  }
+  const result = await searchUsers(
+    {
+      q,
+      skillName,
+      jobName,
+      observedLevel,
+      jobIds,
+      skills: skills.length > 0 ? skills : undefined,
+      gender: gender === 'MALE' || gender === 'FEMALE' ? gender : undefined,
+      establishmentName: typeof establishmentName === 'string' && establishmentName.trim().length > 0 ? establishmentName : undefined,
+      ageMin: Number.isFinite(ageMin) ? ageMin : undefined,
+      ageMax: Number.isFinite(ageMax) ? ageMax : undefined,
+      seniorityMin: Number.isFinite(seniorityMin) ? seniorityMin : undefined,
+      seniorityMax: Number.isFinite(seniorityMax) ? seniorityMax : undefined,
+    },
+    { page, limit, skip }
+  );
   setPaginationHeaders(res, result.meta);
   res.status(200).json(result);
 });

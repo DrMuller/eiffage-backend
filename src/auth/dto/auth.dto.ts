@@ -65,6 +65,13 @@ export type UserResponse = {
   code: string;
   jobId: string | null;
   managerUserIds: string[];
+  gender?: 'MALE' | 'FEMALE';
+  seniority?: number;
+  age?: number;
+  companyCode?: string;
+  companyName?: string;
+  establishmentCode?: string;
+  establishmentName?: string;
   roles: Role[];
   invitedAt?: Date;
   createdAt: Date;

@@ -43,10 +43,11 @@ export default {
   },
   brevo: {
     apiKey: parseEnvString('BREVO_API_KEY'),
-    senderName: parseEnvString('BREVO_SENDER_NAME', 'MyApp'),
-    senderEmail: parseEnvString('BREVO_SENDER_EMAIL', 'noreply@myapp.com'),
+    senderName: parseEnvString('BREVO_SENDER_NAME', 'Eiffage'),
+    senderEmail: parseEnvString('BREVO_SENDER_EMAIL', 'sophie.greff@eiffage.com'),
     templates: {
       passwordReset: parseEnvNumber('BREVO_TEMPLATE_PASSWORD_RESET', 1),
+      inviteUser: parseEnvNumber('BREVO_TEMPLATE_INVITE_USER', 1),
     }
   },
 } as const;

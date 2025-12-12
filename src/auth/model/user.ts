@@ -14,6 +14,17 @@ export interface User {
   managerUserIds: ObjectId[];
   gender: 'MALE' | 'FEMALE';
   birthDate: Date;
+  /**
+   * Imported from SIRH (optional because legacy users may not have it).
+   * - seniority: "Ancienneté calculée"
+   * - age: "Age à date d'effet"
+   */
+  seniority?: number;
+  age?: number;
+  companyCode?: string;
+  companyName?: string;
+  establishmentCode?: string;
+  establishmentName?: string;
   roles: Role[];
   invitedAt?: Date;
   createdAt: Date;

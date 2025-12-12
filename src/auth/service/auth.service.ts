@@ -45,6 +45,13 @@ const convertToUserResponse = (user: User): UserResponse => {
     code: user.code,
     jobId: user.jobId?.toString() ?? null,
     managerUserIds: user.managerUserIds.map(id => id.toString()),
+    gender: user.gender,
+    seniority: user.seniority,
+    age: user.age,
+    companyCode: user.companyCode,
+    companyName: user.companyName,
+    establishmentCode: user.establishmentCode,
+    establishmentName: user.establishmentName,
     roles: user.roles,
     invitedAt: user.invitedAt,
     createdAt: user.createdAt,
@@ -251,11 +258,37 @@ export async function searchUsers(params: {
   jobName?: string;
   observedLevel?: string;
   jobIds?: string[];
+  gender?: 'MALE' | 'FEMALE';
+  establishmentName?: string;
+  ageMin?: number;
+  ageMax?: number;
+  seniorityMin?: number;
+  seniorityMax?: number;
   skills?: Array<{ skillId: string; minLevel: number }>
 }, pagination?: PaginationParams): Promise<PaginatedResponse<UserResponse>> {
-  const { q, skillName, jobName, observedLevel, jobIds, skills } = params;
+  const { q, skillName, jobName, observedLevel, jobIds, skills, gender, establishmentName, ageMin, ageMax, seniorityMin, seniorityMax } = params;
 
   const pipeline: any[] = [];
+
+  // SIRH fields filters
+  if (gender) {
+    pipeline.push({ $match: { gender } });
+  }
+  if (establishmentName && establishmentName.trim().length > 0) {
+    pipeline.push({ $match: { establishmentName: { $regex: new RegExp(establishmentName, 'i') } } });
+  }
+  if (Number.isFinite(ageMin) || Number.isFinite(ageMax)) {
+    const cond: any = {};
+    if (Number.isFinite(ageMin)) cond.$gte = ageMin;
+    if (Number.isFinite(ageMax)) cond.$lte = ageMax;
+    pipeline.push({ $match: { age: cond } });
+  }
+  if (Number.isFinite(seniorityMin) || Number.isFinite(seniorityMax)) {
+    const cond: any = {};
+    if (Number.isFinite(seniorityMin)) cond.$gte = seniorityMin;
+    if (Number.isFinite(seniorityMax)) cond.$lte = seniorityMax;
+    pipeline.push({ $match: { seniority: cond } });
+  }
 
   if (q && q.trim().length > 0) {
     const regex = new RegExp(q, 'i');

@@ -11,6 +11,16 @@ function normalizeString(value: unknown): string {
     return value.trim();
 }
 
+function parseNumberOrUndefined(value: unknown): number | undefined {
+    const v = normalizeString(value);
+    if (!v) return undefined;
+    // Common French numeric formats: "12,34"
+    const normalized = v.replace(/\s/g, '').replace(',', '.');
+    const n = Number.parseFloat(normalized);
+    if (Number.isNaN(n)) return undefined;
+    return n;
+}
+
 function toTitleCase(value: string): string {
     const lower = value.toLowerCase();
     // Handle separators like spaces, hyphens, and apostrophes
@@ -133,6 +143,13 @@ async function upsertUsersFirstPass(
         const lastNameRaw = normalizeString(row['Nom de famille']);
         const firstName = firstNameRaw ? toTitleCase(firstNameRaw) : firstNameRaw;
         const lastName = lastNameRaw ? toTitleCase(lastNameRaw) : lastNameRaw;
+        // SIRH extra fields (header mapping requested)
+        const companyCode = normalizeString(row['Code Société']);
+        const companyName = normalizeString(row['Libellé Société']);
+        const establishmentCode = normalizeString(row['Code Etablissement']);
+        const establishmentName = normalizeString(row['Libellé Etablissement']);
+        const age = parseNumberOrUndefined(row["Age à date d'effet"]);
+        const seniority = parseNumberOrUndefined(row['Ancienneté calculée']);
         const gender = mapGender(normalizeString(row['Sexe']));
         const birthDate = parseDateOrDefault(row['Date de naissance']);
         const jobCode = normalizeString(row["Code de l'emploi"]);
@@ -145,6 +162,12 @@ async function upsertUsersFirstPass(
                 firstName: firstName || existing.firstName,
                 lastName: lastName || existing.lastName,
                 jobId: jobId ?? existing.jobId,
+                companyCode: companyCode || existing.companyCode,
+                companyName: companyName || existing.companyName,
+                establishmentCode: establishmentCode || existing.establishmentCode,
+                establishmentName: establishmentName || existing.establishmentName,
+                age: age ?? existing.age,
+                seniority: seniority ?? existing.seniority,
                 gender: existing.gender ?? gender,
                 birthDate: existing.birthDate ?? birthDate,
                 updatedAt: new Date(),
@@ -163,6 +186,12 @@ async function upsertUsersFirstPass(
                 code: matricule,
                 jobId: jobId ?? null,
                 managerUserIds: [],
+                companyCode: companyCode || undefined,
+                companyName: companyName || undefined,
+                establishmentCode: establishmentCode || undefined,
+                establishmentName: establishmentName || undefined,
+                age,
+                seniority,
                 gender,
                 birthDate,
                 roles: ['USER'],
