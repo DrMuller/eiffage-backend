@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { getUsers, createUserWithoutPassword, updateUser, deleteUserById, getAllManagers, searchUsers, sendUserInvite, getUserById } from "../service/auth.service";
+import { getTeamStats } from "../service/teamStats.service";
 import { asyncHandler } from "../../utils/express/asyncHandler";
 import { UpdateUserSchema } from "../dto/auth.dto";
 import { getPaginationParams, setPaginationHeaders } from "../../utils/pagination/pagination.helper";
@@ -101,4 +102,10 @@ export const inviteUser = asyncHandler(async (req: Request, res: Response) => {
   const { id } = req.params;
   await sendUserInvite(id);
   res.status(200).json({ message: "Invite email sent successfully" });
+});
+
+export const getTeamStatsHandler = asyncHandler(async (req: Request, res: Response) => {
+  const { managerId } = req.params;
+  const stats = await getTeamStats(managerId);
+  res.status(200).json(stats);
 });
