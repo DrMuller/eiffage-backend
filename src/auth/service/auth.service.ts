@@ -260,17 +260,21 @@ export async function searchUsers(params: {
   jobIds?: string[];
   gender?: 'MALE' | 'FEMALE';
   establishmentName?: string;
+  managerUserId?: string;
   ageMin?: number;
   ageMax?: number;
   seniorityMin?: number;
   seniorityMax?: number;
   skills?: Array<{ skillId: string; minLevel: number }>
 }, pagination?: PaginationParams): Promise<PaginatedResponse<UserResponse>> {
-  const { q, skillName, jobName, observedLevel, jobIds, skills, gender, establishmentName, ageMin, ageMax, seniorityMin, seniorityMax } = params;
+  const { q, skillName, jobName, observedLevel, jobIds, skills, gender, establishmentName, managerUserId, ageMin, ageMax, seniorityMin, seniorityMax } = params;
 
   const pipeline: any[] = [];
 
   // SIRH fields filters
+  if (managerUserId) {
+    pipeline.push({ $match: { managerUserIds: new ObjectId(managerUserId) } });
+  }
   if (gender) {
     pipeline.push({ $match: { gender } });
   }

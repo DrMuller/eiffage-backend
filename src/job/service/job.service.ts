@@ -40,7 +40,6 @@ export async function searchJobs(query: string): Promise<JobResponse[]> {
 export async function getJobById(id: string): Promise<JobWithSkillsResponse> {
     const job = await getJobsCollection().findOneById(id);
     const jobSkills = await getJobSkills(id);
-    console.log('jobSkills', jobSkills);
     return {
         ...convertToJobResponse(job),
         jobSkills,

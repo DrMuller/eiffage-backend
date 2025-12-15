@@ -3,7 +3,25 @@ import { getUsers, createUserWithoutPassword, updateUser, deleteUserById, getAll
 import { asyncHandler } from "../../utils/express/asyncHandler";
 import { UpdateUserSchema } from "../dto/auth.dto";
 import { getPaginationParams, setPaginationHeaders } from "../../utils/pagination/pagination.helper";
-import { BadRequestException } from "../../utils/HttpException";
+import { z } from "zod";
+
+const SearchUsersQuerySchema = z.object({
+  q: z.string().optional(),
+  skillName: z.string().optional(),
+  jobName: z.string().optional(),
+  observedLevel: z.string().optional(),
+  gender: z.string().toUpperCase().pipe(z.enum(['MALE', 'FEMALE'])).optional(),
+  establishmentName: z.string().optional(),
+  managerUserId: z.string().regex(/^[a-f\d]{24}$/i).optional(),
+  ageMin: z.coerce.number().optional(),
+  ageMax: z.coerce.number().optional(),
+  seniorityMin: z.coerce.number().optional(),
+  seniorityMax: z.coerce.number().optional(),
+  jobIds: z.union([z.string(), z.array(z.string())]).optional(),
+  skillIds: z.union([z.string(), z.array(z.string())]).optional(),
+  levels: z.union([z.string(), z.array(z.string())]).optional(),
+});
+type SearchUsersQuery = z.infer<typeof SearchUsersQuerySchema>;
 
 export const getAllUsers = asyncHandler(async (req: Request, res: Response) => {
   const { page, limit, skip } = getPaginationParams(req, 50);
@@ -42,49 +60,36 @@ export const getManagers = asyncHandler(async (req: Request, res: Response) => {
 });
 
 export const searchUsersHandler = asyncHandler(async (req: Request, res: Response) => {
-  const { q, skillName, jobName, observedLevel } = req.query as { q?: string; skillName?: string; jobName?: string; observedLevel?: string };
-  const gender = (req.query.gender as string | undefined)?.toUpperCase() as ('MALE' | 'FEMALE' | undefined);
-  const establishmentName = req.query.establishmentName as string | undefined;
-  const ageMin = typeof req.query.ageMin === 'string' ? Number(req.query.ageMin) : undefined;
-  const ageMax = typeof req.query.ageMax === 'string' ? Number(req.query.ageMax) : undefined;
-  const seniorityMin = typeof req.query.seniorityMin === 'string' ? Number(req.query.seniorityMin) : undefined;
-  const seniorityMax = typeof req.query.seniorityMax === 'string' ? Number(req.query.seniorityMax) : undefined;
+  const parsed: SearchUsersQuery = SearchUsersQuerySchema.parse(req.query);
+  const { q, skillName, jobName, observedLevel, gender, establishmentName, managerUserId, ageMin, ageMax, seniorityMin, seniorityMax, jobIds, skillIds, levels } = parsed;
+
   // jobIds can be provided multiple times (?jobIds=a&jobIds=b) or as a comma-separated string
-  const jobIdsRaw = req.query.jobIds;
-  const jobIds = Array.isArray(jobIdsRaw)
-    ? (jobIdsRaw as string[])
-    : (typeof jobIdsRaw === 'string' && jobIdsRaw.length > 0 ? jobIdsRaw.split(',') : undefined);
+  const jobIdsList = Array.isArray(jobIds)
+    ? jobIds
+    : (typeof jobIds === 'string' && jobIds.length > 0 ? jobIds.split(',') : undefined);
 
   // skills can be provided as repeated params skillIds and levels pairing by index
   const toArray = (v: unknown): string[] => Array.isArray(v) ? (v as string[]) : (typeof v === 'string' ? [v] : []);
-  const skillIds = toArray(req.query.skillIds);
-  const levels = toArray(req.query.levels).map((n) => Number(n));
-  const skills = skillIds.map((id, idx) => ({ skillId: id, minLevel: levels[idx] })).filter((p) => p.skillId && Number.isFinite(p.minLevel));
+  const skillIdsList = toArray(skillIds);
+  const levelsList = toArray(levels).map((n) => Number(n));
+  const skills = skillIdsList.map((id, idx) => ({ skillId: id, minLevel: levelsList[idx] })).filter((p) => p.skillId && Number.isFinite(p.minLevel));
 
   const { page, limit, skip } = getPaginationParams(req, 50);
-  // Validate establishmentName regex early (if provided)
-  if (typeof establishmentName === 'string' && establishmentName.trim().length > 0) {
-    try {
-      // eslint-disable-next-line no-new
-      new RegExp(establishmentName, 'i');
-    } catch {
-      throw new BadRequestException('Invalid establishmentName regex');
-    }
-  }
   const result = await searchUsers(
     {
       q,
       skillName,
       jobName,
       observedLevel,
-      jobIds,
+      jobIds: jobIdsList,
       skills: skills.length > 0 ? skills : undefined,
-      gender: gender === 'MALE' || gender === 'FEMALE' ? gender : undefined,
-      establishmentName: typeof establishmentName === 'string' && establishmentName.trim().length > 0 ? establishmentName : undefined,
-      ageMin: Number.isFinite(ageMin) ? ageMin : undefined,
-      ageMax: Number.isFinite(ageMax) ? ageMax : undefined,
-      seniorityMin: Number.isFinite(seniorityMin) ? seniorityMin : undefined,
-      seniorityMax: Number.isFinite(seniorityMax) ? seniorityMax : undefined,
+      gender,
+      establishmentName: establishmentName && establishmentName.trim().length > 0 ? establishmentName : undefined,
+      managerUserId,
+      ageMin,
+      ageMax,
+      seniorityMin,
+      seniorityMax,
     },
     { page, limit, skip }
   );
