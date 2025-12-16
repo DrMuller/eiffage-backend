@@ -2,6 +2,7 @@ import { connect, close } from "../utils/mongo/dbHelper";
 import { MongoCollection, ObjectId } from "../utils/mongo/MongoCollection";
 import type { Skill } from "../skills/model/skill";
 import type { JobSkill } from "../job/model/jobSkill";
+import logger from "../utils/logger";
 
 const JOB_ID = "68f5ee2f730a07b29ece5ce7";
 
@@ -23,11 +24,11 @@ async function verifyJobSkills() {
     // Get all job_skills for this job
     const jobSkills = await jobSkillsCollection.find({ jobId: jobId });
 
-    console.log(`\n=== Job Skills for Job ID: ${JOB_ID} ===`);
-    console.log(`Total skills linked: ${jobSkills.length}\n`);
+    logger.debug(`\n=== Job Skills for Job ID: ${JOB_ID} ===`);
+    logger.debug(`Total skills linked: ${jobSkills.length}\n`);
 
     if (jobSkills.length === 0) {
-        console.log("No skills linked to this job.");
+        logger.debug("No skills linked to this job.");
         return;
     }
 
@@ -39,27 +40,27 @@ async function verifyJobSkills() {
         skillIds.some((id: ObjectId) => id.toString() === s._id.toString())
     );
 
-    console.log("Linked skills:");
+    logger.debug("Linked skills:");
     linkedSkills.forEach((skill: Skill, index: number) => {
         const jobSkill = jobSkills.find((js: JobSkill) =>
             js.skillId.toString() === skill._id.toString()
         );
-        console.log(`${index + 1}. [Level ${jobSkill?.expectedLevel}] ${skill.name}`);
+        logger.debug(`${index + 1}. [Level ${jobSkill?.expectedLevel}] ${skill.name}`);
     });
 
-    console.log("\n=== Verification ===");
+    logger.debug("\n=== Verification ===");
     let foundCount = 0;
     for (const pattern of expectedSkillPatterns) {
         const found = linkedSkills.some((s: Skill) => s.name.includes(pattern));
         if (found) {
-            console.log(`✓ ${pattern}`);
+            logger.debug(`✓ ${pattern}`);
             foundCount++;
         } else {
-            console.log(`✗ ${pattern}`);
+            logger.debug(`✗ ${pattern}`);
         }
     }
 
-    console.log(`\n${foundCount}/${expectedSkillPatterns.length} expected skills are linked to the job.`);
+    logger.debug(`\n${foundCount}/${expectedSkillPatterns.length} expected skills are linked to the job.`);
 }
 
 async function main() {
@@ -67,7 +68,7 @@ async function main() {
     try {
         await verifyJobSkills();
     } catch (err) {
-        console.error("Error:", err);
+        logger.error("Error:", err);
         process.exitCode = 1;
     } finally {
         await close();

@@ -3,6 +3,7 @@ import { MongoCollection, ObjectId } from "../utils/mongo/MongoCollection";
 import type { Job } from "../job/model/job";
 import type { Skill } from "../skills/model/skill";
 import type { JobSkill } from "../job/model/jobSkill";
+import logger from "../utils/logger";
 
 type TargetItem = {
     category: "Comportementales" | "QPSE" | "Techniques";
@@ -131,15 +132,13 @@ async function linkSkillsToSoudeur() {
         // Require a minimum score to avoid false positives
         if (!best || bestScore < 0.35) {
             notFound.push(target);
-            // eslint-disable-next-line no-console
-            console.log(`✗ NOT FOUND: ${target.category} • ${target.name}`);
+            logger.debug(`✗ NOT FOUND: ${target.category} • ${target.name}`);
             continue;
         }
 
         const exists = await jobSkills.findOne({ jobId, skillId: best._id } as any);
         if (exists) {
-            // eslint-disable-next-line no-console
-            console.log(`⚠️  Already linked: ${best.name.substring(0, 80)}...`);
+            logger.debug(`⚠️  Already linked: ${best.name.substring(0, 80)}...`);
             skipped++;
             continue;
         }
@@ -152,23 +151,17 @@ async function linkSkillsToSoudeur() {
             createdAt: new Date(),
         };
         await jobSkills.insertOne(link);
-        // eslint-disable-next-line no-console
-        console.log(`✓ Linked: [${target.expectedLevel}] ${best.name.substring(0, 80)}...`);
+        logger.debug(`✓ Linked: [${target.expectedLevel}] ${best.name.substring(0, 80)}...`);
         added++;
     }
 
-    // eslint-disable-next-line no-console
-    console.log("\n=== Summary ===");
-    // eslint-disable-next-line no-console
-    console.log(`Added: ${added}`);
-    // eslint-disable-next-line no-console
-    console.log(`Skipped (already linked): ${skipped}`);
+    logger.debug("\n=== Summary ===");
+    logger.debug(`Added: ${added}`);
+    logger.debug(`Skipped (already linked): ${skipped}`);
     if (notFound.length) {
-        // eslint-disable-next-line no-console
-        console.log(`Not matched (${notFound.length}):`);
+        logger.debug(`Not matched (${notFound.length}):`);
         for (const nf of notFound) {
-            // eslint-disable-next-line no-console
-            console.log(` - ${nf.category} • ${nf.name} [${nf.expectedLevel}]`);
+            logger.debug(` - ${nf.category} • ${nf.name} [${nf.expectedLevel}]`);
         }
     }
 }
@@ -178,8 +171,7 @@ async function main() {
     try {
         await linkSkillsToSoudeur();
     } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error(err);
+        logger.error("Error:", err);
         process.exitCode = 1;
     } finally {
         await close();

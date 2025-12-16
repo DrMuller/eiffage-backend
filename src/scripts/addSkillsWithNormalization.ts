@@ -2,6 +2,7 @@ import { connect, close } from "../utils/mongo/dbHelper";
 import { MongoCollection, ObjectId } from "../utils/mongo/MongoCollection";
 import type { Skill } from "../skills/model/skill";
 import type { JobSkill } from "../job/model/jobSkill";
+import logger from "../utils/logger";
 
 const targetSkillNames = [
     "Respecter les cordons de soudure (mono, multi passes et angles) et les tolérances des soudures pour garantir la qualité et la conformité des assemblages.",
@@ -67,8 +68,7 @@ async function addSkillsWithNormalization() {
     const jobId = new ObjectId(JOB_ID);
 
     const allSkills = await skillsCollection.find({});
-    console.log(`Total skills 
-        in database: ${allSkills.length}\n`);
+    logger.debug(`Total skills in database: ${allSkills.length}\n`);
 
     const foundSkills: Skill[] = [];
     const notFound: string[] = [];
@@ -82,17 +82,17 @@ async function addSkillsWithNormalization() {
 
         if (match) {
             foundSkills.push(match);
-            console.log(`✓ FOUND: ${match.name.substring(0, 70)}...`);
+            logger.debug(`✓ FOUND: ${match.name.substring(0, 70)}...`);
         } else {
             notFound.push(targetName);
-            console.log(`✗ NOT FOUND: ${targetName.substring(0, 70)}...`);
+            logger.debug(`✗ NOT FOUND: ${targetName.substring(0, 70)}...`);
         }
     }
 
-    console.log(`\n=== Found ${foundSkills.length} skills ===\n`);
+    logger.debug(`\n=== Found ${foundSkills.length} skills ===\n`);
 
     if (notFound.length > 0) {
-        console.log(`⚠️  Could not find ${notFound.length} skills\n`);
+        logger.debug(`⚠️  Could not find ${notFound.length} skills\n`);
     }
 
     let addedCount = 0;
@@ -105,7 +105,7 @@ async function addSkillsWithNormalization() {
         });
 
         if (existing) {
-            console.log(`⚠️  Already linked: ${skill.name.substring(0, 60)}...`);
+            logger.debug(`⚠️  Already linked: ${skill.name.substring(0, 60)}...`);
             skippedCount++;
             continue;
         }
@@ -119,14 +119,14 @@ async function addSkillsWithNormalization() {
         };
 
         await jobSkillsCollection.insertOne(jobSkill);
-        console.log(`✓ Added: ${skill.name.substring(0, 60)}...`);
+        logger.debug(`✓ Added: ${skill.name.substring(0, 60)}...`);
         addedCount++;
     }
 
-    console.log("\n=== Summary ===");
-    console.log(`Skills found: ${foundSkills.length}`);
-    console.log(`Skills added: ${addedCount}`);
-    console.log(`Skills skipped (already linked): ${skippedCount}`);
+    logger.debug("\n=== Summary ===");
+    logger.debug(`Skills found: ${foundSkills.length}`);
+    logger.debug(`Skills added: ${addedCount}`);
+    logger.debug(`Skills skipped (already linked): ${skippedCount}`);
 }
 
 async function main() {
@@ -134,7 +134,7 @@ async function main() {
     try {
         await addSkillsWithNormalization();
     } catch (err) {
-        console.error("Error:", err);
+        logger.error("Error:", err);
         process.exitCode = 1;
     } finally {
         await close();
