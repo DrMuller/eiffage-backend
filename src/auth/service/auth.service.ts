@@ -174,7 +174,7 @@ export async function resetPassword(resetPassword: AccountResetPassword): Promis
   await getUsersCollection().update(user)
 }
 
-export async function getUsers(pagination?: PaginationParams): Promise<PaginatedResponse<UserResponse>> {
+export async function getUsers(pagination?: PaginationParams, managerUserId?: string): Promise<PaginatedResponse<UserResponse>> {
   const usersCollection = getUsersCollection();
 
   if (!pagination) {
@@ -184,8 +184,8 @@ export async function getUsers(pagination?: PaginationParams): Promise<Paginated
   }
 
   const { page, limit, skip } = pagination;
-  const total = await usersCollection.count({});
-  const users = await usersCollection.find({}, { skip, limit, sort: { createdAt: -1 } });
+  const total = await usersCollection.count(managerUserId ? { managerUserIds: new ObjectId(managerUserId) } : {});
+  const users = await usersCollection.find(managerUserId ? { managerUserIds: new ObjectId(managerUserId) } : {}, { skip, limit, sort: { createdAt: -1 } });
   const userResponses = users.map(convertToUserResponse);
 
   return createPaginatedResponse(userResponses, page, limit, total);
@@ -270,7 +270,6 @@ export async function searchUsers(params: {
   const { q, skillName, jobName, observedLevel, jobIds, skills, gender, establishmentName, managerUserId, ageMin, ageMax, seniorityMin, seniorityMax } = params;
 
   const pipeline: any[] = [];
-
   // SIRH fields filters
   if (managerUserId) {
     pipeline.push({ $match: { managerUserIds: new ObjectId(managerUserId) } });
@@ -400,7 +399,6 @@ export async function searchUsers(params: {
     const cursor = usersCollection.aggregate<User & any>(pipeline.length > 0 ? pipeline : [{ $match: {} }]);
     const results = await cursor.toArray();
     const userResponses = results.map(convertToUserResponse);
-
     return createPaginatedResponse(userResponses, page, limit, total);
   }
 

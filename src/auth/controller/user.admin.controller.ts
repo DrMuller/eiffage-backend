@@ -26,7 +26,12 @@ type SearchUsersQuery = z.infer<typeof SearchUsersQuerySchema>;
 
 export const getAllUsers = asyncHandler(async (req: Request, res: Response) => {
   const { page, limit, skip } = getPaginationParams(req, 50);
-  const result = await getUsers({ page, limit, skip });
+  const currentUser = req.context.user;
+  let managerUserId = undefined;
+  if (isManagerOnly(req)) {
+    managerUserId = currentUser._id;
+  }
+  const result = await getUsers({ page, limit, skip }, managerUserId);
   setPaginationHeaders(res, result.meta);
   res.status(200).json(result);
 });
@@ -60,9 +65,18 @@ export const getManagers = asyncHandler(async (req: Request, res: Response) => {
   res.status(200).json(managers);
 });
 
+const isManagerOnly = (req: Request): boolean => {
+  return req.context.user.roles.includes('MANAGER') && !req.context.user.roles.includes('ADMIN');
+}
+
 export const searchUsersHandler = asyncHandler(async (req: Request, res: Response) => {
   const parsed: SearchUsersQuery = SearchUsersQuerySchema.parse(req.query);
-  const { q, skillName, jobName, observedLevel, gender, establishmentName, managerUserId, ageMin, ageMax, seniorityMin, seniorityMax, jobIds, skillIds, levels } = parsed;
+  const { q, skillName, jobName, observedLevel, gender, establishmentName, ageMin, ageMax, seniorityMin, seniorityMax, jobIds, skillIds, levels } = parsed;
+  let managerUserId = parsed.managerUserId;
+  const currentUser = isManagerOnly(req);
+  if (currentUser) {
+    managerUserId = req.context.user._id;
+  }
 
   // jobIds can be provided multiple times (?jobIds=a&jobIds=b) or as a comma-separated string
   const jobIdsList = Array.isArray(jobIds)
