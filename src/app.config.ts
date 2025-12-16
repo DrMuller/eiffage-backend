@@ -28,14 +28,15 @@ export default {
   timezone: parseEnvEnum(['UTC'], 'TZ'),
   serverPort,
   webapp: {
-    resetUrl: parseEnvString('WEBAPP_RESET_URL'),
+    webappUrl: parseEnvString('WEBAPP_BASE_URL'),
+    evaluationWebappUrl: parseEnvString('WEBAPP_EVALUATION_BASE_URL'),
   },
   jwt: {
     secret: parseEnvString('JWT_SECRET'),
     accessTokenExp: parseEnvString('JWT_ACCESS_TOKEN_EXP', '30m'),
     refreshTokenExp: parseEnvString('JWT_REFRESH_TOKEN_EXP', '1y'),
     resetSecret: parseEnvString('JWT_SECRET_RESET'),
-    resetTokenExp: parseEnvString('JWT_RESET_TOKEN_EXP', '1h'),
+    resetTokenExp: parseEnvString('JWT_RESET_TOKEN_EXP', '7d'),
   },
   mongo: {
     url: parseEnvString('MONGODB_ADDON_URI'),
@@ -47,7 +48,7 @@ export default {
     senderEmail: parseEnvString('BREVO_SENDER_EMAIL', 'sophie.greff@eiffage.com'),
     templates: {
       passwordReset: parseEnvNumber('BREVO_TEMPLATE_PASSWORD_RESET', 1),
-      inviteUser: parseEnvNumber('BREVO_TEMPLATE_INVITE_USER', 1),
+      inviteUser: parseEnvNumber('BREVO_TEMPLATE_INVITE_USER', 2),
     }
   },
 } as const;

@@ -100,8 +100,9 @@ export const searchUsersHandler = asyncHandler(async (req: Request, res: Respons
 
 export const inviteUser = asyncHandler(async (req: Request, res: Response) => {
   const { id } = req.params;
-  await sendUserInvite(id);
-  res.status(200).json({ message: "Invite email sent successfully" });
+  const { role, webapp } = req.body as { role?: 'ADMIN' | 'MANAGER'; webapp?: 'main' | 'evaluation' };
+  const emailContent = await sendUserInvite(id, role, webapp);
+  res.status(200).json(emailContent);
 });
 
 export const getTeamStatsHandler = asyncHandler(async (req: Request, res: Response) => {

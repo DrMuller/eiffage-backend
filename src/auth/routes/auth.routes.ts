@@ -4,6 +4,7 @@ import {
   signup,
   refreshAccessToken,
   postResetPasswordToken,
+  postResetPasswordTokenEvaluation,
   postResetPassword,
 } from "../controller/auth.controller";
 
@@ -14,6 +15,7 @@ router.post("/auth/signup", signup);
 router.post("/auth/signin", signin); // Rate limiting only on login
 router.post("/auth/refresh", refreshAccessToken);
 router.post("/auth/reset-password-token", postResetPasswordToken);
+router.post("/auth/reset-password-token-evaluation", postResetPasswordTokenEvaluation);
 router.post("/auth/reset-password", postResetPassword);
 
 export default router;

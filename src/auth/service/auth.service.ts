@@ -125,7 +125,7 @@ export const createUserWithoutPassword = async (
 
   // Send password reset email to the new user
   const token = createResetToken(user);
-  const urlReset = `${appConfig.webapp.resetUrl}?token=${token}`;
+  const urlReset = `${appConfig.webapp.webappUrl}/auth/reset-password?token=${token}`;
   await sendPasswordResetEmail(user.email, { urlReset }, user.firstName);
 
   return convertToUserResponse(user);
@@ -419,22 +419,71 @@ export async function getTeamMembers(managerId: string): Promise<UserResponse[]>
   return teamMembers.map(convertToUserResponse);
 }
 
-export async function sendUserInvite(userId: string): Promise<void> {
+export async function sendUserInvite(userId: string, role?: 'ADMIN' | 'MANAGER', webapp: 'main' | 'evaluation' = 'main'): Promise<{ to: string; subject: string; body: string }> {
   const usersCollection = getUsersCollection();
   const user = await usersCollection.findOneById(userId);
   if (!user) {
     throw new NotFoundException("User not found");
   }
 
-  // Update invitedAt timestamp
+  // Prepare the update object
+  const updateData: Partial<User> = {
+    invitedAt: new Date(),
+    updatedAt: new Date(),
+  };
+
+  // If a role is provided, add it to the user's roles
+  if (role) {
+    const currentRoles = Array.isArray(user.roles) ? user.roles : ['USER'];
+    // Add the new role if it's not already present, and ensure USER is always included
+    const newRoles = Array.from(new Set([...currentRoles, role, 'USER']));
+    updateData.roles = newRoles as Role[];
+  }
+
+  // Update invitedAt timestamp and roles if provided
   await usersCollection.findOneAndUpdate(
     { _id: new ObjectId(userId) },
-    { invitedAt: new Date(), updatedAt: new Date() }
+    updateData
   );
 
   const token = createResetToken(user);
-  const urlReset = `${appConfig.webapp.resetUrl}?token=${token}`;
-  await sendPasswordResetEmail(user.email, { urlReset }, user.firstName);
+  // Select the appropriate reset URL based on the webapp
+  const resetUrl = webapp === 'evaluation'
+    ? appConfig.webapp.evaluationWebappUrl
+    : appConfig.webapp.webappUrl;
+  const urlReset = `${resetUrl}/auth/reset-password?token=${token}`;
+
+  // Comment out the actual email sending
+  // await sendPasswordResetEmail(user.email, { urlReset }, user.firstName);
+
+  // Return the email content for mailto link
+  const roleName = role === 'ADMIN' ? 'Administrateur RH' : role === 'MANAGER' ? 'Manager' : 'Utilisateur';
+
+  const subject = `Invitation à rejoindre l\`outil de gestion des compétences Eiffage`;
+  const body = `Bonjour ${user.firstName},
+
+Vous avez été invité(e) à rejoindre l\`outil de gestion des compétences Eiffage avec le rôle de ${roleName}.
+
+Pour créer votre mot de passe et accéder à votre compte, veuillez cliquer sur le lien suivant :
+
+${urlReset}
+
+Ce lien est valable pendant 7 jours.
+
+Une fois votre compte activé, vous pourrez accéder aux applications suivantes :
+	•	Webapp d’évaluation : ${appConfig.webapp.evaluationWebappUrl}
+	•	Webapp RH : ${appConfig.webapp.webappUrl}
+
+Si vous n'avez pas demandé cette invitation, vous pouvez ignorer cet email.
+
+Cordialement,
+L'équipe Eiffage`;
+
+  return {
+    to: user.email,
+    subject,
+    body
+  };
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

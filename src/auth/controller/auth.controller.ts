@@ -37,7 +37,14 @@ export const refreshAccessToken = asyncHandler(async (req: Request, res: Respons
 });
 
 export const postResetPasswordToken = asyncHandler(async (req: Request, res: Response) => {
-  const urlReset = appConfig.webapp.resetUrl;
+  const urlReset = appConfig.webapp.webappUrl + '/auth/reset-password';
+  const resetPasswordToken = ResetPasswordTokenSchema.parse(req.body);
+  await getResetPasswordToken(resetPasswordToken, urlReset);
+  res.status(204).send();
+});
+
+export const postResetPasswordTokenEvaluation = asyncHandler(async (req: Request, res: Response) => {
+  const urlReset = appConfig.webapp.evaluationWebappUrl + '/auth/reset-password';
   const resetPasswordToken = ResetPasswordTokenSchema.parse(req.body);
   await getResetPasswordToken(resetPasswordToken, urlReset);
   res.status(204).send();
