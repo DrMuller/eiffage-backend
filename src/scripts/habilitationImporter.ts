@@ -71,7 +71,7 @@ export async function importHabilitationFromFile(buffer: Buffer, filename: strin
       }
 
       // Find user by matricule
-      const user = await usersCollection.findOne({ code: matricule } as any);
+      const user = await usersCollection.findOne({ code: matricule });
       if (!user) {
         skipped++;
         errors.push(`Utilisateur non trouvé pour le matricule : ${matricule}`);
@@ -81,7 +81,7 @@ export async function importHabilitationFromFile(buffer: Buffer, filename: strin
       // Find job by code
       let jobId: ObjectId | null = null;
       if (jobCode) {
-        const job = await jobsCollection.findOne({ code: jobCode } as any);
+        const job = await jobsCollection.findOne({ code: jobCode });
         jobId = job ? job._id : null;
       }
 
@@ -89,12 +89,13 @@ export async function importHabilitationFromFile(buffer: Buffer, filename: strin
       const existing = await habilitationsCollection.findOne({
         userId: user._id,
         code: code,
-      } as any);
+      });
 
       if (existing) {
         // Update existing habilitation
         await habilitationsCollection.update({
           ...existing,
+          userId: user._id,
           jobId: jobId ?? existing.jobId,
           type: type || existing.type,
           label: label || existing.label,
@@ -104,7 +105,7 @@ export async function importHabilitationFromFile(buffer: Buffer, filename: strin
           establishment: establishment || existing.establishment,
           profession: profession || existing.profession,
           updatedAt: new Date(),
-        } as Habilitation);
+        });
         created++;
       } else {
         // Create new habilitation
@@ -122,7 +123,7 @@ export async function importHabilitationFromFile(buffer: Buffer, filename: strin
           profession: profession || 'N/A',
           createdAt: new Date(),
           updatedAt: new Date(),
-        } as Habilitation);
+        });
         created++;
       }
     } catch (error) {

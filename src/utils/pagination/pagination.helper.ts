@@ -32,20 +32,20 @@ export function getPaginationParams(req: Request, defaultLimit: number = 50): Pa
     // Try to get from headers first
     const headerPage = req.headers['x-page'];
     const headerLimit = req.headers['x-limit'];
-    
+
     // Fallback to query params
     const queryPage = req.query.page;
     const queryLimit = req.query.limit;
-    
+
     // Parse page number (default to 1)
     const page = Math.max(1, parseInt((headerPage || queryPage || '1') as string, 10) || 1);
-    
+
     // Parse limit (default to defaultLimit)
-    const limit = Math.max(1, Math.min(100, parseInt((headerLimit || queryLimit || defaultLimit.toString()) as string, 10) || defaultLimit));
-    
+    const limit = Math.max(1, Math.min(10000, parseInt((headerLimit || queryLimit || defaultLimit.toString()) as string, 10) || defaultLimit));
+
     // Calculate skip
     const skip = (page - 1) * limit;
-    
+
     return { page, limit, skip };
 }
 
@@ -58,7 +58,7 @@ export function getPaginationParams(req: Request, defaultLimit: number = 50): Pa
  */
 export function createPaginationMeta(page: number, limit: number, total: number): PaginationMeta {
     const totalPages = Math.ceil(total / limit);
-    
+
     return {
         page,
         limit,
@@ -96,7 +96,7 @@ export function createPaginatedResponse<T>(
     total: number
 ): PaginatedResponse<T> {
     const meta = createPaginationMeta(page, limit, total);
-    
+
     return {
         data,
         meta,
