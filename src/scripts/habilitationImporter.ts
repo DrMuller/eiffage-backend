@@ -27,17 +27,20 @@ interface ImportResult {
 
 export async function importHabilitationFromFile(buffer: Buffer, filename: string): Promise<ImportResult> {
   const requiredColumns = [
-    'Matricule',
-    'Code emploi',
-    'Type',
-    'Code',
-    'Libellé',
-    'Date début',
-    'Date fin',
-    'Section paie',
-    'Etablissement',
-    'Métier'
+    'MATRICULE',
+    'TYPE',
+    'NOM',
+    'CODE',
+    'LIBELLE',
+    'DEBUT',
+    'FIN',
+    'Section de paie',
+    'ETABLISSEMENT',
+    'PROFESSION'
   ];
+
+  console.log(`\n📁 Analyse du fichier: ${filename}`);
+  console.log(`📋 Colonnes requises: ${requiredColumns.join(', ')}\n`);
 
   const rows = parseFileContent(buffer, filename, requiredColumns);
   const habilitationsCollection = new MongoCollection<Habilitation>('habilitation');
@@ -50,20 +53,20 @@ export async function importHabilitationFromFile(buffer: Buffer, filename: strin
 
   for (const row of rows) {
     try {
-      const matricule = normalizeString(row['Matricule']);
-      const jobCode = normalizeString(row['Code emploi']);
-      const type = normalizeString(row['Type']);
-      const code = normalizeString(row['Code']);
-      const label = normalizeString(row['Libellé']);
-      const startDate = parseDateOrDefault(row['Date début']);
-      const endDate = parseDateOrDefault(row['Date fin']);
-      const payrollSection = normalizeString(row['Section paie']);
-      const establishment = normalizeString(row['Etablissement']);
-      const profession = normalizeString(row['Métier']);
+      const matricule = normalizeString(row['MATRICULE']);
+      const jobCode = normalizeString(row['NOM']); // NOM corresponds to the job name/code
+      const type = normalizeString(row['TYPE']);
+      const code = normalizeString(row['CODE']);
+      const label = normalizeString(row['LIBELLE']);
+      const startDate = parseDateOrDefault(row['DEBUT']);
+      const endDate = parseDateOrDefault(row['FIN']);
+      const payrollSection = normalizeString(row['Section de paie']);
+      const establishment = normalizeString(row['ETABLISSEMENT']);
+      const profession = normalizeString(row['PROFESSION']);
 
       if (!matricule || !code) {
         skipped++;
-        errors.push(`Row skipped: missing matricule or code`);
+        errors.push(`Ligne ignorée : matricule ou code manquant`);
         continue;
       }
 
@@ -71,7 +74,7 @@ export async function importHabilitationFromFile(buffer: Buffer, filename: strin
       const user = await usersCollection.findOne({ code: matricule } as any);
       if (!user) {
         skipped++;
-        errors.push(`User not found for matricule: ${matricule}`);
+        errors.push(`Utilisateur non trouvé pour le matricule : ${matricule}`);
         continue;
       }
 
@@ -124,7 +127,7 @@ export async function importHabilitationFromFile(buffer: Buffer, filename: strin
       }
     } catch (error) {
       skipped++;
-      errors.push(`Error processing row: ${error instanceof Error ? error.message : String(error)}`);
+      errors.push(`Erreur lors du traitement de la ligne : ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
