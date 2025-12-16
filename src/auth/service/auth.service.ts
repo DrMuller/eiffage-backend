@@ -457,10 +457,10 @@ export async function sendUserInvite(userId: string, role?: 'ADMIN' | 'MANAGER',
   // Return the email content for mailto link
   const roleName = role === 'ADMIN' ? 'Administrateur RH' : role === 'MANAGER' ? 'Manager' : 'Utilisateur';
 
-  const subject = `Invitation à rejoindre l\`outil de gestion des compétences Eiffage`;
+  const subject = `Invitation à rejoindre l'outil de gestion des compétences Eiffage`;
   const body = `Bonjour ${user.firstName},
 
-Vous avez été invité(e) à rejoindre l\`outil de gestion des compétences Eiffage avec le rôle de ${roleName}.
+Vous avez été invité(e) à rejoindre l'outil de gestion des compétences Eiffage avec le rôle de ${roleName}.
 
 Pour créer votre mot de passe et accéder à votre compte, veuillez cliquer sur le lien suivant :
 
