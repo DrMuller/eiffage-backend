@@ -457,10 +457,10 @@ export async function sendUserInvite(userId: string, role?: 'ADMIN' | 'MANAGER',
   // Return the email content for mailto link
   const roleName = role === 'ADMIN' ? 'Administrateur RH' : role === 'MANAGER' ? 'Manager' : 'Utilisateur';
 
-  const subject = `Invitation à rejoindre l'outil de gestion des compétences Eiffage`;
+  const subject = `Invitation à rejoindre l'outil de gestion des compétences Eiffage Métal`;
   const body = `Bonjour ${user.firstName},
 
-Vous avez été invité(e) à rejoindre l'outil de gestion des compétences Eiffage avec le rôle de ${roleName}.
+Vous avez été invité(e) à rejoindre l'outil de gestion des compétences Eiffage Métal avec le rôle de ${roleName}.
 
 Pour créer votre mot de passe et accéder à votre compte, veuillez cliquer sur le lien suivant :
 
@@ -475,7 +475,7 @@ Une fois votre compte activé, vous pourrez accéder aux applications suivantes 
 Si vous n'avez pas demandé cette invitation, vous pouvez ignorer cet email.
 
 Cordialement,
-L'équipe Eiffage`;
+L'équipe Eiffage Métal`;
 
   return {
     to: user.email,
