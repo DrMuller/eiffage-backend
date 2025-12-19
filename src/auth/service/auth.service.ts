@@ -18,7 +18,7 @@ export const loginUser = async (params: {
   const usersCollection = getUsersCollection();
   const user = await usersCollection.findOne({ email });
   if (!user) {
-    throw new UnauthorizedException("Invalid credentials");
+    throw new UnauthorizedException("Identifiants invalides");
   }
   await validatePassword(password, user.password);
   const tokens = createTokens(user);
@@ -505,7 +505,7 @@ async function validatePassword(
 ): Promise<boolean> {
   const isValid = await bcrypt.compare(password, hashedPassword);
   if (!isValid) {
-    throw new UnauthorizedException("Invalid credentials");
+    throw new UnauthorizedException("Identifiants invalides");
   }
   return isValid;
 }
