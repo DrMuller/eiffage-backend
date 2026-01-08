@@ -15,11 +15,11 @@ const mongoIdRegex = /^[a-f\d]{24}$/i;
 
 const getHabilitationsQuerySchema = z.object({
     q: z.string().optional(),
-    userId: z.string().regex(mongoIdRegex, "Invalid userId format").optional(),
-    jobId: z.string().regex(mongoIdRegex, "Invalid jobId format").optional(),
+    userId: z.string().regex(mongoIdRegex, "Format de userId invalide").optional(),
+    jobId: z.string().regex(mongoIdRegex, "Format de jobId invalide").optional(),
     userIds: z.union([
-        z.string().regex(mongoIdRegex, "Invalid userIds format"),
-        z.array(z.string().regex(mongoIdRegex, "Invalid userIds format"))
+        z.string().regex(mongoIdRegex, "Format de userIds invalide"),
+        z.array(z.string().regex(mongoIdRegex, "Format de userIds invalide"))
     ]).optional().transform(val => val ? (Array.isArray(val) ? val : [val]) : undefined),
     jobIds: z.union([
         z.string().regex(mongoIdRegex, "Invalid jobIds format"),

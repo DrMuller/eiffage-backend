@@ -57,10 +57,10 @@ export const postResetPassword = asyncHandler(async (req: Request, res: Response
 });
 
 export const createUserWithoutPasswordSchema = z.object({
-  email: z.string().email("Invalid email address"),
-  firstName: z.string().min(1, "First name is required"),
-  lastName: z.string().min(1, "Last name is required"),
-  code: z.string().min(1, "Code is required"),
+  email: z.string().email("Email invalide"),
+  firstName: z.string().min(1, "Prénom requis"),
+  lastName: z.string().min(1, "Nom requis"),
+  code: z.string().min(1, "Code requis"),
 });
 export type CreateUserWithoutPasswordRequest = z.infer<typeof createUserWithoutPasswordSchema>;
 
