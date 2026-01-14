@@ -8,6 +8,6 @@ export const router = express.Router();
 
 router.post('/sirh-csv', [jwtMiddleware(['ADMIN'])], upload.single('file'), uploadSirhCsv);
 router.post('/habilitation-csv', [jwtMiddleware(['ADMIN'])], upload.single('file'), uploadHabilitationCsv);
-router.post('/skills-csv', [jwtMiddleware(['ADMIN'])], upload.single('file'), uploadSkillsCsv);
+router.post('/skills-csv', [jwtMiddleware(['USER', 'ADMIN'])], upload.single('file'), uploadSkillsCsv);
 
 

@@ -3,7 +3,6 @@ import type { MacroSkillType } from '../skills/model/macroSkillType';
 import type { MacroSkill } from '../skills/model/macroSkill';
 import type { Skill } from '../skills/model/skill';
 import type { Job } from '../job/model/job';
-import type { JobSkill } from '../job/model/jobSkill';
 import { parseFileContent } from '../utils/fileParser';
 
 type CsvRow = Record<string, string>;
@@ -37,16 +36,18 @@ async function findOrCreateMacroSkillType(
 }
 
 /**
- * Find or create a MacroSkill by name and macroSkillTypeId
+ * Find or create a MacroSkill by name, macroSkillTypeId, and jobId
  */
 async function findOrCreateMacroSkill(
   name: string,
   macroSkillTypeId: ObjectId,
+  jobId: ObjectId,
   macroSkillsCollection: MongoCollection<MacroSkill>
 ): Promise<ObjectId> {
   if (!name) throw new Error('MacroSkill name is required');
 
-  const existing = await macroSkillsCollection.findOne({ name } as any);
+  // Macro skills are now job-specific, so find by name AND jobId
+  const existing = await macroSkillsCollection.findOne({ name, jobId } as any);
   if (existing) {
     return existing._id;
   }
@@ -55,6 +56,7 @@ async function findOrCreateMacroSkill(
     _id: new ObjectId(),
     name,
     macroSkillTypeId,
+    jobId,
     createdAt: new Date(),
   } as MacroSkill);
 
@@ -62,16 +64,19 @@ async function findOrCreateMacroSkill(
 }
 
 /**
- * Find or create a Skill by name and macroSkillId
+ * Find or create a Skill by name, macroSkillId, jobId, and expectedLevel
  */
 async function findOrCreateSkill(
   name: string,
   macroSkillId: ObjectId,
+  jobId: ObjectId,
+  expectedLevel: number,
   skillsCollection: MongoCollection<Skill>
 ): Promise<ObjectId> {
   if (!name) throw new Error('Skill name is required');
 
-  const existing = await skillsCollection.findOne({ name } as any);
+  // Skills are now job-specific, so find by name AND jobId
+  const existing = await skillsCollection.findOne({ name, jobId } as any);
   if (existing) {
     return existing._id;
   }
@@ -80,6 +85,8 @@ async function findOrCreateSkill(
     _id: new ObjectId(),
     name,
     macroSkillId,
+    jobId,
+    expectedLevel,
     createdAt: new Date(),
   } as Skill);
 
@@ -116,32 +123,6 @@ async function findJob(
   return job ? job._id : null;
 }
 
-/**
- * Create JobSkill link if it doesn't exist
- */
-async function createJobSkillIfNotExists(
-  jobId: ObjectId,
-  skillId: ObjectId,
-  expectedLevel: number,
-  jobSkillsCollection: MongoCollection<JobSkill>
-): Promise<void> {
-  const existing = await jobSkillsCollection.findOne({
-    jobId,
-    skillId
-  } as any);
-
-  if (existing) {
-    return; // Already linked
-  }
-
-  await jobSkillsCollection.insertOne({
-    _id: new ObjectId(),
-    jobId,
-    skillId,
-    expectedLevel,
-    createdAt: new Date(),
-  } as JobSkill);
-}
 
 /**
  * Process skills import from CSV rows
@@ -150,19 +131,16 @@ async function processSkillsImport(rows: CsvRow[]): Promise<{
   macroSkillTypesProcessed: number;
   macroSkillsProcessed: number;
   skillsProcessed: number;
-  jobSkillsProcessed: number;
   skippedRows: number;
 }> {
   const macroSkillTypesCollection = new MongoCollection<MacroSkillType>('macro_skill_type');
   const macroSkillsCollection = new MongoCollection<MacroSkill>('macro_skill');
   const skillsCollection = new MongoCollection<Skill>('skill');
   const jobsCollection = new MongoCollection<Job>('job');
-  const jobSkillsCollection = new MongoCollection<JobSkill>('job_skill');
 
   const macroSkillTypesSeen = new Set<string>();
   const macroSkillsSeen = new Set<string>();
   const skillsSeen = new Set<string>();
-  const jobSkillsSeen = new Set<string>();
   let skippedRows = 0;
 
   for (const row of rows) {
@@ -175,51 +153,46 @@ async function processSkillsImport(rows: CsvRow[]): Promise<{
       const microCompetence = normalizeString(row["Micro Compétence"]);
 
       // Skip if essential fields are missing
-      if (!typeCompetence || !macroCompetence || !microCompetence) {
+      if (!typeCompetence || !macroCompetence || !microCompetence || !jobCode) {
         skippedRows++;
         continue;
       }
 
-      // 1. Find or create MacroSkillType
+      // 1. Find Job first (required for job-specific skills)
+      const jobId = await findJob(jobCode, emploiBulletin, jobsCollection);
+
+      if (!jobId) {
+        skippedRows++;
+        continue;
+      }
+
+      // 2. Find or create MacroSkillType
       const macroSkillTypeId = await findOrCreateMacroSkillType(
         typeCompetence,
         macroSkillTypesCollection
       );
       macroSkillTypesSeen.add(typeCompetence);
 
-      // 2. Find or create MacroSkill
+      // 3. Find or create MacroSkill (now job-specific)
       const macroSkillId = await findOrCreateMacroSkill(
         macroCompetence,
         macroSkillTypeId,
+        jobId,
         macroSkillsCollection
       );
-      macroSkillsSeen.add(macroCompetence);
+      const macroSkillKey = `${macroCompetence}_${jobId.toString()}`;
+      macroSkillsSeen.add(macroSkillKey);
 
-      // 3. Find or create Skill
-      const skillId = await findOrCreateSkill(
+      // 4. Find or create Skill (now job-specific with expectedLevel)
+      await findOrCreateSkill(
         microCompetence,
         macroSkillId,
+        jobId,
+        1, // expectedLevel = 1 as per requirements
         skillsCollection
       );
-      skillsSeen.add(microCompetence);
-
-      // 4. Find Job and create JobSkill link
-      if (jobCode) {
-        const jobId = await findJob(jobCode, emploiBulletin, jobsCollection);
-
-        if (jobId) {
-          const jobSkillKey = `${jobId.toString()}_${skillId.toString()}`;
-          if (!jobSkillsSeen.has(jobSkillKey)) {
-            await createJobSkillIfNotExists(
-              jobId,
-              skillId,
-              1, // expectedLevel = 1 as per requirements
-              jobSkillsCollection
-            );
-            jobSkillsSeen.add(jobSkillKey);
-          }
-        }
-      }
+      const skillKey = `${microCompetence}_${jobId.toString()}`;
+      skillsSeen.add(skillKey);
     } catch (error) {
       console.error('Error processing row:', error);
       skippedRows++;
@@ -230,7 +203,6 @@ async function processSkillsImport(rows: CsvRow[]): Promise<{
     macroSkillTypesProcessed: macroSkillTypesSeen.size,
     macroSkillsProcessed: macroSkillsSeen.size,
     skillsProcessed: skillsSeen.size,
-    jobSkillsProcessed: jobSkillsSeen.size,
     skippedRows,
   };
 }
@@ -242,7 +214,6 @@ export async function importSkillsFromFile(
   macroSkillTypesProcessed: number;
   macroSkillsProcessed: number;
   skillsProcessed: number;
-  jobSkillsProcessed: number;
   skippedRows: number;
 }> {
   const requiredColumns = [

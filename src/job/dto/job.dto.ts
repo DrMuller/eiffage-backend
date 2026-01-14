@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { JobSkillResponse } from "../../skills/dto/skills.dto";
+import type { SkillResponse } from "../../skills/dto/skills.dto";
 
 export const createJobSchema = z.object({
     name: z.string().min(1, "Name is required"),
@@ -18,18 +18,6 @@ export const updateJobSchema = z.object({
 export type CreateJobInput = z.infer<typeof createJobSchema>;
 export type UpdateJobInput = z.infer<typeof updateJobSchema>;
 
-export const addSkillToJobSchema = z.object({
-    skillId: z.string().min(1, "Skill ID is required"),
-    expectedLevel: z.number(),
-});
-
-export const updateJobSkillSchema = z.object({
-    expectedLevel: z.number(),
-});
-
-export type AddSkillToJobInput = z.infer<typeof addSkillToJobSchema>;
-export type UpdateJobSkillInput = z.infer<typeof updateJobSkillSchema>;
-
 export type JobResponse = {
     _id: string;
     name: string;
@@ -40,7 +28,7 @@ export type JobResponse = {
 };
 
 export type JobWithSkillsResponse = JobResponse & {
-    jobSkills: JobSkillResponse[];
+    skills: SkillResponse[];
 };
 
 export type JobSkillLevelDistribution = {

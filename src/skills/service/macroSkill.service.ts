@@ -14,6 +14,15 @@ export const getAllMacroSkills = async (): Promise<MacroSkillResponse[]> => {
     const pipeline = [
         {
             $lookup: {
+                from: "job",
+                localField: "jobId",
+                foreignField: "_id",
+                as: "job"
+            }
+        },
+        { $unwind: "$job" },
+        {
+            $lookup: {
                 from: "macro_skill_type",
                 localField: "macroSkillTypeId",
                 foreignField: "_id",
@@ -23,12 +32,17 @@ export const getAllMacroSkills = async (): Promise<MacroSkillResponse[]> => {
         { $unwind: "$macroSkillType" }
     ];
 
-    const cursor = macroSkillsCollection.aggregate<MacroSkill & { macroSkillType: MacroSkillType }>(pipeline);
+    const cursor = macroSkillsCollection.aggregate<MacroSkill & { 
+        job: { _id: ObjectId, name: string },
+        macroSkillType: MacroSkillType 
+    }>(pipeline);
     const results = await cursor.toArray();
 
     return results.map(result => ({
         _id: result._id.toString(),
         name: result.name,
+        jobId: result.jobId.toString(),
+        jobName: result.job.name,
         macroSkillTypeId: result.macroSkillTypeId.toString(),
         macroSkillType: convertToMacroSkillTypeResponse(result.macroSkillType),
         createdAt: result.createdAt,
@@ -42,6 +56,15 @@ export const getMacroSkillById = async (id: string): Promise<MacroSkillResponse>
         { $match: { _id: new ObjectId(id) } },
         {
             $lookup: {
+                from: "job",
+                localField: "jobId",
+                foreignField: "_id",
+                as: "job"
+            }
+        },
+        { $unwind: "$job" },
+        {
+            $lookup: {
                 from: "macro_skill_type",
                 localField: "macroSkillTypeId",
                 foreignField: "_id",
@@ -51,7 +74,10 @@ export const getMacroSkillById = async (id: string): Promise<MacroSkillResponse>
         { $unwind: "$macroSkillType" }
     ];
 
-    const cursor = macroSkillsCollection.aggregate<MacroSkill & { macroSkillType: MacroSkillType }>(pipeline);
+    const cursor = macroSkillsCollection.aggregate<MacroSkill & { 
+        job: { _id: ObjectId, name: string },
+        macroSkillType: MacroSkillType 
+    }>(pipeline);
     const results = await cursor.toArray();
 
     if (results.length === 0) {
@@ -62,6 +88,8 @@ export const getMacroSkillById = async (id: string): Promise<MacroSkillResponse>
     return {
         _id: result._id.toString(),
         name: result.name,
+        jobId: result.jobId.toString(),
+        jobName: result.job.name,
         macroSkillTypeId: result.macroSkillTypeId.toString(),
         macroSkillType: convertToMacroSkillTypeResponse(result.macroSkillType),
         createdAt: result.createdAt,
@@ -69,7 +97,7 @@ export const getMacroSkillById = async (id: string): Promise<MacroSkillResponse>
 };
 
 export const createMacroSkill = async (params: CreateMacroSkillInput): Promise<MacroSkillResponse> => {
-    const { name, macroSkillTypeId } = params;
+    const { name, jobId, macroSkillTypeId } = params;
 
     try {
         await getMacroSkillTypesCollection().findOneById(macroSkillTypeId);
@@ -77,15 +105,64 @@ export const createMacroSkill = async (params: CreateMacroSkillInput): Promise<M
         throw new BadRequestException("Invalid macro skill type ID");
     }
 
+    try {
+        await new MongoCollection("job").findOneById(jobId);
+    } catch {
+        throw new BadRequestException("Invalid job ID");
+    }
+
     const newMacroSkill: MacroSkill = {
         _id: new ObjectId(),
         name,
+        jobId: new ObjectId(jobId),
         macroSkillTypeId: new ObjectId(macroSkillTypeId),
         createdAt: new Date(),
-    } as MacroSkill;
+    };
 
     const inserted = await getMacroSkillsCollection().insertOne(newMacroSkill);
     return await getMacroSkillById(inserted._id.toString());
+};
+
+export const getMacroSkillsByJobId = async (jobId: string): Promise<MacroSkillResponse[]> => {
+    const macroSkillsCollection = getMacroSkillsCollection();
+
+    const pipeline = [
+        { $match: { jobId: new ObjectId(jobId) } },
+        {
+            $lookup: {
+                from: "job",
+                localField: "jobId",
+                foreignField: "_id",
+                as: "job"
+            }
+        },
+        { $unwind: "$job" },
+        {
+            $lookup: {
+                from: "macro_skill_type",
+                localField: "macroSkillTypeId",
+                foreignField: "_id",
+                as: "macroSkillType"
+            }
+        },
+        { $unwind: "$macroSkillType" }
+    ];
+
+    const cursor = macroSkillsCollection.aggregate<MacroSkill & { 
+        job: { _id: ObjectId, name: string },
+        macroSkillType: MacroSkillType 
+    }>(pipeline);
+    const results = await cursor.toArray();
+
+    return results.map(result => ({
+        _id: result._id.toString(),
+        name: result.name,
+        jobId: result.jobId.toString(),
+        jobName: result.job.name,
+        macroSkillTypeId: result.macroSkillTypeId.toString(),
+        macroSkillType: convertToMacroSkillTypeResponse(result.macroSkillType),
+        createdAt: result.createdAt,
+    }));
 };
 
 function getMacroSkillTypesCollection(): MongoCollection<MacroSkillType> {

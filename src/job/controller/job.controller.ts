@@ -1,19 +1,16 @@
 import { Request, Response } from "express";
 import { asyncHandler } from "../../utils/express/asyncHandler";
 import {
-    addSkillToJob,
     createJob,
     deleteJob,
     getAllJobs,
     getJobById,
-    getJobSkills,
-    removeJobSkill,
     updateJob,
-    updateJobSkill,
     searchJobs,
     getJobSkillLevelDistribution,
 } from "../service/job.service";
-import { addSkillToJobSchema, createJobSchema, updateJobSchema, updateJobSkillSchema } from "../dto/job.dto";
+import { createJobSchema, updateJobSchema } from "../dto/job.dto";
+import { getSkillsByJobId } from "../../skills/service/skills.service";
 
 export const getJobs = asyncHandler(async (req: Request, res: Response) => {
     const q = (req.query.q as string) || "";
@@ -53,28 +50,8 @@ export const deleteJobHandler = asyncHandler(async (req: Request, res: Response)
 
 export const getJobSkillsHandler = asyncHandler(async (req: Request, res: Response) => {
     const { id } = req.params;
-    const skills = await getJobSkills(id);
+    const skills = await getSkillsByJobId(id);
     res.status(200).json(skills);
-});
-
-export const addSkillToJobHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
-    const validation = addSkillToJobSchema.parse(req.body);
-    const result = await addSkillToJob(id, validation);
-    res.status(201).json(result);
-});
-
-export const updateJobSkillHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id, skillId } = req.params as { id: string; skillId: string };
-    const validation = updateJobSkillSchema.parse(req.body);
-    const result = await updateJobSkill(id, skillId, validation);
-    res.status(200).json(result);
-});
-
-export const removeJobSkillHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id, skillId } = req.params as { id: string; skillId: string };
-    await removeJobSkill(id, skillId);
-    res.status(204).send();
 });
 
 export const getJobSkillLevelDistributionHandler = asyncHandler(async (req: Request, res: Response) => {

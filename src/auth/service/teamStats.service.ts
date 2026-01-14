@@ -1,7 +1,7 @@
 import { MongoCollection, ObjectId } from "../../utils/mongo/MongoCollection";
 import { User } from "../model/user";
 import { SkillLevel } from "../../evaluation/model/skillLevel";
-import { JobSkill } from "../../job/model/jobSkill";
+import { Skill } from "../../skills/model/skill";
 import { Evaluation } from "../../evaluation/model/evaluation";
 import { EvaluationCampaign } from "../../evaluation/model/evaluationCampaign";
 import { NotFoundException } from "../../utils/HttpException";
@@ -75,8 +75,8 @@ export async function getTeamStats(managerId: string): Promise<TeamStatsResponse
     for (const member of teamMembers) {
         if (!member.jobId) continue;
 
-        // Get job skills (expected levels) for this member's job
-        const jobSkills = await getJobSkillsCollection().find({
+        // Get skills (with expected levels) for this member's job
+        const skills = await getSkillsCollection().find({
             jobId: member.jobId
         });
 
@@ -93,15 +93,15 @@ export async function getTeamStats(managerId: string): Promise<TeamStatsResponse
             }
         }
 
-        // Process each job skill
-        for (const jobSkill of jobSkills) {
-            const skillId = jobSkill.skillId.toString();
+        // Process each skill for this job
+        for (const skill of skills) {
+            const skillId = skill._id.toString();
             const observedLevel = observedLevelMap.get(skillId);
 
             // Initialize the skill entry if not exists
             if (!uniqueSkillsMap.has(skillId)) {
                 uniqueSkillsMap.set(skillId, {
-                    expectedLevel: jobSkill.expectedLevel,
+                    expectedLevel: skill.expectedLevel,
                     isMastered: false,
                     isEvaluated: false
                 });
@@ -113,7 +113,7 @@ export async function getTeamStats(managerId: string): Promise<TeamStatsResponse
             if (observedLevel !== undefined) {
                 skillEntry.isEvaluated = true;
                 // If this member masters the skill, mark it as mastered
-                if (observedLevel >= jobSkill.expectedLevel) {
+                if (observedLevel >= skill.expectedLevel) {
                     skillEntry.isMastered = true;
                 }
             }
@@ -192,8 +192,8 @@ function getSkillLevelsCollection(): MongoCollection<SkillLevel> {
     return new MongoCollection<SkillLevel>("skill_level");
 }
 
-function getJobSkillsCollection(): MongoCollection<JobSkill> {
-    return new MongoCollection<JobSkill>("job_skill");
+function getSkillsCollection(): MongoCollection<Skill> {
+    return new MongoCollection<Skill>("skill");
 }
 
 function getEvaluationsCollection(): MongoCollection<Evaluation> {

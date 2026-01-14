@@ -1,9 +1,0 @@
-import { ObjectId } from "mongodb";
-
-export interface JobSkill {
-    _id: ObjectId;
-    jobId: ObjectId;
-    skillId: ObjectId;
-    expectedLevel: number;
-    createdAt: Date;
-}

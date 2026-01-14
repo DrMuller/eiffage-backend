@@ -1,7 +1,7 @@
 import { connect, close } from "../utils/mongo/dbHelper";
 import { MongoCollection, ObjectId } from "../utils/mongo/MongoCollection";
 import type { Skill } from "../skills/model/skill";
-import type { JobSkill } from "../job/model/jobSkill";
+import type { MacroSkill } from "../skills/model/macroSkill";
 import logger from "../utils/logger";
 
 const targetSkillNames = [
@@ -64,7 +64,7 @@ function normalizeSpaces(str: string): string {
 
 async function addSkillsWithNormalization() {
     const skillsCollection = new MongoCollection<Skill>("skill");
-    const jobSkillsCollection = new MongoCollection<JobSkill>("job_skill");
+    const macroSkillsCollection = new MongoCollection<MacroSkill>("macro_skill");
     const jobId = new ObjectId(JOB_ID);
 
     const allSkills = await skillsCollection.find({});
@@ -98,35 +98,66 @@ async function addSkillsWithNormalization() {
     let addedCount = 0;
     let skippedCount = 0;
 
-    for (const skill of foundSkills) {
-        const existing = await jobSkillsCollection.findOne({
-            jobId: jobId,
-            skillId: skill._id
+    for (const sourceSkill of foundSkills) {
+        // Check if a skill with this name already exists for this job
+        const existing = await skillsCollection.findOne({
+            name: sourceSkill.name,
+            jobId: jobId
         });
 
         if (existing) {
-            logger.debug(`⚠️  Already linked: ${skill.name.substring(0, 60)}...`);
+            logger.debug(`⚠️  Already exists: ${sourceSkill.name.substring(0, 60)}...`);
             skippedCount++;
             continue;
         }
 
-        const jobSkill: JobSkill = {
+        // Get or create the macro skill for this job
+        const sourceMacroSkill = await macroSkillsCollection.findOne({ 
+            _id: sourceSkill.macroSkillId 
+        } as any);
+        
+        if (!sourceMacroSkill) {
+            logger.debug(`✗ Macro skill not found for: ${sourceSkill.name}`);
+            continue;
+        }
+
+        // Check if macro skill exists for this job
+        let macroSkillForJob = await macroSkillsCollection.findOne({ 
+            name: sourceMacroSkill.name, 
+            jobId 
+        } as any);
+
+        if (!macroSkillForJob) {
+            // Create a new macro skill for this job
+            macroSkillForJob = {
+                _id: new ObjectId(),
+                name: sourceMacroSkill.name,
+                macroSkillTypeId: sourceMacroSkill.macroSkillTypeId,
+                jobId,
+                createdAt: new Date(),
+            } as MacroSkill;
+            await macroSkillsCollection.insertOne(macroSkillForJob);
+        }
+
+        // Create a new skill record for this job
+        const newSkill: Skill = {
             _id: new ObjectId(),
+            name: sourceSkill.name,
+            macroSkillId: macroSkillForJob._id,
             jobId: jobId,
-            skillId: skill._id,
             expectedLevel: DEFAULT_EXPECTED_LEVEL,
             createdAt: new Date(),
         };
 
-        await jobSkillsCollection.insertOne(jobSkill);
-        logger.debug(`✓ Added: ${skill.name.substring(0, 60)}...`);
+        await skillsCollection.insertOne(newSkill);
+        logger.debug(`✓ Created: ${sourceSkill.name.substring(0, 60)}...`);
         addedCount++;
     }
 
     logger.debug("\n=== Summary ===");
     logger.debug(`Skills found: ${foundSkills.length}`);
-    logger.debug(`Skills added: ${addedCount}`);
-    logger.debug(`Skills skipped (already linked): ${skippedCount}`);
+    logger.debug(`Skills created: ${addedCount}`);
+    logger.debug(`Skills skipped (already exist): ${skippedCount}`);
 }
 
 async function main() {
