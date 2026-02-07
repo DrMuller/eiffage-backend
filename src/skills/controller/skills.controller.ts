@@ -30,7 +30,7 @@ export const getMacroSkillTypes = asyncHandler(async (req: Request, res: Respons
 });
 
 export const getMacroSkillTypeByIdHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id  = req.params.id as string;
     const macroSkillType = await getMacroSkillTypeById(id);
     res.status(200).json(macroSkillType);
 });
@@ -43,12 +43,13 @@ export const createMacroSkillTypeHandler = asyncHandler(async (req: Request, res
 
 // MacroSkill Controllers
 export const getMacroSkills = asyncHandler(async (req: Request, res: Response) => {
-    const macroSkills = await getAllMacroSkills();
+    const jobId = req.query.jobId as string;
+    const macroSkills = await getAllMacroSkills(jobId);
     res.status(200).json(macroSkills);
 });
 
 export const getMacroSkillByIdHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id  = req.params.id as string;
     const macroSkill = await getMacroSkillById(id);
     res.status(200).json(macroSkill);
 });
@@ -66,7 +67,7 @@ export const getSkills = asyncHandler(async (req: Request, res: Response) => {
 });
 
 export const getSkillByIdHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id  = req.params.id as string;
     const skill = await getSkillById(id);
     res.status(200).json(skill);
 });
@@ -78,13 +79,13 @@ export const createSkillHandler = asyncHandler(async (req: Request, res: Respons
 });
 
 export const updateSkillHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id  = req.params.id as string;
     const skill = await updateSkill(id, req.body);
     res.status(200).json(skill);
 });
 
 export const deleteSkillHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id  = req.params.id as string;
     await deleteSkill(id);
     res.status(204).send();
 });

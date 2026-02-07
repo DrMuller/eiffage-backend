@@ -7,3 +7,4 @@ mongoMigrateCli({
   migrationsDir: `${__dirname}`,
   migrationsCollection: 'migrations',
 });
+

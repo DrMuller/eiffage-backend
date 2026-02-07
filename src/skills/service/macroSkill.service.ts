@@ -8,10 +8,12 @@ import {
     MacroSkillResponse,
 } from "../dto/skills.dto";
 
-export const getAllMacroSkills = async (): Promise<MacroSkillResponse[]> => {
+export const getAllMacroSkills = async (jobId?: string): Promise<MacroSkillResponse[]> => {
     const macroSkillsCollection = getMacroSkillsCollection();
+    const match = jobId ? { jobId: new ObjectId(jobId) } : {};
 
     const pipeline = [
+        { $match: match },
         {
             $lookup: {
                 from: "job",
@@ -148,9 +150,9 @@ export const getMacroSkillsByJobId = async (jobId: string): Promise<MacroSkillRe
         { $unwind: "$macroSkillType" }
     ];
 
-    const cursor = macroSkillsCollection.aggregate<MacroSkill & { 
+    const cursor = macroSkillsCollection.aggregate<MacroSkill & {
         job: { _id: ObjectId, name: string },
-        macroSkillType: MacroSkillType 
+        macroSkillType: MacroSkillType
     }>(pipeline);
     const results = await cursor.toArray();
 
@@ -162,6 +164,55 @@ export const getMacroSkillsByJobId = async (jobId: string): Promise<MacroSkillRe
         macroSkillTypeId: result.macroSkillTypeId.toString(),
         macroSkillType: convertToMacroSkillTypeResponse(result.macroSkillType),
         createdAt: result.createdAt,
+    }));
+};
+
+export const getJobsWithoutMacroSkills = async (): Promise<Array<{ _id: string; code: string; name: string; jobProfile: string; jobFamily?: string }>> => {
+    const jobsCollection = new MongoCollection("job");
+
+    const pipeline = [
+        {
+            $lookup: {
+                from: "macro_skill",
+                localField: "_id",
+                foreignField: "jobId",
+                as: "macroSkills"
+            }
+        },
+        {
+            $match: {
+                macroSkills: { $size: 0 }
+            }
+        },
+        {
+            $project: {
+                _id: 1,
+                code: 1,
+                name: 1,
+                jobProfile: 1,
+                jobFamily: 1
+            }
+        },
+        {
+            $sort: { code: 1 }
+        }
+    ];
+
+    const cursor = jobsCollection.aggregate<{
+        _id: ObjectId;
+        code: string;
+        name: string;
+        jobProfile: string;
+        jobFamily?: string
+    }>(pipeline);
+    const results = await cursor.toArray();
+
+    return results.map(job => ({
+        _id: job._id.toString(),
+        code: job.code,
+        name: job.name,
+        jobProfile: job.jobProfile,
+        jobFamily: job.jobFamily,
     }));
 };
 

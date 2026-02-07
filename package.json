@@ -14,11 +14,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "migration": "TZ=UTC ts-node src/migrations/index.ts",
-    "prod:migration": "TZ=UTC node build/migrations/index.js",
-    "seed": "TZ=UTC ts-node src/scripts/seed.ts",
-    "prod:seed": "TZ=UTC node build/scripts/seed.js",
-    "import:sirh": "TZ=UTC ts-node src/scripts/importFromSirhCsv.ts --file",
-    "prod:import:sirh": "TZ=UTC node build/scripts/importFromSirhCsv.js --file"
+    "prod:migration": "TZ=UTC node build/migrations/index.js"
   },
   "keywords": [
     "express",

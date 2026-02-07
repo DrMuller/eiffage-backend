@@ -92,17 +92,21 @@ async function upsertJobs(rows: CsvRow[], jobsCollection: MongoCollection<Job>):
     const codeToId = new Map<string, ObjectId>();
     const seen = new Set<string>();
     for (const row of rows) {
-        const code = normalizeString(row["Code de l'emploi"]);
+        const code = normalizeString(row["Code de l'emploi"]).toLowerCase();
         if (!code || seen.has(code)) continue;
         seen.add(code);
         const rawName = normalizeString(row['Poste']) || normalizeString(row['Emploi bulletin']);
         const name = rawName ? toSentenceCaseJobWithBracketCaps(rawName) : rawName;
         const jobProfile = normalizeString(row["Profil d'emploi"]);
         const jobFamily = normalizeString(row["Famille d'emploi"]) || undefined;
-        const existing = await jobsCollection.findOne({ code } as any);
+        // Find existing job with case-insensitive search
+        const existing = await jobsCollection.findOne({
+            code: { $regex: new RegExp(`^${code.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') }
+        } as any);
         if (existing) {
             const updated: Job = {
                 ...existing,
+                code, // Normalize to lowercase
                 name: name || existing.name,
                 jobProfile: jobProfile || existing.jobProfile,
                 jobFamily: jobFamily ?? existing.jobFamily,
@@ -152,7 +156,7 @@ async function upsertUsersFirstPass(
         const seniority = parseNumberOrUndefined(row['Ancienneté calculée']);
         const gender = mapGender(normalizeString(row['Sexe']));
         const birthDate = parseDateOrDefault(row['Date de naissance']);
-        const jobCode = normalizeString(row["Code de l'emploi"]);
+        const jobCode = normalizeString(row["Code de l'emploi"]).toLowerCase();
         const jobId = jobCode ? jobCodeToId.get(jobCode) ?? null : null;
         const existing = await usersCollection.findOne({ code: matricule } as any);
         if (existing) {
