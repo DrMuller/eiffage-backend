@@ -42,7 +42,7 @@ export const getHabilitations = asyncHandler(async (req: Request, res: Response)
 });
 
 export const getHabilitationByIdHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const habilitation = await getHabilitationById(id);
     res.status(200).json(habilitation);
 });
@@ -54,14 +54,14 @@ export const createHabilitationHandler = asyncHandler(async (req: Request, res: 
 });
 
 export const updateHabilitationHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const validation = updateHabilitationSchema.parse(req.body);
     const habilitation = await updateHabilitation(id, validation);
     res.status(200).json(habilitation);
 });
 
 export const deleteHabilitationHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     await deleteHabilitation(id);
     res.status(204).send();
 });

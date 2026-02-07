@@ -24,7 +24,7 @@ export const getJobs = asyncHandler(async (req: Request, res: Response) => {
 });
 
 export const getJobByIdHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const job = await getJobById(id);
     res.status(200).json(job);
 });
@@ -36,26 +36,26 @@ export const createJobHandler = asyncHandler(async (req: Request, res: Response)
 });
 
 export const updateJobHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const validation = updateJobSchema.parse(req.body);
     const job = await updateJob(id, validation);
     res.status(200).json(job);
 });
 
 export const deleteJobHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     await deleteJob(id);
     res.status(204).send();
 });
 
 export const getJobSkillsHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const skills = await getSkillsByJobId(id);
     res.status(200).json(skills);
 });
 
 export const getJobSkillLevelDistributionHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const distribution = await getJobSkillLevelDistribution(id);
     res.status(200).json(distribution);
 });

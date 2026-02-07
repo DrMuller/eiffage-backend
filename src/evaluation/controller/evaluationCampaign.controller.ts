@@ -20,7 +20,7 @@ export const getEvaluationCampaigns = asyncHandler(async (req: Request, res: Res
 });
 
 export const getEvaluationCampaignByIdHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const campaign = await getEvaluationCampaignById(id);
     res.status(200).json(campaign);
 });
@@ -32,14 +32,14 @@ export const createEvaluationCampaignHandler = asyncHandler(async (req: Request,
 });
 
 export const updateEvaluationCampaignHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const validation = updateEvaluationCampaignSchema.parse(req.body);
     const campaign = await updateEvaluationCampaign(id, validation);
     res.status(200).json(campaign);
 });
 
 export const deleteEvaluationCampaignHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     await deleteEvaluationCampaign(id);
     res.status(204).send();
 });

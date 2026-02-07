@@ -37,7 +37,7 @@ export const getAllUsers = asyncHandler(async (req: Request, res: Response) => {
 });
 
 export const getUserByIdHandler = asyncHandler(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id  = req.params.id as string; 
   const user = await getUserById(id);
   res.status(200).json(user);
 });
@@ -49,13 +49,13 @@ export const createUser = asyncHandler(async (req: Request, res: Response) => {
 
 export const updateUserById = asyncHandler(async (req: Request, res: Response) => {
   const update = UpdateUserSchema.parse(req.body);
-  const { id } = req.params;
+  const id = req.params.id as string;
   const user = await updateUser(id, update);
   res.status(200).json(user);
 });
 
 export const deleteUser = asyncHandler(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = req.params.id as string;
   await deleteUserById(id);
   res.status(200).json({ message: "User deleted successfully" });
 });
@@ -113,14 +113,14 @@ export const searchUsersHandler = asyncHandler(async (req: Request, res: Respons
 });
 
 export const inviteUser = asyncHandler(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = req.params.id as string;
   const { role, webapp } = req.body as { role?: 'ADMIN' | 'MANAGER'; webapp?: 'main' | 'evaluation' };
   const emailContent = await sendUserInvite(id, role, webapp);
   res.status(200).json(emailContent);
 });
 
 export const getTeamStatsHandler = asyncHandler(async (req: Request, res: Response) => {
-  const { managerId } = req.params;
+  const managerId = req.params.managerId as string;
   const stats = await getTeamStats(managerId);
   res.status(200).json(stats);
 });

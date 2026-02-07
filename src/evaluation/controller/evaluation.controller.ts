@@ -29,7 +29,7 @@ export const getEvaluations = asyncHandler(async (req: Request, res: Response) =
 });
 
 export const getEvaluationByIdHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const includeSkills = req.query.includeSkills === 'true';
     const evaluation = includeSkills
         ? await getEvaluationWithSkills(id)
@@ -46,7 +46,7 @@ export const createEvaluationHandler = asyncHandler(async (req: Request, res: Re
 });
 
 export const deleteEvaluationHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     await deleteEvaluation(id);
     res.status(204).send();
 });
@@ -64,13 +64,13 @@ export const getEvaluationSkills = asyncHandler(async (req: Request, res: Respon
 });
 
 export const getEvaluationSkillsByEvaluationIdHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { evaluationId } = req.params;
+    const evaluationId = req.params.evaluationId as string;
     const evaluationSkills = await getEvaluationSkillsByEvaluationId(evaluationId);
     res.status(200).json(evaluationSkills);
 });
 
 export const getEvaluationSkillByIdHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const evaluationSkill = await getEvaluationSkillById(id);
     res.status(200).json(evaluationSkill);
 });
@@ -82,7 +82,7 @@ export const createEvaluationSkillHandler = asyncHandler(async (req: Request, re
 });
 
 export const deleteEvaluationSkillHandler = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.params.id as string;
     await deleteEvaluationSkill(id);
     res.status(204).send();
 });
