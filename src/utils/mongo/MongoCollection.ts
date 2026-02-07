@@ -97,11 +97,12 @@ export class MongoCollection<TSchema extends WithId<Document>> {
   }
 
   async update(update: TSchema, options: FindOneAndUpdateOptions = {}): Promise<TSchema> {
-    const updateWithSet = { $set: update };
-    const document = await this.collection.findOneAndUpdate({ _id: update._id } as Filter<TSchema>, updateWithSet, {
+    const updateWithSet = { $set: update } as any;
+    const result = await this.collection.findOneAndUpdate({ _id: update._id } as Filter<TSchema>, updateWithSet, {
       returnDocument: 'after',
       ...options,
     });
+    const document = result.value;
     if (!document) throw new MongoNotFoundException();
     return document as TSchema;
   }
@@ -124,29 +125,30 @@ export class MongoCollection<TSchema extends WithId<Document>> {
     options: FindOneAndUpdateOptions = {}
   ): Promise<TSchema> {
     if (typeof filter === 'undefined') throw new Error('filter is required');
-    const updateWithSet = { $set: update };
-    const document = await this.collection.findOneAndUpdate(filter, updateWithSet, {
+    const updateWithSet = { $set: update } as any;
+    const result = await this.collection.findOneAndUpdate(filter, updateWithSet, {
       returnDocument: 'after',
       ...options,
     });
+    const document = result.value;
     if (!document) throw new MongoNotFoundException();
     return document as TSchema;
   }
 
   async insertMany(documents: OptionalUnlessRequiredId<TSchema>[], options?: BulkWriteOptions): Promise<TSchema[]> {
-    const { acknowledged, insertedIds } = await this.collection.insertMany(documents, options);
+    const { acknowledged, insertedIds } = await this.collection.insertMany(documents, options || {});
     if (!acknowledged) throw new MongoInsertFailedException();
     return Object.entries(insertedIds).map(([index, _id]) => ({ ...documents[Number(index)], _id } as TSchema));
   }
 
   async deleteOne(filter?: FindFilter<TSchema>, options?: DeleteOptions): Promise<DeleteResult> {
     if (typeof filter === 'undefined') throw new Error('filter is required');
-    return this.collection.deleteOne(filter, options);
+    return await this.collection.deleteOne(filter, options || {});
   }
 
   async deleteMany(filter?: FindFilter<TSchema>, options?: DeleteOptions): Promise<DeleteResult> {
     if (typeof filter === 'undefined') throw new Error('filter is required');
-    return this.collection.deleteMany(filter, options);
+    return await this.collection.deleteMany(filter, options || {});
   }
 
   async count(filter?: FindFilter<TSchema>): Promise<number> {
