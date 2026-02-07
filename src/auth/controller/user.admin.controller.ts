@@ -21,6 +21,8 @@ const SearchUsersQuerySchema = z.object({
   jobIds: z.union([z.string(), z.array(z.string())]).optional(),
   skillIds: z.union([z.string(), z.array(z.string())]).optional(),
   levels: z.union([z.string(), z.array(z.string())]).optional(),
+  sortBy: z.string().optional(),
+  sortOrder: z.enum(['asc', 'desc']).optional(),
 });
 type SearchUsersQuery = z.infer<typeof SearchUsersQuerySchema>;
 
@@ -71,7 +73,7 @@ const isManagerOnly = (req: Request): boolean => {
 
 export const searchUsersHandler = asyncHandler(async (req: Request, res: Response) => {
   const parsed: SearchUsersQuery = SearchUsersQuerySchema.parse(req.query);
-  const { q, skillName, jobName, observedLevel, gender, establishmentName, ageMin, ageMax, seniorityMin, seniorityMax, jobIds, skillIds, levels } = parsed;
+  const { q, skillName, jobName, observedLevel, gender, establishmentName, ageMin, ageMax, seniorityMin, seniorityMax, jobIds, skillIds, levels, sortBy, sortOrder } = parsed;
   let managerUserId = parsed.managerUserId;
   const currentUser = isManagerOnly(req);
   if (currentUser) {
@@ -105,6 +107,8 @@ export const searchUsersHandler = asyncHandler(async (req: Request, res: Respons
       ageMax,
       seniorityMin,
       seniorityMax,
+      sortBy,
+      sortOrder,
     },
     { page, limit, skip }
   );

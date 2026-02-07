@@ -265,9 +265,11 @@ export async function searchUsers(params: {
   ageMax?: number;
   seniorityMin?: number;
   seniorityMax?: number;
-  skills?: Array<{ skillId: string; minLevel: number }>
+  skills?: Array<{ skillId: string; minLevel: number }>;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
 }, pagination?: PaginationParams): Promise<PaginatedResponse<UserResponse>> {
-  const { q, skillName, jobName, observedLevel, jobIds, skills, gender, establishmentName, managerUserId, ageMin, ageMax, seniorityMin, seniorityMax } = params;
+  const { q, skillName, jobName, observedLevel, jobIds, skills, gender, establishmentName, managerUserId, ageMin, ageMax, seniorityMin, seniorityMax, sortBy, sortOrder } = params;
 
   const pipeline: any[] = [];
   // SIRH fields filters
@@ -382,6 +384,57 @@ export async function searchUsers(params: {
   }
 
   const usersCollection = getUsersCollection();
+
+  // Add sorting if specified
+  if (sortBy && sortOrder) {
+    const sortDirection = sortOrder === 'asc' ? 1 : -1;
+    
+    // Map frontend column IDs to database field names
+    const sortFieldMap: Record<string, string> = {
+      'name': 'firstName',
+      'code': 'code',
+      'email': 'email',
+      'establishmentName': 'establishmentName',
+      'age': 'age',
+      'gender': 'gender',
+      'roles': 'rolesPriority', // Custom field for role hierarchy
+      'job': 'job.name', // This works because we may have already joined job
+      'inviteStatus': 'invitedAt', // Sort by invitedAt timestamp for invite status
+    };
+    
+    const sortField = sortFieldMap[sortBy] || sortBy;
+    
+    // For roles sorting, add a computed field that represents role priority (ADMIN > MANAGER > USER)
+    if (sortBy === 'roles') {
+      pipeline.push({
+        $addFields: {
+          rolesPriority: {
+            $cond: {
+              if: { $in: ['ADMIN', '$roles'] },
+              then: 1,
+              else: {
+                $cond: {
+                  if: { $in: ['MANAGER', '$roles'] },
+                  then: 2,
+                  else: 3 // USER or other roles
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+    
+    // For job sorting, we need to ensure the job lookup happens first
+    if (sortBy === 'job' && !pipeline.some(stage => '$lookup' in stage && stage.$lookup?.from === 'job')) {
+      pipeline.push(
+        { $lookup: { from: 'job', localField: 'jobId', foreignField: '_id', as: 'job' } },
+        { $unwind: { path: '$job', preserveNullAndEmptyArrays: true } }
+      );
+    }
+    
+    pipeline.push({ $sort: { [sortField]: sortDirection } });
+  }
 
   // If pagination is requested, we need to count first
   if (pagination) {
