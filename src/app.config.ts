@@ -45,10 +45,9 @@ export default {
   brevo: {
     apiKey: parseEnvString('BREVO_API_KEY'),
     senderName: parseEnvString('BREVO_SENDER_NAME', 'Eiffage'),
-    senderEmail: parseEnvString('BREVO_SENDER_EMAIL', 'sophie.greff@eiffage.com'),
+    senderEmail: parseEnvString('BREVO_SENDER_EMAIL', 'contact@webappcompetences.fr'),
     templates: {
       passwordReset: parseEnvNumber('BREVO_TEMPLATE_PASSWORD_RESET', 1),
-      inviteUser: parseEnvNumber('BREVO_TEMPLATE_INVITE_USER', 2),
     }
   },
 } as const;
