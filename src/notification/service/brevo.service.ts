@@ -68,3 +68,39 @@ export const sendPasswordResetEmail = async (to: string, params: { urlReset: str
 //         params
 //     });
 // };
+
+export interface RawEmailPayload {
+    to: { email: string; name?: string }[];
+    subject: string;
+    htmlContent: string;
+    cc?: { email: string; name?: string }[];
+    bcc?: { email: string; name?: string }[];
+    replyTo?: { email: string; name?: string };
+}
+
+export const sendRawEmail = async (payload: RawEmailPayload): Promise<boolean> => {
+    try {
+        const apiInstance = new brevo.TransactionalEmailsApi();
+        apiInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, config.brevo.apiKey);
+        const sendSmtpEmail = new brevo.SendSmtpEmail();
+
+        sendSmtpEmail.to = payload.to;
+        sendSmtpEmail.subject = payload.subject;
+        sendSmtpEmail.htmlContent = payload.htmlContent;
+
+        if (payload.cc) sendSmtpEmail.cc = payload.cc;
+        if (payload.bcc) sendSmtpEmail.bcc = payload.bcc;
+        if (payload.replyTo) sendSmtpEmail.replyTo = payload.replyTo;
+
+        sendSmtpEmail.sender = {
+            name: config.brevo.senderName,
+            email: config.brevo.senderEmail
+        };
+
+        await apiInstance.sendTransacEmail(sendSmtpEmail);
+        return true;
+    } catch (error) {
+        console.error('Failed to send raw email via Brevo:', error);
+        return false;
+    }
+};

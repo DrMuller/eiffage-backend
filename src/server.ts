@@ -9,6 +9,7 @@ import { jobRoutes } from "./job";
 import { importRoutes } from "./import";
 import { evaluationRoutes, evaluationCampaignRoutes, skillLevelRoutes } from "./evaluation";
 import { habilitationRoutes } from "./habilitation";
+import { notificationRoutes } from "./notification";
 import helmet from "helmet";
 import cors from "cors";
 import logger from "./utils/logger";
@@ -56,6 +57,9 @@ app.use(skillLevelRoutes);
 
 // Habilitation routes
 app.use(habilitationRoutes);
+
+// Notification routes
+app.use(notificationRoutes);
 
 // Error handler middleware
 app.use(errorHandler);
